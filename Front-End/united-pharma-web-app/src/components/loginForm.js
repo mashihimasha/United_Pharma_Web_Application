@@ -17,17 +17,33 @@ const LoginForm = () => {
     // Perform login logic here
   };
 
+  // Function for handling Facebook login
+  const handleFacebookLogin = () => {
+    // Add your Facebook login logic here
+  };
+
+  // Function for handling Google login
+  const handleGoogleLogin = () => {
+    // Add your Google login logic here
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={handleEmailChange} />
+        <input type="email" value={email} placeholder="Enter email address" onChange={handleEmailChange} />
       </div>
       <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={handlePasswordChange} />
+        <input type="password" value={password} placeholder="Enter password" onChange={handlePasswordChange} />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">Sign In</button>
+      <div className="social">
+        <button className="go" onclick={handleFacebookLogin}>
+          <i className="fab fa-google"></i> Google
+        </button>
+        <button className="fb" onclick={handleGoogleLogin}>
+          <i className="fab fa-facebook"></i> Facebook
+        </button>
+      </div>
     </form>
   );
 };
