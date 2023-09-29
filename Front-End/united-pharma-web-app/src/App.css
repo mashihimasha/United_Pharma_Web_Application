@@ -5,119 +5,60 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #080710;
+
+.login {
+    min-height: 100vh;
+  }
+  
+
+.bg-image {
+    background-image: url("https://images.unsplash.com/photo-1565071783280-719b01b29912?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+    background-position: bottom right;
 }
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
+
+.login-heading {
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
 }
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+
+.login .form-control{
+    border: 0.1rem solid #3f3f3f6c;
+    border-radius: 3.0rem;
 }
-.shape:first-child{
-    background: linear-gradient(
-        #1845ad,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-}
-form{
-    height: 520px;
-    width: 400px;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
-}
-form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
+
+.login .form-control::placeholder{
     text-align: center;
 }
 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
+.login .input-group-append{
+    border-radius: 3.0rem;
 }
-input{
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255,255,255,0.07);
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-    text-align: center;
-    border-radius: 30px;
+
+.login .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 3.0rem;
 }
-::placeholder{
-    color: #e5e5e5;
-}
-button{
-    margin-top: 50px;
-    width: 100%;
-    background-color: #0c9b4c;
-    color: #ffffff;
-    padding: 10px 0;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 30px;
+
+.password-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .password-input i {
+    position: absolute;
+    top: 0%;
+    right: 10px; /* Adjust the left position as needed */
+    transform: translateY(-170%);
     cursor: pointer;
-}
-.social{
-  margin-top: 30px;
-  display: flex;
-}
-.social div{
-  background: red;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
-}
+  }
+  
+  .password-input input {
+    padding-left: 30px; /* Adjust the padding to make space for the icon */
+  }
+  
