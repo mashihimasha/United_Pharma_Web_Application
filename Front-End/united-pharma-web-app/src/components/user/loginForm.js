@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
+import '../assets/css/login.css';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class LoginForm extends Component {
     this.state = {
       email: '',
       password: '',
-      showPassword: false, // Add state for toggling password visibility
+      showPassword: false, // state for toggling password visibility
     };
   }
 
@@ -28,7 +29,7 @@ class LoginForm extends Component {
     event.preventDefault();
     const { email, password } = this.state;
 
-    // You can add your login logic here, such as sending a request to a server.
+    // login logic here, such as sending a request to a server.
 
     console.log('Email:', email);
     console.log('Password:', password);

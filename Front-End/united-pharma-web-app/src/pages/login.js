@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import LoginForm from '../components/loginForm'; // Import the LoginForm component
+import LoginForm from '../components/user/loginForm'; // Import the LoginForm component
 
 class LoginPage extends Component {
-  // You can add any additional logic or state here if needed
+  // additional logic or state here if needed
 
   render() {
     return (

@@ -1,0 +1,55 @@
+
+.login {
+    min-height: 100vh;
+  }
+  
+.bg-image {
+    background-image: url("https://images.unsplash.com/photo-1565071783280-719b01b29912?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+    background-position: bottom right;
+}
+
+.login-heading {
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.login .form-control{
+    border: 0.1rem solid #3f3f3f6c;
+    border-radius: 3.0rem;
+}
+
+.login .form-control::placeholder{
+    text-align: center;
+}
+
+.login .input-group-append{
+    border-radius: 3.0rem;
+}
+
+.login .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 3.0rem;
+}
+
+.password-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .password-input i {
+    position: absolute;
+    top: 0%;
+    right: 10px; /* Adjust the left position as needed */
+    transform: translateY(-170%);
+    cursor: pointer;
+  }
+  
+  .password-input input {
+    padding-left: 30px; /* Adjust the padding to make space for the icon */
+  }
