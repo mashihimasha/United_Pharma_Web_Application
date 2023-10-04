@@ -55,10 +55,16 @@ textarea:focus {
     min-height: 100vh;
   }
   
-.bg-image {
-    background-image: url("https://images.unsplash.com/photo-1565071783280-719b01b29912?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+.bg-register-image {
+    background-image: url("https://cdn.gencraft.com/prod/user/9ede9366-f8f3-4ca0-9430-d1c2cf4501dd/f67122a4-69d9-4972-92fd-9d7695dc4aeb/images/image1_0.jpg?Expires=1696538730&Signature=ZQqDAWJCGaP-aLWa~lCZFgLPudpgqbsLC-uHSZLC2-527fUIpHIQoA1bnCkfQfpqF0lZDCTe7r0SV0nJUBm7UGdh8~C1PPHpc7dtlrz2zthJauSsHbKNZXukO0AUj3VHNpOaXwSByLKoQRRruYSRQ2mrjlZMZNYGT-GdvXN73swhglTBzYuRtwUbsILH~RuA8qrBRWi85rdDR8344pzt5KcvGh5RhqZ1B8JrciDCG0Q8MneC-CtZRdNAv-7sNx6C3TwtuZfTLIdzMjjUJ9LdtcUmNdhs57K~PhkhIqRAvOXLO1YThBibEKpU5rTLDTSdou8UnX1lMJysUsp9AkDFIQ__&Key-Pair-Id=K3RDDB1TZ8BHT8");
     background-size: cover;
-    background-position: bottom right;
+    background-position: top center;
+}
+
+.bg-login-image {
+    background-image: url("https://cdn.gencraft.com/prod/user/9ede9366-f8f3-4ca0-9430-d1c2cf4501dd/171be77e-98a6-48e4-bf1a-c14ff6616d33/images/image0_0.jpg?Expires=1696539031&Signature=J5Q6NXpTw-QzYA0p82QIkaxHuu0vTDZz6kiv06l-nihqqr7KrR1FqRP~w~23n81cdWUP5WlblK4t07q4IE1x5wHPlXFi0b~-5GysWGGkcsx3gzyH46O8ANh7RqRqwLMy7OFSzzHoBwoe-QLWCsUlkC-x2lWhMN4WVeKNwZozCIazzkD1Wgei7H4ilEQavCEBThsNfBl2xjpUpOs5xVoQib7pmsQmt9fXumrdR4ms0wvDHF-swCYMSpdPciaYw8AbV9CHeD5JQ49Y72ufmTELPfYtyGnXq8OulRx0-z13Z9d993sGtLQMThHuO0qY~DKDWyFjyEKCjH6irNzZnqzFMA__&Key-Pair-Id=K3RDDB1TZ8BHT8");
+    background-size: cover;
+    background-position: top center;
 }
 
 .auth-heading {

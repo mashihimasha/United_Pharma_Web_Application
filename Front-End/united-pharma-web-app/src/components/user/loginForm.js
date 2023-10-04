@@ -54,14 +54,14 @@ class LoginForm extends Component {
     const { email, password, showPassword, error} = this.state;
 
     return (
-        <div className="col-md-8 col-lg-6">
+        /* <div className="col-md-8 col-lg-6">
             <div className="login d-flex align-items-center py-5">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9 col-lg-8 mx-auto">
-                            <h3 className="auth-heading mb-4 p-4">Welcome back!</h3>
+                            <h3 className="auth-heading mb-4 p-4">Welcome back!</h3> */
                             <form onSubmit={this.handleSubmit}>
-                                <div className="form-group mb-3">
+                                <div className="form-group mb-3 py-2">
                                     <label htmlFor="email">Email Address</label>
                                     <input
                                     className="form-control"
@@ -74,7 +74,7 @@ class LoginForm extends Component {
                                     required
                                     />
                                 </div>
-                                <div className="form-group mb-3">
+                                <div className="form-group mb-3 py-2">
                                     <label htmlFor="confirmPassword">Enter Password</label>
                                     <input
                                     className="form-control"
@@ -94,23 +94,25 @@ class LoginForm extends Component {
                                     </div>
                                 </div>    
 
-                                <div className="d-grid p-1">
+                                <div className="d-grid p-2">
                                     {error && <p className="text-danger">{error}</p>} {/* Display error message */}
 
-                                    <AuthButton buttonText="Sign In" onClick={this.handleLogin} />
+                                    <AuthButton className='py-2' buttonText="Sign In" onClick={this.handleLogin} />
 
                                     <div className="text-center">
                                         <a className="small" href="forgotPassword.html">Forgot password?</a>
                                     </div>
 
+                                    {/* <AuthButton className='py-2' buttonText="Create New Account" /> */}
+
                                 </div>
 
                             </form>
-                        </div>
+                       /*  </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */
                
     )
     }

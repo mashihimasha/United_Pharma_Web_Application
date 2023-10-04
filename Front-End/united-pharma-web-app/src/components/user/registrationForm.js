@@ -57,12 +57,12 @@ class RegistrationForm extends Component {
     const { firstName, lastName, email, password, confirmPassword, showPassword, error } = this.state;
 
     return (
-      <div className="col-md-8 col-lg-6">
+     /*  <div className="col-md-8 col-lg-6">
         <div className="registration d-flex align-items-center py-5">
           <div className="container">
             <div className="row">
               <div className="col-md-9 col-lg-8 mx-auto">
-                <h3 className="auth-heading mb-4">Create an Account</h3>
+                <h3 className="auth-heading mb-4">Create an Account</h3> */
                 <form onSubmit={this.handleSubmit}>
                 <div className='form-row d-flex'>
                   <div className="form-group col-md-6 mb-3 px-2">
@@ -140,11 +140,11 @@ class RegistrationForm extends Component {
                     </Link>
                   </div>
                 </form>
-              </div>
+              /* </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */
     );
   }
 }
