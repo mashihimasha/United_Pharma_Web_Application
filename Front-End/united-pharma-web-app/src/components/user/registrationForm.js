@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import AuthButton from './authButton';
 import 'font-awesome/css/font-awesome.min.css';
 import '../assets/css/user.css';
@@ -13,7 +14,6 @@ class RegistrationForm extends Component {
       email: '',
       password: '',
       confirmPassword: '',
-      showPassword: false,
       error: null,
     };
   }
@@ -21,12 +21,6 @@ class RegistrationForm extends Component {
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value, error: null });
-  };
-
-  togglePasswordVisibility = () => {
-    this.setState((prevState) => ({
-      showPassword: !prevState.showPassword,
-    }));
   };
 
   handleSubmit = async (event) => {
@@ -68,9 +62,10 @@ class RegistrationForm extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-9 col-lg-8 mx-auto">
-                <h3 className="registration-heading mb-4">Create an Account</h3>
+                <h3 className="auth-heading mb-4">Create an Account</h3>
                 <form onSubmit={this.handleSubmit}>
-                  <div className="form-group mb-3 p-1">
+                <div className='form-row d-flex'>
+                  <div className="form-group col-md-6 mb-3 px-2">
                     <label htmlFor="firstName">First Name</label>
                     <input
                       className="form-control"
@@ -83,7 +78,7 @@ class RegistrationForm extends Component {
                       required
                     />
                   </div>
-                  <div className="form-group mb-3 p-1">
+                  <div className="form-group col-md-6 mb-3 px-2">
                     <label htmlFor="lastName">Last Name</label>
                     <input
                       className="form-control"
@@ -96,7 +91,8 @@ class RegistrationForm extends Component {
                       required
                     />
                   </div>
-                  <div className="form-group mb-3 p-1">
+                  </div>
+                  <div className="form-group mb-3 px-2">
                     <label htmlFor="email">Email Address</label>
                     <input
                       className="form-control"
@@ -109,11 +105,11 @@ class RegistrationForm extends Component {
                       required
                     />
                   </div>
-                  <div className="form-group mb-3 p-1">
+                  <div className="form-group mb-3 px-2">
                     <label htmlFor="password">Enter Password</label>
                     <input
                       className="form-control"
-                      type={showPassword ? 'text' : 'password'}
+                      type='password'
                       id="password"
                       name="password"
                       placeholder="Enter Password"
@@ -121,18 +117,13 @@ class RegistrationForm extends Component {
                       onChange={this.handleInputChange}
                       required
                     />
-                    <div className="password-input">
-                      <i
-                        className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
-                        onClick={this.togglePasswordVisibility}
-                      ></i>
-                    </div>
+                   
                   </div>
-                  <div className="form-group mb-3 p-1">
+                  <div className="form-group mb-3 px-2">
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input
                       className="form-control"
-                      type={showPassword ? 'text' : 'password'}
+                      type='password'
                       id="confirmPassword"
                       name="confirmPassword"
                       placeholder="Confirm Password"
@@ -144,9 +135,9 @@ class RegistrationForm extends Component {
                   <div className="d-grid p-3">
                     {error && <p className="text-danger">{error}</p>}
                     <AuthButton buttonText="Register" onClick={this.handleRegistration} />
-                    <div className="text-center">
-                        <a className="small" href="forgotPassword.html">Already have an account? Sign In</a>
-                    </div>
+                    <Link className="text-center small" to='login'>
+                      Already have an account? Sign In
+                    </Link>
                   </div>
                 </form>
               </div>

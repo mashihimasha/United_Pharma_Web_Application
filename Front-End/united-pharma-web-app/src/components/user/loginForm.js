@@ -59,9 +59,10 @@ class LoginForm extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9 col-lg-8 mx-auto">
-                            <h1 className="login-heading mb-4 p-4">Welcome back!</h1>
+                            <h3 className="auth-heading mb-4 p-4">Welcome back!</h3>
                             <form onSubmit={this.handleSubmit}>
-                                <div className="form-group mb-3 p-1">
+                                <div className="form-group mb-3">
+                                    <label htmlFor="email">Email Address</label>
                                     <input
                                     className="form-control"
                                     type="email"
@@ -73,7 +74,8 @@ class LoginForm extends Component {
                                     required
                                     />
                                 </div>
-                                <div className="form-group mb-3 p-1">
+                                <div className="form-group mb-3">
+                                    <label htmlFor="confirmPassword">Enter Password</label>
                                     <input
                                     className="form-control"
                                     type={showPassword ? 'text' : 'password'} // Toggle input type

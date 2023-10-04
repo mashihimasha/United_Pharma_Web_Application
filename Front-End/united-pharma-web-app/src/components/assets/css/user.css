@@ -37,6 +37,11 @@ button {
 	outline: medium none;
 	text-decoration: none;
 }
+
+label{
+	font-size: 1.0rem;
+}
+
 .btn:focus,
 button:focus,
 input:focus,
@@ -56,9 +61,9 @@ textarea:focus {
     background-position: bottom right;
 }
 
-.login-heading {
-    color: black;
-    font-weight: 600;
+.auth-heading {
+    color: #000;
+    font-weight: 400;
     text-align: center;
     text-transform: uppercase;
 }
