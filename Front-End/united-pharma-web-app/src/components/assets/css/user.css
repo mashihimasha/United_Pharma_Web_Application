@@ -51,12 +51,17 @@ textarea:focus {
 	outline: 0
 }
 
-.login {
-    min-height: 100vh;
-  }
-  
+.login, .register{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.content {
+	flex: 1; /* This makes the content area expand to fill available space */
+}
 .bg-register-image {
-    background-image: url("https://cdn.gencraft.com/prod/user/9ede9366-f8f3-4ca0-9430-d1c2cf4501dd/f67122a4-69d9-4972-92fd-9d7695dc4aeb/images/image1_0.jpg?Expires=1696538730&Signature=ZQqDAWJCGaP-aLWa~lCZFgLPudpgqbsLC-uHSZLC2-527fUIpHIQoA1bnCkfQfpqF0lZDCTe7r0SV0nJUBm7UGdh8~C1PPHpc7dtlrz2zthJauSsHbKNZXukO0AUj3VHNpOaXwSByLKoQRRruYSRQ2mrjlZMZNYGT-GdvXN73swhglTBzYuRtwUbsILH~RuA8qrBRWi85rdDR8344pzt5KcvGh5RhqZ1B8JrciDCG0Q8MneC-CtZRdNAv-7sNx6C3TwtuZfTLIdzMjjUJ9LdtcUmNdhs57K~PhkhIqRAvOXLO1YThBibEKpU5rTLDTSdou8UnX1lMJysUsp9AkDFIQ__&Key-Pair-Id=K3RDDB1TZ8BHT8");
+    background-image: url("../img/auth/registration.png");
     background-size: cover;
     background-position: top center;
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import AuthButton from './authButton';
 import 'font-awesome/css/font-awesome.min.css';
-import '../assets/css/user.css';
 
 class RegistrationForm extends Component {
   constructor(props) {

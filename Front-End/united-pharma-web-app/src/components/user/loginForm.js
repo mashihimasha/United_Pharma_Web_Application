@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import AuthButton from './authButton';
 import 'font-awesome/css/font-awesome.min.css';
-import '../assets/css/user.css';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -92,6 +92,7 @@ class LoginForm extends Component {
                                         onClick={this.togglePasswordVisibility}
                                         ></i>
                                     </div>
+                                    <Link className="small px-2" to="forgotPassword">Forgot password?</Link>
                                 </div>    
 
                                 <div className="d-grid p-2">
@@ -99,9 +100,9 @@ class LoginForm extends Component {
 
                                     <AuthButton className='py-2' buttonText="Sign In" onClick={this.handleLogin} />
 
-                                    <div className="text-center">
-                                        <a className="small" href="forgotPassword.html">Forgot password?</a>
-                                    </div>
+                                    <Link className="text-center small" to='/'>
+                                        Create Account?
+                                    </Link>
 
                                     {/* <AuthButton className='py-2' buttonText="Create New Account" /> */}
 
