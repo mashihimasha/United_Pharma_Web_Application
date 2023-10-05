@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import AuthButton from './authButton';
+import AuthButton from './AuthButton';
 import 'font-awesome/css/font-awesome.min.css';
 
 class RegistrationForm extends Component {
@@ -53,7 +53,7 @@ class RegistrationForm extends Component {
   };
 
   render() {
-    const { firstName, lastName, email, password, confirmPassword, showPassword, error } = this.state;
+    const { firstName, lastName, email, password, confirmPassword, error } = this.state;
 
     return (
      /*  <div className="col-md-8 col-lg-6">

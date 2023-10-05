@@ -155,6 +155,6 @@ img,
 	background-color: #000;
 	color: #fff;
 	padding: 0.4rem;
-	position: static;
+	position: sticky;
 	bottom: 0;
 }

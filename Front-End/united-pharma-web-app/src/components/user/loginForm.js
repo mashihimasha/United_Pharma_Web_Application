@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AuthButton from './authButton';
+import AuthButton from './AuthButton';
 import 'font-awesome/css/font-awesome.min.css';
 
 class LoginForm extends Component {
@@ -75,7 +75,7 @@ class LoginForm extends Component {
                                     />
                                 </div>
                                 <div className="form-group mb-3 py-2">
-                                    <label htmlFor="confirmPassword">Enter Password</label>
+                                    <label htmlFor="password">Enter Password</label>
                                     <input
                                     className="form-control"
                                     type={showPassword ? 'text' : 'password'} // Toggle input type
