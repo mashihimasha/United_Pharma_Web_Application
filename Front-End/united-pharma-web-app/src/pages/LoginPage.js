@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../components/assets/css/user.css';
-import LoginForm from '../components/user/LoginForm'; // Import the LoginForm component
 import BannerLeaves from '../components/common/BannerLeaves';
 import Footer from '../components/user/Footer';
+import LoginForm from '../components/user/LoginForm';
 
 class LoginPage extends Component {
   // additional logic or state here if needed
