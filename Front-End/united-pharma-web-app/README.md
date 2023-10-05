@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+## Project Folder Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Below is the folder structure for this project:
 
-## Available Scripts
+src/
+|-- assets/
+|   |-- images/               # Store images used in your website
+|   |-- styles/               # CSS or SCSS files for styling
+|-- components/
+|   |-- common/               # Reusable components (e.g., Header, Footer)
+|   |-- product/              # Components related to displaying products
+|   |-- cart/                 # Components related to the shopping cart
+|   |-- checkout/             # Components for the checkout process
+|   |-- user/                 # Components related to user authentication and profile
+|-- pages/
+|   |-- Home.js               # Home page component
+|   |-- ProductList.js        # Product list page
+|   |-- ProductDetail.js      # Product detail page
+|   |-- Cart.js               # Shopping cart page
+|   |-- Checkout.js           # Checkout page
+|   |-- UserProfile.js        # User profile page
+|-- context/
+|   |-- CartContext.js        # Context for managing shopping cart state
+|-- utils/
+|   |-- api.js                # API requests and functions
+|-- App.js                    # Main application component
+|-- index.js                  # Entry point to render the application
+|-- routes.js                 # Define application routes (if not using a routing library)
+public/
+|-- index.html                # HTML template
+|-- manifest.json             # Web App Manifest (for Progressive Web App)
+|-- favicon.ico               # Favicon (website icon)
+|-- assets/                   # Static assets (e.g., images, fonts)
 
-In the project directory, you can run:
+In this structure:
+- `src/` contains the source code of the application.
+- `components/` stores React components, organized by functionality.
+- `pages/` contains individual page components.
+- `context/` is for state management context providers.
+- `utils/` includes utility functions.
+- `public/` contains static assets and the HTML template.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Coding and Commenting Style Guide
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This document outlines the coding and commenting style to be followed by all team members when contributing to this project. Consistent coding practices improve code quality, readability, and collaboration.
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. [JavaScript and React Coding Style](#javascript-and-react-coding-style)
+2. [File and Folder Naming](#file-and-folder-naming)
+3. [Code Formatting](#code-formatting)
+4. [Comments and Documentation](#comments-and-documentation)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## JavaScript and React Coding Style
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Use [ESLint](https://eslint.org/) for JavaScript linting and follow the provided ESLint configuration in the project.
+- Adhere to the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) with project-specific modifications, if necessary.
+- Use functional components for React when possible.
+- Avoid using deprecated or outdated libraries and features.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## File and Folder Naming
 
-### `npm run eject`
+- Use meaningful and descriptive names for files and folders.
+- Use camelCase for JavaScript and React files (e.g., `myComponent.js`).
+- Use kebab-case for CSS and SCSS files (e.g., `my-component.css`).
+- Use PascalCase for React component names (e.g., `MyComponent.js`).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Code Formatting
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Maintain consistent code formatting throughout the project.
+- Use 2 spaces for indentation.
+- Limit lines to a maximum of 80 characters.
+- Use double quotes for strings.
+- Avoid trailing white spaces.
+- Ensure consistent use of semicolons.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Comments and Documentation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Write clear and concise comments to explain complex logic or non-obvious functionality.
+- Use JSDoc-style comments for documenting functions and methods.
+- Include author names and dates in code comments when necessary.
+- Keep comments up-to-date with code changes.
 
-## Learn More
+### Example JSDoc Comment:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```javascript
+/**
+ * Calculate the sum of two numbers.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The sum of a and b.
+ */
+function calculateSum(a, b) {
+  return a + b;
+}
