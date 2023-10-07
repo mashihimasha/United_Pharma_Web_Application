@@ -23,6 +23,53 @@ img,
 	max-width: 100%;
 	transition: all 0.3s ease-out 0s;
 }
+a,
+button {
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+	text-decoration: none;
+}
+a:focus,
+.btn:focus,
+button:focus {
+	text-decoration: none;
+	outline: none;
+	box-shadow: none;
+}
+
+a:hover,
+.portfolio-cat a:hover,
+.footer -menu li a:hover {
+	color: #FAA432;
+	text-decoration: none;
+}
+a,
+button {
+	color: #FAA432;
+	outline: medium none;
+	text-decoration: none;
+}
+
+label{
+	font-size: 1.0rem;
+}
+
+.btn:focus,
+button:focus,
+input:focus,
+input:focus,
+textarea,
+textarea:focus {
+	outline: 0
+}
+/*1. Main*/
+.main {
+	display: block;
+	overflow: hidden;
+}
 
 /* 6. Banner */
 .banner-area {
@@ -151,10 +198,173 @@ img,
   };
 }
 
-.footer {
-	background-color: #000;
+/* 21. Footer */
+.footer-instagram {
+	position: relative;
+	z-index: 3;
+	margin: 0 0 -95px;
+}
+.footer-insta-item a {
+	display: block;
+	position: relative;
+}
+.footer-insta-item a::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #0D9B4D;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+}
+.footer-insta-item a:hover::before {
+	opacity: .8;
+}
+.footer-insta-item a::after {
+	content: "\f16d";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	color: #fff;
-	padding: 0.4rem;
-	position: sticky;
-	bottom: 0;
+	font-family: "Font Awesome 5 Brands";
+	font-weight: 400;
+	font-size: 70px;
+	line-height: 1;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+	opacity: 0;
+}
+.footer-insta-item a:hover::after {
+	opacity: 1;
+}
+.footer-top-wrap {
+	background: #0A0A0A;
+	position: relative;
+	padding: 100px 0 30px;
+	overflow-x: hidden;
+	z-index: 1;
+}
+.not-show-instagram .footer-top-wrap {
+	padding: 120px 0 30px;
+}
+.footer-top-wrap::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: -22px;
+	width: 100%;
+	height: 53px;
+	background-image: url('../src/components/assets/img/footer/footer_bg_shape.png');
+	background-repeat: repeat;
+	background-position: center;
+	z-index: -1;
+}
+.footer-shape {
+	position: absolute;
+	z-index: -1;
+}
+.footer-shape.one {
+	left: 0;
+	bottom: 100px;
+}
+.footer-shape.two {
+	right: 0;
+	bottom: 170px;
+}
+.footer-widget {
+	margin: 0 0 50px;
+}
+.footer-logo {
+	margin: 0 0 30px;
+}
+.footer-widget .footer-text {
+	width: 75%;
+}
+.footer-widget .footer-text p {
+	margin: 0 0;
+	color: #fff;
+	opacity: .7;
+}
+.footer-social {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 30px;
+}
+.footer-social a {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #1B1B1B;
+	border-radius: 50%;
+	color: #fff;
+}
+.footer-social a:hover {
+	background: #0D9B4D;
+}
+.footer-widget .fw-title {
+	font-size: 20px;
+	color: #fff;
+	letter-spacing: 0.02em;
+	margin: 0 0 30px;
+}
+.footer-widget ul li {
+	margin: 0 0 12px;
+}
+.footer-widget ul li:last-child {
+	margin: 0 0;
+}
+.footer-widget ul li a {
+	color: #fff;
+	opacity: .7;
+}
+.footer-widget ul li a:hover {
+	color: #0D9B4D;
+	opacity: 1;
+}
+.footer-contact-wrap p {
+	color: #fff;
+	opacity: .7;
+}
+.footer-contact-wrap .list-wrap {
+	margin: 30px 0 0;
+}
+.footer-contact-wrap .list-wrap li {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px;
+}
+.footer-contact-wrap .list-wrap li i {
+	color: #0D9B4D;
+	font-size: 18px;
+	margin-right: 10px;
+}
+.footer-widgets-wrap .row [class*="col-"]:nth-child(4n+2) .footer-widget {
+	padding-left: 30px;
+}
+.footer-widgets-wrap .row [class*="col-"]:nth-child(4n+4) .footer-widget {
+	padding-left: 70px;
+}
+.copyright-wrap {
+	background: #0A0A0A;
+	border-top: 1px solid #262626;
+	padding: 25px 0;
+}
+.copyright-text p {
+	margin: 0 0;
+	color: #FFFFFF;
+	opacity: .9;
 }

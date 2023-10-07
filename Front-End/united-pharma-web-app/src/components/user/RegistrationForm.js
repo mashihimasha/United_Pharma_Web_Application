@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import AuthButton from './AuthButton';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -32,7 +32,7 @@ class RegistrationForm extends Component {
 
       // Simulate a failed registration for demonstration purposes
       if (password !== confirmPassword) {
-        throw new Error("Passwords don't match");
+        throw new Error('Passwords do not match');
       }
 
       // Successful registration logic here
@@ -56,85 +56,85 @@ class RegistrationForm extends Component {
     const { firstName, lastName, email, password, confirmPassword, error } = this.state;
 
     return (
-     /*  <div className="col-md-8 col-lg-6">
-        <div className="registration d-flex align-items-center py-5">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-9 col-lg-8 mx-auto">
-                <h3 className="auth-heading mb-4">Create an Account</h3> */
+     /*  <div className='col-md-8 col-lg-6'>
+        <div className='registration d-flex align-items-center py-5'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-md-9 col-lg-8 mx-auto'>
+                <h3 className='auth-heading mb-4'>Create an Account</h3> */
                 <form onSubmit={this.handleSubmit}>
                 <div className='form-row d-flex'>
-                  <div className="form-group col-md-6 mb-3 px-2">
-                    <label htmlFor="firstName">First Name</label>
+                  <div className='form-group col-md-6 mb-3 px-2'>
+                    <label htmlFor='firstName'>First Name</label>
                     <input
-                      className="form-control"
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      placeholder="First Name"
+                      className='form-control'
+                      type='text'
+                      id='firstName'
+                      name='firstName'
+                      placeholder='First Name'
                       value={firstName}
                       onChange={this.handleInputChange}
                       required
                     />
                   </div>
-                  <div className="form-group col-md-6 mb-3 px-2">
-                    <label htmlFor="lastName">Last Name</label>
+                  <div className='form-group col-md-6 mb-3 px-2'>
+                    <label htmlFor='lastName'>Last Name</label>
                     <input
-                      className="form-control"
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      placeholder="Last Name"
+                      className='form-control'
+                      type='text'
+                      id='lastName'
+                      name='lastName'
+                      placeholder='Last Name'
                       value={lastName}
                       onChange={this.handleInputChange}
                       required
                     />
                   </div>
                   </div>
-                  <div className="form-group mb-3 px-2">
-                    <label htmlFor="email">Email Address</label>
+                  <div className='form-group mb-3 px-2'>
+                    <label htmlFor='email'>Email Address</label>
                     <input
-                      className="form-control"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Enter Email"
+                      className='form-control'
+                      type='email'
+                      id='email'
+                      name='email'
+                      placeholder='Enter Email'
                       value={email}
                       onChange={this.handleInputChange}
                       required
                     />
                   </div>
-                  <div className="form-group mb-3 px-2">
-                    <label htmlFor="password">Enter Password</label>
+                  <div className='form-group mb-3 px-2'>
+                    <label htmlFor='password'>Enter Password</label>
                     <input
-                      className="form-control"
+                      className='form-control'
                       type='password'
-                      id="password"
-                      name="password"
-                      placeholder="Enter Password"
+                      id='password'
+                      name='password'
+                      placeholder='Enter Password'
                       value={password}
                       onChange={this.handleInputChange}
                       required
                     />
                    
                   </div>
-                  <div className="form-group mb-3 px-2">
-                    <label htmlFor="confirmPassword">Confirm Password</label>
+                  <div className='form-group mb-3 px-2'>
+                    <label htmlFor='confirmPassword'>Confirm Password</label>
                     <input
-                      className="form-control"
+                      className='form-control'
                       type='password'
-                      id="confirmPassword"
-                      name="confirmPassword"
-                      placeholder="Confirm Password"
+                      id='confirmPassword'
+                      name='confirmPassword'
+                      placeholder='Confirm Password'
                       value={confirmPassword}
                       onChange={this.handleInputChange}
                       required
                     />
                   </div>
-                  <div className="d-grid p-3">
-                    {error && <p className="text-danger">{error}</p>}
-                    <AuthButton buttonText="Register" onClick={this.handleRegistration} />
-                    <Link className="text-center small" to='login'>
+                  <div className='d-grid p-3'>
+                    {error && <p className='text-danger'>{error}</p>}
+                    <AuthButton buttonText='Register' onClick={this.handleRegistration} />
+                    <Link className='text-center small' to='login'>
                       Already have an account? Sign In
                     </Link>
                   </div>
