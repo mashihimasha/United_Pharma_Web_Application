@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage'; // Import the LoginPage component
+import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import BannerLeaves from './components/common/BannerLeaves';
 import Footer from './components/user/Footer';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <div className='main'>
         <Routes>
           <Route path='/' element={ <RegisterPage/> } />
-          <Route path='bannerLeaves' element={ <BannerLeaves/> } />
           <Route path='login' element={ <LoginPage/> } />
+          <Route path='userProfile' element={ <UserProfile/> } />
         </Routes>
       </div>
       <Footer/>

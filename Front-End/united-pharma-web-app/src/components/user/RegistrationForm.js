@@ -64,7 +64,7 @@ class RegistrationForm extends Component {
                 <h3 className='auth-heading mb-4'>Create an Account</h3> */
                 <form onSubmit={this.handleSubmit}>
                 <div className='form-row d-flex'>
-                  <div className='form-group col-md-6 mb-3 px-2'>
+                  <div className='form-group col-6 mb-3 px-2'>
                     <label htmlFor='firstName'>First Name</label>
                     <input
                       className='form-control'
@@ -77,7 +77,7 @@ class RegistrationForm extends Component {
                       required
                     />
                   </div>
-                  <div className='form-group col-md-6 mb-3 px-2'>
+                  <div className='form-group col-6 mb-3 px-2'>
                     <label htmlFor='lastName'>Last Name</label>
                     <input
                       className='form-control'
@@ -134,7 +134,7 @@ class RegistrationForm extends Component {
                   <div className='d-grid p-3'>
                     {error && <p className='text-danger'>{error}</p>}
                     <AuthButton buttonText='Register' onClick={this.handleRegistration} />
-                    <Link className='text-center small' to='login'>
+                    <Link className='text-center small pt-3' to='login'>
                       Already have an account? Sign In
                     </Link>
                   </div>

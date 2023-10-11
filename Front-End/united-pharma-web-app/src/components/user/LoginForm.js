@@ -54,58 +54,62 @@ class LoginForm extends Component {
     const { email, password, showPassword, error} = this.state;
 
     return (
-        /* <div className="col-md-8 col-lg-6">
-            <div className="login d-flex align-items-center py-5">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-9 col-lg-8 mx-auto">
-                            <h3 className="auth-heading mb-4 p-4">Welcome back!</h3> */
+        /* <div className='col-md-8 col-lg-6'>
+            <div className='login d-flex align-items-center py-5'>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-md-9 col-lg-8 mx-auto'>
+                            <h3 className='auth-heading mb-4 p-4'>Welcome back!</h3> */
                             <form onSubmit={this.handleSubmit}>
-                                <div className="form-group mb-3 py-2">
-                                    <label htmlFor="email">Email Address</label>
+                                <div className='form-group mb-3 py-2'>
+                                    <label htmlFor='email'>Email Address</label>
                                     <input
-                                    className="form-control"
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder='Enter Email'
+                                    className='form-control'
+                                    type='email'
+                                    id='email'
+                                    name='email'
+                                    placeholder=''
                                     value={email}
                                     onChange={this.handleInputChange}
                                     required
                                     />
                                 </div>
-                                <div className="form-group mb-3 py-2">
-                                    <label htmlFor="password">Enter Password</label>
+                                <div className='form-group mb-3 py-1'>
+                                    <label htmlFor='password'>Enter Password</label>
                                     <input
-                                    className="form-control"
+                                    className='form-control'
                                     type={showPassword ? 'text' : 'password'} // Toggle input type
-                                    id="password"
-                                    placeholder="Enter Password"
-                                    name="password"
+                                    id='password'
+                                    placeholder=''
+                                    name='password'
                                     value={password}
                                     onChange={this.handleInputChange}
                                     required
                                     />
-                                    <div className="password-input">
+                                    <div className='password-input'>
                                         <i
                                         className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
                                         onClick={this.togglePasswordVisibility}
                                         ></i>
                                     </div>
-                                    <Link className="small px-2" to="forgotPassword">Forgot password?</Link>
                                 </div>    
+                                <div className='form-group mb-3'>
+                                  <Link className='text-right small px-3 col-6' to='forgotPassword'>Forgot password?</Link>
+                                </div>
 
-                                <div className="d-grid p-2">
-                                    {error && <p className="text-danger">{error}</p>} {/* Display error message */}
+                                <div className='d-grid mb-3 p-2'>
+                                    {error && <p className='text-danger'>{error}</p>} {/* Display error message */}
 
-                                    <AuthButton className='py-2' buttonText="Sign In" onClick={this.handleLogin} />
+                                    <AuthButton className='py-2' buttonText='Sign In' onClick={this.handleLogin} />
 
-                                    <Link className="text-center small" to='/'>
+                                    <Link className='text-center small' to='/'>
                                         Create Account?
                                     </Link>
-
-                                    {/* <AuthButton className='py-2' buttonText="Create New Account" /> */}
-
+                                  <div className='form-row d-flex mt-4  align-baseline'>
+                                    <hr className='my-4 text-success col-4'/>
+                                    <p className='text-dark text-center small col-4'>Or continue with</p>
+                                    <hr className='my-4 text-success col-4'/>
+                                  </div>  
                                 </div>
 
                             </form>
