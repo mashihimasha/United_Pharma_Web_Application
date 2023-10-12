@@ -1,3 +1,8 @@
+:root{
+	--main-orange: #f39519;
+	--main-success: #0D9B4D;
+}
+
 *:before,
 *:after{
     padding: 0;
@@ -40,12 +45,12 @@ button:focus {
 a:hover,
 .portfolio-cat a:hover,
 .footer -menu li a:hover {
-	color: #FAA432;
+	color: var(--main-success);
 	text-decoration: none;
 }
 a,
 button {
-	color: #FAA432;
+	color: var(--main-orange);
 	outline: medium none;
 	text-decoration: none;
 }
@@ -62,6 +67,55 @@ textarea,
 textarea:focus {
 	outline: 0
 }
+
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+h1 {
+	font-size: 40px;
+}
+h2 {
+	font-size: 35px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 22px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+.list-wrap {
+	margin: 0px;
+	padding: 0px;
+}
+.list-wrap li {
+	list-style: none
+}
+p {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.6;
+	color: #777777;
+	margin-bottom: 15px;
+}
+
 /*1. Main*/
 .main {
 	display: block;
@@ -129,7 +183,7 @@ textarea:focus {
 .tg-cube-grid .tg-cube {
   	width: 33%;
   	height: 33%;
-  	background-color: #0D9B4D;
+  	background-color: var(--main-success);
   	float: left;
   	-webkit-animation: tg-cubeGridScaleDelay 1.3s infinite ease-in-out;
   	animation: tg-cubeGridScaleDelay 1.3s infinite ease-in-out;
@@ -212,7 +266,7 @@ textarea:focus {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: #0D9B4D;
+	background: var(--main-success);
 	opacity: 0;
 	-webkit-transition: all 0.3s ease-out 0s;
 	-moz-transition: all 0.3s ease-out 0s;
@@ -309,7 +363,7 @@ textarea:focus {
 	color: #fff;
 }
 .footer-social a:hover {
-	background: #0D9B4D;
+	background: var(--main-success);
 }
 .footer-widget .fw-title {
 	font-size: 20px;
@@ -328,7 +382,7 @@ textarea:focus {
 	opacity: .7;
 }
 .footer-widget ul li a:hover {
-	color: #0D9B4D;
+	color: var(--main-success);
 	opacity: 1;
 }
 .footer-contact-wrap p {
@@ -345,15 +399,12 @@ textarea:focus {
     margin: 0 0 15px;
 }
 .footer-contact-wrap .list-wrap li i {
-	color: #0D9B4D;
+	color: var(--main-success);
 	font-size: 18px;
 	margin-right: 10px;
 }
 .footer-widgets-wrap .row [class*="col-"]:nth-child(4n+2) .footer-widget {
 	padding-left: 30px;
-}
-.footer-widgets-wrap .row [class*="col-"]:nth-child(4n+4) .footer-widget {
-	padding-left: 70px;
 }
 .copyright-wrap {
 	background: #0A0A0A;

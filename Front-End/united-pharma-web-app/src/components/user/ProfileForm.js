@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../assets/css/user.css';
+import '../assets/css/User.css';
 import AuthButton from './AuthButton';
 
 class ProfileForm extends Component {

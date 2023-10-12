@@ -28,6 +28,10 @@
     text-transform: uppercase;
 }
 
+.bg-gradient{
+	background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%) !important;
+	backdrop-filter: saturate(10);
+}
 
 /*Forms*/
 .form-control{
@@ -38,6 +42,7 @@
 
 .form-control::placeholder{
     text-align: center;
+	font-size: 0.875rem;
 }
 
 .form-control:focus{
@@ -54,19 +59,19 @@
 }
 
 /* button style */
-.btn {
+.btn-custom {
 	margin: 0 auto;
 	width: 40%;
 	user-select: none;
 	-moz-user-select: none;
-	background: #0D9B4D none repeat scroll 0 0;
+	background: var(--main-success) none repeat scroll 0 0;
 	border: medium none;
 	border-radius: 50px;
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
-	font-weight: 700;
+	font-weight: 500;
 	letter-spacing: 0;
 	line-height: 1.4;
 	padding: 1rem 0.5rem;
@@ -80,7 +85,7 @@
 	overflow: hidden;
 	z-index: 1;
 }
-.btn::before {
+.btn-custom::before {
 	content: "";
 	position: absolute;
 	-webkit-transition-duration: 800ms;
@@ -89,26 +94,26 @@
 	height: 200%;
 	top: 110%;
 	left: 50%;
-	background: #FAA432;
+	background: var(--main-orange);
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	border-radius: 50%;
 	z-index: -1;
 }
-.btn:hover {
+.btn-custom:hover {
 	color: #fff;
 }
 .btn-two {
-	background: #FAA432 none repeat scroll 0 0;
+	background: var(--main-orange) none repeat scroll 0 0;
 }
 .btn-two::before {
-	background: #0D9B4D;
+	background: var(--main-success);
 }
-.btn:hover:before {
+.btn-custom:hover:before {
 	top: -40%;
 }
 .breadcrumb > .active {
-	color: #FAA432;
+	color: var(--main-orange);
 }
 
 .password-input {

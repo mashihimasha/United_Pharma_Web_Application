@@ -65,26 +65,26 @@ class RegistrationForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                 <div className='form-row d-flex'>
                   <div className='form-group col-6 mb-3 px-2'>
-                    <label htmlFor='firstName'>First Name</label>
+                    <label htmlFor='firstName' className='small'>First Name</label>
                     <input
                       className='form-control'
                       type='text'
                       id='firstName'
                       name='firstName'
-                      placeholder='First Name'
+                      placeholder=''
                       value={firstName}
                       onChange={this.handleInputChange}
                       required
                     />
                   </div>
                   <div className='form-group col-6 mb-3 px-2'>
-                    <label htmlFor='lastName'>Last Name</label>
+                    <label htmlFor='lastName' className='small'>Last Name</label>
                     <input
                       className='form-control'
                       type='text'
                       id='lastName'
                       name='lastName'
-                      placeholder='Last Name'
+                      placeholder=''
                       value={lastName}
                       onChange={this.handleInputChange}
                       required
@@ -92,26 +92,26 @@ class RegistrationForm extends Component {
                   </div>
                   </div>
                   <div className='form-group mb-3 px-2'>
-                    <label htmlFor='email'>Email Address</label>
+                    <label htmlFor='email' className='small'>Email Address</label>
                     <input
                       className='form-control'
                       type='email'
                       id='email'
                       name='email'
-                      placeholder='Enter Email'
+                      placeholder=''
                       value={email}
                       onChange={this.handleInputChange}
                       required
                     />
                   </div>
                   <div className='form-group mb-3 px-2'>
-                    <label htmlFor='password'>Enter Password</label>
+                    <label htmlFor='password' className='small'>Enter Password</label>
                     <input
                       className='form-control'
                       type='password'
                       id='password'
                       name='password'
-                      placeholder='Enter Password'
+                      placeholder=''
                       value={password}
                       onChange={this.handleInputChange}
                       required
@@ -119,13 +119,13 @@ class RegistrationForm extends Component {
                    
                   </div>
                   <div className='form-group mb-3 px-2'>
-                    <label htmlFor='confirmPassword'>Confirm Password</label>
+                    <label htmlFor='confirmPassword' className='small'>Confirm Password</label>
                     <input
                       className='form-control'
                       type='password'
                       id='confirmPassword'
                       name='confirmPassword'
-                      placeholder='Confirm Password'
+                      placeholder=''
                       value={confirmPassword}
                       onChange={this.handleInputChange}
                       required

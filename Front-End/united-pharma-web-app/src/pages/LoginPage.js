@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../components/assets/css/user.css';
+import '../components/assets/css/User.css';
 import BannerLeaves from '../components/common/BannerLeaves';
 import LoginForm from '../components/user/LoginForm';
 //import AuthButton from '../components/user/AuthButton';
@@ -19,7 +19,7 @@ class LoginPage extends Component {
                 <BannerLeaves className='col-lg-4 col-md-1 p-1' />
                   <div className='row'>
                     <div className='col-md-9 col-lg-7 mx-auto'>
-                      <h3 className='auth-heading mb-4 py-3'>Welcome Back!</h3>
+                      <h4 className='h4 auth-heading mb-4 py-3'>Sign in to your account</h4>
                       {/* <AuthButton buttonText='Google Login' className=''/> */}
                       <LoginForm />
                     </div>

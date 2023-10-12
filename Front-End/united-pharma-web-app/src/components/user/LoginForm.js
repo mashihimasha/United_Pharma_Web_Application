@@ -62,7 +62,7 @@ class LoginForm extends Component {
                             <h3 className='auth-heading mb-4 p-4'>Welcome back!</h3> */
                             <form onSubmit={this.handleSubmit}>
                                 <div className='form-group mb-3 py-2'>
-                                    <label htmlFor='email'>Email Address</label>
+                                    <label htmlFor='email' className='small'>Email Address</label>
                                     <input
                                     className='form-control'
                                     type='email'
@@ -75,7 +75,7 @@ class LoginForm extends Component {
                                     />
                                 </div>
                                 <div className='form-group mb-3 py-1'>
-                                    <label htmlFor='password'>Enter Password</label>
+                                    <label htmlFor='password' className='small'>Enter Password</label>
                                     <input
                                     className='form-control'
                                     type={showPassword ? 'text' : 'password'} // Toggle input type
@@ -94,7 +94,7 @@ class LoginForm extends Component {
                                     </div>
                                 </div>    
                                 <div className='form-group mb-3'>
-                                  <Link className='text-right small px-3 col-6' to='forgotPassword'>Forgot password?</Link>
+                                  <Link className='text-right small px-3' to='forgotPassword'>Forgot password?</Link>
                                 </div>
 
                                 <div className='d-grid mb-3 p-2'>
@@ -102,7 +102,7 @@ class LoginForm extends Component {
 
                                     <AuthButton className='py-2' buttonText='Sign In' onClick={this.handleLogin} />
 
-                                    <Link className='text-center small' to='/'>
+                                    <Link className='text-center small mt-3' to='/'>
                                         Create Account?
                                     </Link>
                                   <div className='form-row d-flex mt-4  align-baseline'>

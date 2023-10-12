@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Footer extends Component {
   render() {
@@ -10,7 +11,7 @@ class Footer extends Component {
             <div className='footer-widgets-wrap'>
               <div className='row'>
                 {/* About Us */}
-                <div className='col-lg-4 col-md-7'>
+                <div className='col-lg-3 col-md-7'>
                   <div className='footer-widget'>
                     <div className='footer-about'>
                       <div className='footer-logo logo'>
@@ -20,8 +21,7 @@ class Footer extends Component {
                       </div>
                       <div className='footer-text'>
                         <p>
-                          Making beauty especially relating complot especial common questions tend to recur
-                          through posts or queries standards vary orem donor command tei.
+                        United Pharma
                         </p>
                       </div>
                       <div className='footer-social'>
@@ -43,27 +43,36 @@ class Footer extends Component {
                 </div>
 
                 {/* About Us */}
-                <div className='col-lg-3 col-md-5 col-sm-6'>
+                <div className='col-lg-2 col-md-5 col-sm-6'>
                   <div className='footer-widget'>
-                    <h4 className='fw-title'>About Us</h4>
+                    <h4 className='fw-title'>Company</h4>
                     <ul className='list-wrap'>
                       <li>
-                        <a href='#'>About Company</a>
+                        <Link>About Us</Link>
                       </li>
                       <li>
-                        <a href='#'>Affiliate Program</a>
+                        <Link>Privacy Policy</Link>
                       </li>
                       <li>
-                        <a href='#'>Customer Spotlight</a>
+                        <Link>Terms & Conditions</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Products */}
+                <div className='col-lg-2 col-md-5 col-sm-6'>
+                  <div className='footer-widget'>
+                    <h4 className='fw-title'>Products</h4>
+                    <ul className='list-wrap'>
+                      <li>
+                        <Link>Medicine</Link>
                       </li>
                       <li>
-                        <a href='#'>Reseller Program</a>
+                        <Link>Medical Equipment</Link>
                       </li>
                       <li>
-                        <a href='shop.html'>Our Shop</a>
-                      </li>
-                      <li>
-                        <a href='#'>Price &amp; Plans</a>
+                        <Link>Personal Care</Link>
                       </li>
                     </ul>
                   </div>
@@ -74,21 +83,15 @@ class Footer extends Component {
                   <div className='footer-widget'>
                     <h4 className='fw-title'>Support</h4>
                     <ul className='list-wrap'>
-                      <li>
-                        <a href='#'>Knowledge Base</a>
-                      </li>
+                     
                       <li>
                         <a href='blog.html'>Blog</a>
                       </li>
-                      <li>
-                        <a href='#'>Developer API</a>
-                      </li>
+                      
                       <li>
                         <a href='#'>FAQ</a>
                       </li>
-                      <li>
-                        <a href='#'>Team</a>
-                      </li>
+                      
                       <li>
                         <a href='contact.html'>Contact</a>
                       </li>
@@ -104,13 +107,13 @@ class Footer extends Component {
                       <p>4140 Parker Rd. Allentown, New Mexico 31134</p>
                       <ul className='list-wrap'>
                         <li className='phone'>
-                          <i className='fas fa-phone'></i> +1 31-6555-0116
+                          <i className='fa fa-phone'></i> +1 31-6555-0116
                         </li>
                         <li className='mail'>
-                          <i className='fas fa-envelope'></i> Suxnix@example.com
+                          <i className='fa fa-envelope'></i> unitedpharma@gmail.com
                         </li>
                         <li className='website'>
-                          <i className='fas fa-globe'></i> www.suxnixdomain.com
+                          <i className='fa fa-globe'></i> www.unitedpharma.com
                         </li>
                       </ul>
                     </div>
@@ -122,7 +125,6 @@ class Footer extends Component {
           {/* Footer Shapes */}
           <div className='footer-shape one'>
             <img
-              src='assets/img/others/footer_shape01.png'
               alt='img'
               className='wow fadeInLeft'
               data-wow-delay='.3s'
@@ -131,7 +133,6 @@ class Footer extends Component {
           </div>
           <div className='footer-shape two'>
             <img
-              src='assets/img/others/footer_shape02.png'
               alt='img'
               className='wow fadeInRight'
               data-wow-delay='.3s'
@@ -145,7 +146,7 @@ class Footer extends Component {
             <div className='row align-items-center'>
               <div className='col-md-7'>
                 <div className='copyright-text'>
-                  <p>Copyright © 2022 Suxnix All Rights Reserved.</p>
+                  <p>Copyright © 2022 United Pharma All Rights Reserved.</p>
                 </div>
               </div>
               <div className='col-md-5'>
