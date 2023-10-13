@@ -22,12 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  
   "browserslist": {
     "production": [
       ">0.2%",
@@ -43,5 +38,9 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "webpack-dev-server": "^4.15.1"
-  }
+  },
+  "description": "Below is the folder structure for this project:",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
