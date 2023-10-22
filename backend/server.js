@@ -9,28 +9,37 @@ const { Sequelize, DataTypes } = require("sequelize");
 const app = express();
 
 // Sequelize setup
-const sequelize = new Sequelize("localhost", "root", "", {
+const sequelize = new Sequelize("united_pharma_web_app", "root", "", {
   host: "localhost",
   dialect: "mysql",
 });
 
+sequelize.authenticate().then(() => {
+    console.log('Connection has been established successfully.');
+ }).catch((error) => {
+    console.error('Unable to connect to the database: ', error);
+ });
+
 // Define a User model
 const User = sequelize.define("User", {
-  username: {
+email: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-  },
-  password: {
+},
+password: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
+},
+}, {
+tableName: 'users' // Set the table name to 'user'
 });
+  
 
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3001",
     credentials: true,
   })
 );
@@ -48,13 +57,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(
-  new LocalStrategy((username, password, done) => {
-    User.findOne({ where: { username: username } }).then((user) => {
+  new LocalStrategy((email, password, done) => {
+    User.findOne({ where: { email: email } }).then((user) => {
       if (!user) {
         return done(null, false, { message: "No User Exists" });
       }
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err) {
+          console.log(password);
           return done(err);
         }
         if (isMatch) {
@@ -79,26 +89,29 @@ passport.deserializeUser((id, done) => {
 
 // Routes
 app.post("/login", (req, res, next) => {
+  try{
   passport.authenticate("local", (err, user, info) => {
-    if (err) {
-      throw err;
-    }
-    if (!user) {
-      res.send(info.message);
-    } else {
+    if (err)throw err;
+    if (!user)res.send(info.message);
+    else {
       req.logIn(user, (err) => {
         if (err) {
           throw err;
         }
         res.send("Successfully Authenticated");
+        console.log(req.user);
       });
     }
   })(req, res, next);
+} catch (error) {
+  console.error("Authentication error:", error);
+  res.status(500).send("Authentication failed");
+}
 });
 
 app.post("/register", (req, res) => {
-  const { username, password } = req.body;
-  User.findOne({ where: { username: username } }).then((user) => {
+  const { email, password } = req.body;
+  User.findOne({ where: { email: email } }).then((user) => {
     if (user) {
       res.send("User Already Exists");
     } else {
@@ -107,7 +120,7 @@ app.post("/register", (req, res) => {
           throw err;
         }
         User.create({
-          username: username,
+          email: email,
           password: hashedPassword,
         }).then(() => {
           res.send("User Created");
@@ -118,9 +131,10 @@ app.post("/register", (req, res) => {
 });
 
 app.get("/user", (req, res) => {
-  res.send(req.user);
+  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
+  
 // Sync the models with the database and start the server
 sequelize.sync().then(() => {
   app.listen(3000, () => {

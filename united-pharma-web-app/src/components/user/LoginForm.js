@@ -14,6 +14,7 @@ function LoginForm() {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value, error: null });
+    console.log(values);
   };
 
   // Function to toggle password visibility
@@ -24,30 +25,21 @@ function LoginForm() {
     }));
   };
 
-  const handleSubmit = async (event) => {
+  const login = () => {
+    Axios({
+      method: 'POST',
+      data: {
+        email: values.email,
+        password: values.password,
+      },
+      withCredentials: true,
+      url: 'http://localhost:3000/login', // replace with your server's URL
+    }).then((res) => console.log(res));
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password } = values;
-
-    try {
-      // Perform login logic by making a POST request to your server
-      const response = await Axios.post('http://your-server-url/login', {
-        email,
-        password,
-      });
-
-      // Check the response for success (you may need to customize this based on your server's response)
-      if (response.data.success) {
-        // Successful login logic here
-
-        // Reset the form after successful login
-        setValues({ email: '', password: '', error: null });
-      } else {
-        throw new Error('Invalid username or password');
-      }
-    } catch (error) {
-      // Handle authentication errors and update the error state
-      setValues({ ...values, error: error.message });
-    }
+    login(); // Call the login function here
   };
 
 
@@ -102,7 +94,7 @@ function LoginForm() {
 
         <AuthButton className='py-2' buttonText='Sign In' onClick={handleSubmit} />
 
-        <Link className='text-center small mt-3' to='/'>
+        <Link className='text-center small mt-3' to='/register'>
           Create Account?
         </Link>
         <div className='form-row d-flex mt-4 align-baseline'>

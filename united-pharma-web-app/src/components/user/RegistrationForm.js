@@ -1,150 +1,98 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 import AuthButton from './AuthButton';
 
-class RegistrationForm extends Component {
-  constructor(props) {
-    super(props);
+function RegistrationForm() {
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    error: null,
+  });
 
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      error: null,
-    };
-  }
-
-  handleInputChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value, error: null });
+    setValues({ ...values, [name]: value, error: null });
   };
 
-  handleSubmit = async (event) => {
+  const register = () => {
+    Axios({
+      method: 'POST',
+      data: {
+        email: values.email,
+        password: values.password,
+      },
+      withCredentials: true,
+      url: 'http://localhost:3000/register', // replace with your server's URL
+    })
+      .then((res) =>
+          console.log(res.data));
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const { firstName, lastName, email, password, confirmPassword } = this.state;
-
-    try {
-      // Perform registration logic here, such as sending a request to a server.
-      // Replace this with your actual registration code.
-
-      // Simulate a failed registration for demonstration purposes
-      if (password !== confirmPassword) {
-        throw new Error('Passwords do not match');
-      }
-
-      // Successful registration logic here
-
-      // Reset the form after successful registration
-      this.setState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        error: null,
-      });
-    } catch (error) {
-      // Handle registration errors and update the error state
-      this.setState({ error: error.message });
-    }
+    register(); // Call the register function here
   };
 
-  render() {
-    const { firstName, lastName, email, password, confirmPassword, error } = this.state;
+  const { email, password, confirmPassword, error } = values;
 
-    return (
-     /*  <div className='col-md-8 col-lg-6'>
-        <div className='registration d-flex align-items-center py-5'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-md-9 col-lg-8 mx-auto'>
-                <h3 className='auth-heading mb-4'>Create an Account</h3> */
-                <form onSubmit={this.handleSubmit}>
-                <div className='form-row d-flex'>
-                  <div className='form-group col-6 mb-3 px-2'>
-                    <label htmlFor='firstName' className='small'>First Name</label>
-                    <input
-                      className='form-control'
-                      type='text'
-                      id='firstName'
-                      name='firstName'
-                      placeholder=''
-                      value={firstName}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className='form-group col-6 mb-3 px-2'>
-                    <label htmlFor='lastName' className='small'>Last Name</label>
-                    <input
-                      className='form-control'
-                      type='text'
-                      id='lastName'
-                      name='lastName'
-                      placeholder=''
-                      value={lastName}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                  </div>
-                  </div>
-                  <div className='form-group mb-3 px-2'>
-                    <label htmlFor='email' className='small'>Email Address</label>
-                    <input
-                      className='form-control'
-                      type='email'
-                      id='email'
-                      name='email'
-                      placeholder=''
-                      value={email}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className='form-group mb-3 px-2'>
-                    <label htmlFor='password' className='small'>Enter Password</label>
-                    <input
-                      className='form-control'
-                      type='password'
-                      id='password'
-                      name='password'
-                      placeholder=''
-                      value={password}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                   
-                  </div>
-                  <div className='form-group mb-3 px-2'>
-                    <label htmlFor='confirmPassword' className='small'>Confirm Password</label>
-                    <input
-                      className='form-control'
-                      type='password'
-                      id='confirmPassword'
-                      name='confirmPassword'
-                      placeholder=''
-                      value={confirmPassword}
-                      onChange={this.handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className='d-grid p-3'>
-                    {error && <p className='text-danger'>{error}</p>}
-                    <AuthButton buttonText='Register' onClick={this.handleRegistration} />
-                    <Link className='text-center small pt-3' to='login'>
-                      Already have an account? Sign In
-                    </Link>
-                  </div>
-                </form>
-              /* </div>
-            </div>
-          </div>
-        </div>
-      </div> */
-    );
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="form-group mb-3 py-2">
+        <label htmlFor="email" className="small">
+          Enter Email
+        </label>
+        <input
+          className="form-control"
+          type="text"
+          id="email"
+          name="email"
+          placeholder=""
+          value={email}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div className="form-group mb-3 py-1">
+        <label htmlFor="password" className="small">
+          Enter Password
+        </label>
+        <input
+          className="form-control"
+          type="password"
+          id="password"
+          placeholder=""
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div className="form-group mb-3 py-1">
+        <label htmlFor="confirmPassword" className="small">
+          Confirm Password
+        </label>
+        <input
+          className="form-control"
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder=""
+          value={confirmPassword}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div className="d-grid mb-3 p-2">
+        {error && <p className="text-danger small">{error}</p>}
+        <AuthButton className="py-2" buttonText='Register' onClick={handleSubmit}/>
+        <Link className="text-center small mt-3" to="/login">
+          Already have an account? Sign In
+        </Link>
+      </div>
+    </form>
+  );
 }
 
 export default RegistrationForm;
