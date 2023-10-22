@@ -89,7 +89,6 @@ passport.deserializeUser((id, done) => {
 
 // Routes
 app.post("/login", (req, res, next) => {
-  try{
   passport.authenticate("local", (err, user, info) => {
     if (err)throw err;
     if (!user)res.send(info.message);
@@ -103,10 +102,6 @@ app.post("/login", (req, res, next) => {
       });
     }
   })(req, res, next);
-} catch (error) {
-  console.error("Authentication error:", error);
-  res.status(500).send("Authentication failed");
-}
 });
 
 app.post("/register", (req, res) => {

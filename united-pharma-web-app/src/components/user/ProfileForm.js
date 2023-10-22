@@ -8,7 +8,7 @@ function ProfileForm(){
     Axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:3000/user",
+      url: "http://localhost:3000/userProfile",
     }).then((res) => {
       setData(res.data);
       console.log(res.data);

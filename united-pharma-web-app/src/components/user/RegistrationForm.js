@@ -25,9 +25,7 @@ function RegistrationForm() {
       },
       withCredentials: true,
       url: 'http://localhost:3000/register', // replace with your server's URL
-    })
-      .then((res) =>
-          console.log(res.data));
+    }).then((res) => console.log(res.data));
   };
 
   const handleSubmit = (event) => {

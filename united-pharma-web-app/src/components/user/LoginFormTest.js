@@ -7,6 +7,7 @@ function LoginForm() {
   const [values, setValues] = useState({
     email: '',
     password: '',
+    role: 'retail',
     showPassword: false, // state for toggling password visibility
     error: null, // error state
   });
@@ -30,6 +31,7 @@ function LoginForm() {
       data: {
         email: values.email,
         password: values.password,
+        role: values.role,
       },
       withCredentials: true,
       url: 'http://localhost:3000/login', // replace with your server's URL
