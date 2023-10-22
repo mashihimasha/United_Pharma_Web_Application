@@ -33,7 +33,7 @@ function LoginForm() {
       },
       withCredentials: true,
       url: 'http://localhost:3000/login', // replace with your server's URL
-    }).then((res) => console.log(res));
+    }).then((res) => console.log(res.data));
   };
 
   const handleSubmit = (event) => {

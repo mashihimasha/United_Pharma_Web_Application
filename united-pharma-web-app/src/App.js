@@ -15,7 +15,7 @@ function App() {
           <Route path='register' element={ <RegisterPage/> } />
           <Route path='/' element={ <LoginPage/> } />
           <Route path='userProfile' element={ <UserProfile/> } />
-          <Route path='login/forgotPassword' element={<ForgotPasswordForm/>}/>
+          <Route path='/forgotPassword' element={<ForgotPasswordForm/>}/>
         </Routes>
       </div>
       <Footer/>

@@ -104,26 +104,30 @@ app.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+//register
 app.post("/register", (req, res) => {
   const { email, password } = req.body;
-  User.findOne({ where: { email: email } }).then((user) => {
-    if (user) {
-      res.send("User Already Exists");
-    } else {
-      bcrypt.hash(password, 10, (err, hashedPassword) => {
-        if (err) {
-          throw err;
-        }
-        User.create({
-          email: email,
-          password: hashedPassword,
-        }).then(() => {
-          res.send("User Created");
+  if(req.body === null){
+    User.findOne({ where: { email: email } }).then((user) => {
+      if (user) {
+        res.send("User Already Exists");
+      } else {
+        bcrypt.hash(password, 10, (err, hashedPassword) => {
+          if (err) {
+            throw err;
+          }
+          User.create({
+            email: email,
+            password: hashedPassword,
+          }).then(() => {
+            res.send("User Created");
+          });
         });
-      });
-    }
-  });
-});
+      }
+    });
+  }
+}
+);
 
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.

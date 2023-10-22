@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import AuthButton from './AuthButton';
+import RegistrationSuccess from './RegistrationSuccess';
 
 function RegistrationForm() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -25,7 +27,14 @@ function RegistrationForm() {
       },
       withCredentials: true,
       url: 'http://localhost:3000/register', // replace with your server's URL
-    }).then((res) => console.log(res.data));
+    }).then((res) => {
+
+      if (res.data === 'User Created') {
+        setShowSuccessModal(true);
+      } else {
+        console.log(res.data)
+      }
+    });
   };
 
   const handleSubmit = (event) => {
@@ -36,9 +45,10 @@ function RegistrationForm() {
   const { email, password, confirmPassword, error } = values;
 
   return (
+    <div className='RegistrationForm'>
     <form onSubmit={handleSubmit}>
-      <div className="form-group mb-3 py-2">
-        <label htmlFor="email" className="small">
+      <div className='form-group mb-3 py-2'>
+        <label htmlFor='email' className="small">
           Enter Email
         </label>
         <input
@@ -85,11 +95,13 @@ function RegistrationForm() {
       <div className="d-grid mb-3 p-2">
         {error && <p className="text-danger small">{error}</p>}
         <AuthButton className="py-2" buttonText='Register' onClick={handleSubmit}/>
-        <Link className="text-center small mt-3" to="/login">
+        <Link className="text-center small mt-3" to="/">
           Already have an account? Sign In
         </Link>
       </div>
     </form>
+    <RegistrationSuccess showSuccessModal={showSuccessModal} />
+    </div>
   );
 }
 
