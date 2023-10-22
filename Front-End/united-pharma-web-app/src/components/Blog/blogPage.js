@@ -8,4 +8,4 @@ const  blogPage =  () => (
   </>
 )
 
-export default blogPage
+export default blogPage;
