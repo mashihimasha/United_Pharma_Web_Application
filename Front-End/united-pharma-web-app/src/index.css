@@ -11,3 +11,68 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.cart-header-title {
+  height: 50px;
+  text-align: left;
+  color: darkslateblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:  200%;
+  background-color: lightblue;
+  font-weight: bold;
+}
+
+.NumberOfItems{
+  height: 50px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:  100%;
+}
+
+.need-help{
+  height: 80px; 
+  color: grey;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:  120%;
+}
+
+.discount-label{
+  height: 100px;
+  text-indent: 50px; 
+  color: rgb(20, 20, 20);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:  120%;
+}
+
+.product-title{
+  text-decoration: none;
+}
+
+.img-fluidalt{
+  height: 150px;
+  width: 70%;
+}
+
+.img-fluidmaster{
+  height: 100px;
+  width: 80%;
+}
+
+.text-uppercase-heading{
+  height: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-heading{
+  height: 220px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button-holder{
+  height: 70px;
+}
+
+
+
+
