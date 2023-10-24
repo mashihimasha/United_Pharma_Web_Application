@@ -32,6 +32,7 @@ function RegistrationForm() {
       if (res.data === 'User Created') {
         setShowSuccessModal(true);
       } else {
+        updateError(res.data);
         console.log(res.data)
       }
     });
@@ -40,6 +41,13 @@ function RegistrationForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     register(); // Call the register function here
+  };
+
+  const updateError = (errorMessage) => {
+    setValues({
+      ...values,
+      error: errorMessage, // Set the error message
+    });
   };
 
   const { email, password, confirmPassword, error } = values;
