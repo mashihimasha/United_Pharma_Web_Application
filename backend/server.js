@@ -9,7 +9,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const app = express();
 
 // Sequelize setup
-const sequelize = new Sequelize("united_pharma_web_app", "root", "", {
+const sequelize = new Sequelize("united_pharma_web_app_test", "root", "", {
   host: "localhost",
   dialect: "mysql",
 });
@@ -31,8 +31,6 @@ password: {
     type: DataTypes.STRING,
     allowNull: false,
 },
-}, {
-tableName: 'users' // Set the table name to 'user'
 });
   
 
@@ -107,7 +105,7 @@ app.post("/login", (req, res, next) => {
 //register
 app.post("/register", (req, res) => {
   const { email, password } = req.body;
-  if(req.body === null){
+  if(req.body !== null){
     User.findOne({ where: { email: email } }).then((user) => {
       if (user) {
         res.send("User Already Exists");

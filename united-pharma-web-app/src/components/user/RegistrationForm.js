@@ -59,6 +59,7 @@ function RegistrationForm() {
           placeholder=""
           value={email}
           onChange={handleInputChange}
+          autoComplete='off'
           required
         />
       </div>
@@ -74,6 +75,7 @@ function RegistrationForm() {
           name="password"
           value={password}
           onChange={handleInputChange}
+          autoComplete='off'
           required
         />
       </div>
@@ -89,6 +91,7 @@ function RegistrationForm() {
           placeholder=""
           value={confirmPassword}
           onChange={handleInputChange}
+          autoComplete='off'
           required
         />
       </div>
