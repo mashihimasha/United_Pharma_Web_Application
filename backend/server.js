@@ -104,7 +104,7 @@ app.post("/login", (req, res, next) => {
 
 //register
 app.post("/register", (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = r-eq.body;
   if(req.body !== null){
     User.findOne({ where: { email: email } }).then((user) => {
       if (user) {
