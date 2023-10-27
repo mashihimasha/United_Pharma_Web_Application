@@ -2,8 +2,9 @@ import React from 'react'
 
 export default function BlogModal(props) {
   return (
+    //Bootstrap modal -- POP up Component
     <div
-            className="modal fade "
+            className="modal fade"
             id="myModal"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
@@ -13,7 +14,7 @@ export default function BlogModal(props) {
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="myModal">
-                    {props.title}
+                  {props.title} 
                   </h5>
                   <button
                     type="button"

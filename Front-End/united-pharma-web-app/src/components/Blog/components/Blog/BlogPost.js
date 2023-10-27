@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlogModal from "./BlogModal";
 
-export default function BlogPost({ id, title, image, content }) {
+export default function BlogPost({ id, title, image, content}) {
   return (
     <div className="col-md-4 mb-4">
       <div className="card">
@@ -19,10 +19,10 @@ export default function BlogPost({ id, title, image, content }) {
           >
             Read More
           </button>
-
+          {/*Send data to blog modal(POP up window) */}
           <BlogModal 
-            id="myModal"
-             key={id}
+            //id="myModal"
+            key={id}
             title={title}
             image={image}
             content={content}

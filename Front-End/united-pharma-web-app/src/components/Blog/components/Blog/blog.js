@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import BannerLeaves from "../../../common/BannerLeaves";
 import BlogPost from "./BlogPost";
 import blogData from "./blogData";
@@ -11,13 +10,13 @@ function Blog() {
       <BannerLeaves />
       <div className="container mt-4">
         <div className="row">
-          {blogData.map((post) => (
+          {blogData.map((props) => (
             <>
               <BlogPost
-                key={post.id}
-                title={post.title}
-                image={post.image}
-                content={post.content}
+                key={props.id}
+                title={props.title}
+                image={props.image}
+                content={props.content}
               />
             </>
           ))}

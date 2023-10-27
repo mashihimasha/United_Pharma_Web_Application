@@ -3,10 +3,8 @@ import Blog from './components/Blog/blog';
 
 const  blogPage =  () => (
   <>
-
-    <h1 className="text-center items-center mb-4 ">United Pharma</h1>
-
-    <Blog />
+    <h1 className="text-center items-center mb-4 pt-3 ">United Pharma</h1>
+    <Blog/>
   </>
 )
 

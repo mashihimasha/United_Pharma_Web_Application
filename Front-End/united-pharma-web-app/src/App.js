@@ -15,11 +15,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={ <RegisterPage/> } />
-        <Route path="bannerLeaves" element={ <BannerLeaves/> } />
-        <Route path="login" element={ <LoginPage/> } />
-        <Route path="blog" element={ <BlogPage/> } />
+        <Route path="/login" element={ <LoginPage/> } />
+        <Route path="/blog" element={ <BlogPage/> } />
       </Routes>
-
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import express from 'express';
 import { createConnection } from 'mysql2';
-
 import {PORT} from './config/config.js';
 
 const app = express()

@@ -37,6 +37,12 @@ const blogData = [
     image: img5,
     content: "This is the content of the fifth blog post.",
   },
+  {
+    id: 6,
+    title: "Sixth Blog Post",
+    image: img5,
+    content: "This is the content of the sixth blog post.",
+  },
 ];
 
 export default blogData;

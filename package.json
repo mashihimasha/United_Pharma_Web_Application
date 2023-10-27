@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.2",
+    "dotenv": "^16.3.1",
     "mysql2": "^3.6.2",
     "react-bootstrap": "^2.9.0"
   }
