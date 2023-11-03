@@ -1,4 +1,421 @@
-/* 1. Theme default css */
+:root{
+	--main-orange: #f39519;
+	--main-success: #0D9B4D;
+}
+
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #777777;
+	font-style: normal;
+}
+
+img,
+.img {
+	max-width: 100%;
+	transition: all 0.3s ease-out 0s;
+}
+a,
+button {
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+	text-decoration: none;
+}
+a:focus,
+.btn:focus,
+button:focus {
+	text-decoration: none;
+	outline: none;
+	box-shadow: none;
+}
+
+a:hover,
+.portfolio-cat a:hover,
+.footer -menu li a:hover {
+	color: var(--main-success);
+	text-decoration: none;
+}
+a,
+button {
+	color: var(--main-orange);
+	outline: medium none;
+	text-decoration: none;
+}
+
+label{
+	font-size: 1.0rem;
+}
+
+.btn:focus,
+button:focus,
+input:focus,
+input:focus,
+textarea,
+textarea:focus {
+	outline: 0
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+h1 {
+	font-size: 40px;
+}
+h2 {
+	font-size: 35px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 22px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+.list-wrap {
+	margin: 0px;
+	padding: 0px;
+}
+.list-wrap li {
+	list-style: none
+}
+p {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.6;
+	color: #777777;
+	margin-bottom: 15px;
+}
+
+/*1. Main*/
+.main {
+	display: block;
+	overflow: hidden;
+}
+
+/* 6. Banner */
+.banner-area {
+	padding: 2.0rem 0 1.8rem;
+	position: relative;
+    z-index: -1;
+    top: 9rem
+}
+
+.banner-images {
+	position: relative;
+}
+.banner-images::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -18px;
+	width: 516px;
+	height: 46px;
+	background: #464646;
+	filter: blur(30px);
+	border-radius: 99px;
+	z-index: -1;
+}
+
+.banner-shape {
+	position: absolute;
+	z-index: -99;
+}
+.banner-shape.one {
+	left: -18px;
+	top: -200%;
+}
+.banner-shape.two {
+	left: -18px;
+	top: 250%;
+}
+
+/* 22. Preloader */
+#preloader {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 9999;
+}
+.tg-cube-grid {
+  	width: 45px;
+  	height: 45px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+}
+.tg-cube-grid .tg-cube {
+  	width: 33%;
+  	height: 33%;
+  	background-color: var(--main-success);
+  	float: left;
+  	-webkit-animation: tg-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  	animation: tg-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.tg-cube-grid .tg-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.tg-cube-grid .tg-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.tg-cube-grid .tg-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.tg-cube-grid .tg-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.tg-cube-grid .tg-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.tg-cube-grid .tg-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.tg-cube-grid .tg-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.tg-cube-grid .tg-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.tg-cube-grid .tg-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@-webkit-keyframes tg-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  };
+}
+
+@keyframes tg-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  };
+}
+
+/* 21. Footer */
+.footer-instagram {
+	position: relative;
+	z-index: 3;
+	margin: 0 0 -95px;
+}
+.footer-insta-item a {
+	display: block;
+	position: relative;
+}
+.footer-insta-item a::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--main-success);
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+}
+.footer-insta-item a:hover::before {
+	opacity: .8;
+}
+.footer-insta-item a::after {
+	content: "\f16d";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	font-family: "Font Awesome 5 Brands";
+	font-weight: 400;
+	font-size: 70px;
+	line-height: 1;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+	opacity: 0;
+}
+.footer-insta-item a:hover::after {
+	opacity: 1;
+}
+.footer-top-wrap {
+	background: #0A0A0A;
+	position: relative;
+	padding: 100px 0 30px;
+	overflow-x: hidden;
+	z-index: 1;
+}
+.not-show-instagram .footer-top-wrap {
+	padding: 120px 0 30px;
+}
+.footer-top-wrap::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: -22px;
+	width: 100%;
+	height: 53px;
+	background-image: url('../src/components/assets/img/footer/footer_bg_shape.png');
+	background-repeat: repeat;
+	background-position: center;
+	z-index: -1;
+}
+.footer-shape {
+	position: absolute;
+	z-index: -1;
+}
+.footer-shape.one {
+	left: 0;
+	bottom: 100px;
+}
+.footer-shape.two {
+	right: 0;
+	bottom: 170px;
+}
+.footer-widget {
+	margin: 0 0 50px;
+}
+.footer-logo {
+	margin: 0 0 30px;
+}
+.footer-widget .footer-text {
+	width: 75%;
+}
+.footer-widget .footer-text p {
+	margin: 0 0;
+	color: #fff;
+	opacity: .7;
+}
+.footer-social {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 30px;
+}
+.footer-social a {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #1B1B1B;
+	border-radius: 50%;
+	color: #fff;
+}
+.footer-social a:hover {
+	background: var(--main-success);
+}
+.footer-widget .fw-title {
+	font-size: 20px;
+	color: #fff;
+	letter-spacing: 0.02em;
+	margin: 0 0 30px;
+}
+.footer-widget ul li {
+	margin: 0 0 12px;
+}
+.footer-widget ul li:last-child {
+	margin: 0 0;
+}
+.footer-widget ul li a {
+	color: #fff;
+	opacity: .7;
+}
+.footer-widget ul li a:hover {
+	color: var(--main-success);
+	opacity: 1;
+}
+.footer-contact-wrap p {
+	color: #fff;
+	opacity: .7;
+}
+.footer-contact-wrap .list-wrap {
+	margin: 30px 0 0;
+}
+.footer-contact-wrap .list-wrap li {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px;
+}
+.footer-contact-wrap .list-wrap li i {
+	color: var(--main-success);
+	font-size: 18px;
+	margin-right: 10px;
+}
+.footer-widgets-wrap .row [class*="col-"]:nth-child(4n+2) .footer-widget {
+	padding-left: 30px;
+}
+.copyright-wrap {
+	background: #0A0A0A;
+	border-top: 1px solid #262626;
+	padding: 25px 0;
+}
+.copyright-text p {
+	margin: 0 0;
+	color: #FFFFFF;
+	opacity: .9;
+}/* 1. Theme default css */
 
 *:before,
 *:after{

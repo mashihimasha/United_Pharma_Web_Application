@@ -1,11 +1,11 @@
 import React from 'react';
-import '../assets/css/user.css';
+import '../assets/css/User.css';
 
 const AuthButton = ({ buttonText, onClick }) => {
   return (
     <button
-      className="btn text-uppercase fw-bold mb-2"
-      type="submit"
+      className='btn-custom text-uppercase mb-2'
+      type='submit'
       onClick={onClick}
     >
       {buttonText}
