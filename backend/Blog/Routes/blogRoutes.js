@@ -11,13 +11,25 @@ const db = createPool({
   database: process.env.DB_DATABASE,
 });
 
-app.get('/inventory', (req, res) => {
-    let sql = 'SELECT * FROM inventory';
+app.get('/blog', (req, res) => {
+    let sql = 'SELECT * FROM blog';
     connection.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
-        res.send('Inventory received');
+        res.send('');
     });
 });
 
+app.get('/blog/:id' , (req, res) => {
+    mysqlConnection.query('SELECT * FROM blog WHERE id = ?',[req.params.id], (err, rows, fields) => {
+    if (!err)
+    res.send(rows);
+    else
+    console.log(err);
+    })
+    } );
+app.post('/blog',(req,res) => {
+
+})
+ 
 export default app;
