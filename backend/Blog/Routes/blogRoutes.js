@@ -51,5 +51,19 @@ const connection = mysql.createConnection({
       }
     });
   });
+
+  app.put('/blog/:id', (request, response) => {
+    const { id } = request.params;
+    const { title, contents } = request.body;
+    connection.query('UPDATE blog SET title = ?, contents = ? WHERE id = ?', [title, contents, id], (error) => {
+      if (error) {
+        console.error(error);
+        response.status(500).send('Error updating blog');
+      } else {
+        response.send('Blog updated successfully');
+      }
+    });
+  });
+   
  
 export default app;
