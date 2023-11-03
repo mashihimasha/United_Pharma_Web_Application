@@ -1,21 +1,18 @@
-import express from 'express';
-import { createConnection } from 'mysql2';
-import {PORT} from './config/config.js';
+import express, { json } from 'express';
+const app = express();
 
-const app = express()
+import { config } from 'dotenv';
+import blogRoutes from './routes/routes.js';
+config();
 
-app.get('/', (req, res) => res.send('Hello World!'))
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
 
-var database = createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+const PORT = process.env.PORT || 3000;
+
+
+app.use(json());
+
+app.use(blogRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-database.connect((err => {
-    if (err) throw err;
-    console.log('MySQL Connected');
-}));
-
