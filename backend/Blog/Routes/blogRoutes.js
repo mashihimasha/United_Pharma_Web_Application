@@ -1,35 +1,31 @@
-import { Router } from 'express';
+import { Router } from "express";
+import mysql  from 'mysql2';
+import { configDotenv } from "dotenv";
+configDotenv();
 const app = Router();
-import { createPool } from 'mysql2/promise';
-import { config } from 'dotenv';
-config();
 
-const db = createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-});
-
-app.get('/blog', (req, res) => {
-    let sql = 'SELECT * FROM blog';
-    connection.query(sql, (err, result) => {
-        if (err) throw err;
-        console.log(result);
-        res.send('');
+const connection = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PW,
+    database: process.env.DB
+  });
+  connection.connect((error) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('Connected to the database');
+    }
+  });
+  app.get('/blogs', (request, response) => {
+    connection.query('SELECT * FROM blog', (error, data) => {
+      if (error) {
+        console.error(error);
+        response.status(500).send('Error retrieving blog');
+      } else {
+        response.send(data);
+      }
     });
-});
-
-app.get('/blog/:id' , (req, res) => {
-    mysqlConnection.query('SELECT * FROM blog WHERE id = ?',[req.params.id], (err, rows, fields) => {
-    if (!err)
-    res.send(rows);
-    else
-    console.log(err);
-    })
-    } );
-app.post('/blog',(req,res) => {
-
-})
+  });
  
 export default app;
