@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthButton from './AuthButton';
 import Axios from "axios";
+import FormInput from './FormInput';
 
 function LoginForm() {
   const [values, setValues] = useState({
@@ -41,48 +42,38 @@ function LoginForm() {
     login(); // Call the login function here
   };
 
+  const { showPassword, error } = values;
 
-  const { email, password, showPassword, error } = values;
+  const inputFields = [
+    {
+      name: 'email',
+      type: 'email',
+      label: 'Email Address',
+      autoComplete: 'username',
+    },
+    {
+      name: 'password',
+      type: showPassword ? 'text' : 'password',
+      label: 'Enter Password',
+      autoComplete: 'current-password',
+    },
+  ];
 
   return (
     <div className='login-form'>
       <form onSubmit={handleSubmit}>
-        <div className='form-group mb-3 py-2'>
-          <label htmlFor='email' className='small'>
-            Email Address
-          </label>
-          <input
-            className='form-control'
-            type='email'
-            id='email'
-            name='email'
-            placeholder=''
-            value={email}
+        {inputFields.map((field, index) => (
+          <FormInput
+            key={index}
+            name={field.name}
+            type={field.type}
+            label={field.label}
+            value={values[field.name]}
             onChange={handleInputChange}
-            required
+            autoComplete={field.autoComplete}
           />
-        </div>
-        <div className='form-group mb-3 py-1'>
-          <label htmlFor='password' className='small'>
-            Enter Password
-          </label>
-          <input
-            className='form-control'
-            type={showPassword ? 'text' : 'password'} // Toggle input type
-            id='password'
-            placeholder=''
-            name='password'
-            value={password}
-            onChange={handleInputChange}
-            required
-          />
-          <div className='password-input'>
-            <i
-              className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
-              onClick={togglePasswordVisibility}
-            ></i>
-          </div>
-        </div>
+        ))}
+
         <div className='form-group mb-3'>
           <Link className='text-right small px-3' to='forgotPassword'>
             Forgot password?

@@ -38,6 +38,7 @@
     border: 0.1rem solid #0000006c;
     border-radius: 3.0rem;
 	padding: 0.5rem;
+	height: 40px;
 }
 
 .form-control::placeholder{
