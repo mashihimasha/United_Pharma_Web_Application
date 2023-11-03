@@ -18,7 +18,7 @@ function LoginForm() {
   });
 
   const onChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value, error: null });
+    setValues({ ...values, [event.target.name]: event.target.value });
   };
 
   // Function to toggle password visibility
@@ -73,7 +73,7 @@ function LoginForm() {
     return isValid;
   };
 
-  const { email, password, showPassword, error } = values;
+  const { showPassword } = values;
 
   const inputFields = [
     {
@@ -113,14 +113,16 @@ function LoginForm() {
             onClick={togglePasswordVisibility}
           ></i>
         </div>
-        <div className='form-group mb-3'>
-          <Link className='text-right small px-3' to='forgotPassword'>
-            Forgot password?
-          </Link>
-        </div>
-
+        {submitErrors.general && (
+            <p className="text-danger small px-2">{submitErrors.general}</p>
+        )}
         <div className='d-grid mb-3 p-2'>
-          {error && <p className='text-danger small'>{error}</p>} {/* Display error message */}
+
+          <div className='form-group mb-3'>
+            <Link className='text-right small' to='forgotPassword'>
+              Forgot password?
+            </Link>
+          </div>
 
           <AuthButton className='py-2' buttonText='Sign In' onClick={handleSubmit} />
 

@@ -6,6 +6,7 @@ import RegistrationSuccess from './RegistrationSuccess';
 import FormInput from './FormInput';
 
 const RegistrationForm = () => {
+  
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [values, setValues] = useState({
     email: '',
