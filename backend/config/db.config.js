@@ -15,5 +15,5 @@ async function getData(){
     return data;
 }
 
-const dat = await getData();
-console.log(dat);
+const data = await getData();
+console.log(data);
