@@ -1,14 +1,13 @@
-import express from 'express';
+import express, { json } from 'express';
 const app = express();
-import { urlencoded, json } from 'body-parser';
+
 import { config } from 'dotenv';
-import blogRoutes from './routes/blogRoutes';
+import blogRoutes from './Blog/routes/blogRoutes.js';
 config();
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-app.use(urlencoded({ extended: true }));
 app.use(json());
 
 app.use('/api', blogRoutes);
