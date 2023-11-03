@@ -39,5 +39,17 @@ const connection = mysql.createConnection({
     })
   
   })
+
+  app.post('/blog', (request, response) => {
+    const { title, contents } = request.body;
+    connection.query('INSERT INTO blog (title, contents ) VALUES (?, ?)', [title, contents], (error) => {
+      if (error) {
+        console.error(error);
+        response.status(500).send('Error creating blog');
+      } else {
+        response.send('Blog created successfully');
+      }
+    });
+  });
  
 export default app;
