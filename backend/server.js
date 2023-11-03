@@ -56,19 +56,14 @@ app.use(passport.session());
 
 passport.use(
   new LocalStrategy((email, password, done) => {
-    console.log(email);
-  console.log(password);
     User.findOne({ where: { email: email } }).then((user) => {
-      console.log(email);
-  console.log(password);
       if (!user) {
-      console.log(email);
-      console.log(password);
         return done(null, false, { message: "No User Exists" });
       }
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err) {
-          return done(err); // Handle the error here
+          console.log(password);
+          return done(err);
         }
         if (isMatch) {
           return done(null, user);
@@ -80,16 +75,19 @@ passport.use(
   })
 );
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findByPk(id).then((user) => {
+    done(null, user);
+  });
+});
+
 // Routes
-
-//login
 app.post("/login", (req, res, next) => {
-  const { email, password } = req.body;
-  console.log(email);
-  console.log(password);
   passport.authenticate("local", (err, user, info) => {
-    console.log(user);
-
     if (err)throw err;
     if (!user)res.send(info.message);
     else {
@@ -107,23 +105,25 @@ app.post("/login", (req, res, next) => {
 //register
 app.post("/register", (req, res) => {
   const { email, password } = req.body;
-  User.findOne({ where: { email: email } }).then((user) => {
-    if (user) {
-      res.send("User Already Exists");
-    } else {
-      bcrypt.hash(password, 10, (err, hashedPassword) => {
-        if (err) {
-          throw err;
-        }
-        User.create({
-          email: email,
-          password: hashedPassword,
-        }).then(() => {
-          res.send("User Created");
+  if(req.body !== ""){
+    User.findOne({ where: { email: email } }).then((user) => {
+      if (user) {
+        res.send("User Already Exists");
+      } else {
+        bcrypt.hash(password, 10, (err, hashedPassword) => {
+          if (err) {
+            throw err;
+          }
+          User.create({
+            email: email,
+            password: hashedPassword,
+          }).then(() => {
+            res.send("User Created");
+          });
         });
-      });
-    }
-  });
+      }
+    });
+  }
 }
 );
 

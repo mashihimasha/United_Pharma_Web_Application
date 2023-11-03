@@ -308,18 +308,18 @@ p {
 .not-show-instagram .footer-top-wrap {
 	padding: 120px 0 30px;
 }
-/* .footer-top-wrap::before {
+.footer-top-wrap::before {
 	content: "";
 	position: absolute;
 	left: 0;
 	top: -22px;
 	width: 100%;
 	height: 53px;
-	background-image: url('../src/components/assets/img/footer/footer_shape.png');
+	background-image: url('../src/components/assets/img/footer/footer_bg_shape.png');
 	background-repeat: repeat;
 	background-position: center;
 	z-index: -1;
-} */
+}
 .footer-shape {
 	position: absolute;
 	z-index: -1;
