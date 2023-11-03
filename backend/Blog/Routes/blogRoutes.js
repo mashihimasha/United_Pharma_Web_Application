@@ -27,5 +27,17 @@ const connection = mysql.createConnection({
       }
     });
   });
+
+  app.get('/blogs/:id', (request, response) => {
+    const { id } = request.params;
+    connection.query('SELECT * from blog WHERE id = ? ',[id], (err, data) => {
+      if(!err)
+        response.send(data);
+      else
+      console.log(err)
+      response.status(404).send('Blog not found');
+    })
+  
+  })
  
 export default app;
