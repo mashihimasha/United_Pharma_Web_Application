@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 import AuthButton from './AuthButton';
-import Axios from "axios";
-import FormInput from './FormInput';
 
 function LoginForm() {
   const [values, setValues] = useState({
@@ -25,73 +24,95 @@ function LoginForm() {
     }));
   };
 
-  const login = () => {
-    Axios({
-      method: 'POST',
-      data: {
+  const login = async () => {
+    try {
+      const response = await Axios.post('http://localhost:3000/login', {
         email: values.email,
         password: values.password,
-      },
-      withCredentials: true,
-      url: 'http://localhost:3000/login', // replace with your server's URL
-    }).then((res) => console.log(res.data));
+      });
+
+      if (response.data === 'User Authenticated') {
+        // Successful login, redirect or perform action as needed
+        console.log('Login successful');
+      } else {
+        setValues({ ...values, error: response.data });
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(); // Call the login function here
+
+    // Perform form validation
+    if (!values.email) {
+      setValues({ ...values, error: 'Email is required.' });
+    } else if (!values.password) {
+      setValues({ ...values, error: 'Password is required.' });
+    } else {
+      login(); // Call the login function here
+    }
   };
 
-  const { showPassword, error } = values;
-
-  const inputFields = [
-    {
-      name: 'email',
-      type: 'email',
-      label: 'Email Address',
-      autoComplete: 'username',
-    },
-    {
-      name: 'password',
-      type: showPassword ? 'text' : 'password',
-      label: 'Enter Password',
-      autoComplete: 'current-password',
-    },
-  ];
+  const { email, password, showPassword, error } = values;
 
   return (
-    <div className='login-form'>
+    <div className="login-form">
       <form onSubmit={handleSubmit}>
-        {inputFields.map((field, index) => (
-          <FormInput
-            key={index}
-            name={field.name}
-            type={field.type}
-            label={field.label}
-            value={values[field.name]}
+        <div className="form-group mb-3 py-2">
+          <label htmlFor="email" className="small">
+            Email Address
+          </label>
+          <input
+            className="form-control"
+            type="email"
+            id="email"
+            name="email"
+            placeholder=""
+            value={email}
             onChange={handleInputChange}
-            autoComplete={field.autoComplete}
+            required
           />
-        ))}
-
-        <div className='form-group mb-3'>
-          <Link className='text-right small px-3' to='forgotPassword'>
+        </div>
+        <div className="form-group mb-3 py-1">
+          <label htmlFor="password" className="small">
+            Password
+          </label>
+          <input
+            className="form-control"
+            type={showPassword ? 'text' : 'password'} // Toggle input type
+            id="password"
+            name="password"
+            value={password}
+            onChange={handleInputChange}
+            required
+          />
+          <div className="password-input">
+            <i
+              className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+              onClick={togglePasswordVisibility}
+            ></i>
+          </div>
+        </div>
+        <div className="form-group mb-3">
+          <Link className="text-right small px-3" to="forgotPassword">
             Forgot password?
           </Link>
         </div>
 
-        <div className='d-grid mb-3 p-2'>
-          {error && <p className='text-danger small'>{error}</p>} {/* Display error message */}
+        <div className="d-grid mb-3 p-2">
+          {error && <p className="text-danger small">{error}</p>} {/* Display error message */}
 
-          <AuthButton className='py-2' buttonText='Sign In' onClick={handleSubmit} />
+          <AuthButton className="py-2" buttonText="Sign In" onClick={handleSubmit} />
 
-          <Link className='text-center small mt-3' to='/register'>
+          <Link className="text-center small mt-3" to="/register">
             Create Account?
           </Link>
-          <div className='form-row d-flex mt-4 align-baseline'>
-            <hr className='my-4 text-success col-4' />
-            <p className='text-dark text-center small col-4'>Or continue with</p>
-            <hr className='my-4 text-success col-4' />
+          <div className="form-row d-flex mt-4 align-baseline">
+            <hr className="my-4 text-success col-4" />
+            <p className="text-dark text-center small col-4">Or continue with</p>
+            <hr className="my-4 text-success col-4" />
           </div>
         </div>
       </form>
