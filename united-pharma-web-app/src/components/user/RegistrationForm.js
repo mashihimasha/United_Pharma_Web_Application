@@ -89,6 +89,7 @@ const RegistrationForm = () => {
       name: 'email',
       type: 'text',
       label: 'Enter Email',
+      autoComplete: 'username',
       error: submitErrors.email,
     },
     {
@@ -102,6 +103,7 @@ const RegistrationForm = () => {
       name: 'confirmPassword',
       type: 'password',
       label: 'Confirm Password',
+      autoComplete: 'new-password',
       error: submitErrors.confirmPassword,
     },
   ];

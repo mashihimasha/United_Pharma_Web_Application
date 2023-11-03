@@ -127,7 +127,7 @@
   position: absolute;
   top: 0%;
   right: 10px; /* Adjust the left position as needed */
-  transform: translateY(-170%);
+  transform: translateY(-270%);
   cursor: pointer;
 }
 
