@@ -41,7 +41,7 @@ function LoginForm() {
         const response = await Axios.post('http://localhost:3000/login', {
           email: values.email,
           password: values.password,
-        });
+        }, { withCredentials: true });
   
         if (response.data === 'User Authenticated') {
           // Successful login, redirect or perform action as needed

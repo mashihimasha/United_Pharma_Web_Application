@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Footer from './components/common/Footer';
-import UserProfile from './pages/UserProfile';
+import UserAccountPage from './pages/UserAccountPage';
 import ForgotPasswordForm from './components/user/ForgotPasswordForm';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path='register' element={ <RegisterPage/> } />
           <Route path='/' element={ <LoginPage/> } />
-          <Route path='userProfile' element={ <UserProfile/> } />
+          <Route path='userAccount' element={ <UserAccountPage/> } />
           <Route path='/forgotPassword' element={<ForgotPasswordForm/>}/>
         </Routes>
       </div>

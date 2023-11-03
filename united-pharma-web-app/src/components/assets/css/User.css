@@ -21,16 +21,17 @@
     background-position: top center;
 }
 
+.bg-forgot-pw-image {
+	background-image: url("../img/auth/bg-forgotPassword.jpg");
+	background-size: cover;
+	background-position: bottom;
+}
+
 .auth-heading {
     color: #000;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
-}
-
-.bg-gradient{
-	background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%) !important;
-	backdrop-filter: saturate(10);
 }
 
 /*Forms*/
