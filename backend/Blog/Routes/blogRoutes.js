@@ -64,6 +64,19 @@ const connection = mysql.createConnection({
       }
     });
   });
+
+  app.delete('/blog/:id', (request, response) => {
+    const { id } = request.params;
+    connection.query('DELETE FROM blog WHERE id = ?', [id], (error) => {
+      if (error) {
+        console.error(error);
+        response.status(500).send('Error deleting blog');
+      } else {
+        response.send('Blog deleted successfully');
+      }
+    });
+  });
+
    
  
 export default app;
