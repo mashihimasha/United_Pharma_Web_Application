@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Footer extends Component {
   render() {
     return (
-      <footer className='footer-area'>
+      <footer className='footer-area animate__animated animate__fadeInUpBig'>
         {/* Footer Content */}
         <div className='footer-top-wrap'>
           <div className='container'>

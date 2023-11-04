@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 class ForgotPasswordForm extends Component {
   render() {
     return (
-      <div className="bg-gradient g-0">
-        <div className="row">
+      <div className="forgot-pw g-0">
+        <div className="row bg-forgotpw-image ">
           <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div className="card border-0 shadow rounded-3 my-5">
-              <div className="card-body p-4 p-sm-5">
+              <div className="card-body p-4 p-sm-5 text-white">
                 <h4 className="card-title text-center mb-3 fw-bold fs-4">Forgot your Password?</h4>
-                <p className='mb-3'>Please enter your email address below to receive a password reset link.</p>
+                <p className='mb-3 text-white'>Please enter your email address below to receive a password reset link.</p>
                 <form>
                   <div className="form-group my-5 py-1">
                     <label htmlFor="email" className='small'>Email address</label>

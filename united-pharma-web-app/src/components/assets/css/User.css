@@ -21,6 +21,13 @@
     background-position: top center;
 }
 
+.bg-forgotpw-image {
+    background-image: url("../img/auth/forgotpw.jpg");
+    background-size: cover;
+	background-attachment: fixed;
+    background-position: bottom center;
+}
+
 .auth-heading {
     color: #000;
     font-weight: 400;
@@ -28,9 +35,10 @@
     text-transform: uppercase;
 }
 
-.bg-gradient{
-	background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%) !important;
-	backdrop-filter: saturate(10);
+/*Cards*/
+.forgot-pw .card{
+	background-color: rgba(0.0, 0.0, 0.0, 0.8);
+	border-radius: 3rem;
 }
 
 /*Forms*/
