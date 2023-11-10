@@ -16,9 +16,15 @@ class LoginPage extends Component {
             <div className='col-md-8 col-lg-7'>
               <div className='registration d-flex align-items-center py-1'>
                 <div className='container'>
-                <BannerLeaves className='col-lg-4 col-md-1 p-1' />
+                  <BannerLeaves className='col-lg-4 col-md-1 p-1' />
                   <div className='row'>
-                    <div className='col-md-9 col-lg-7 mx-auto'>
+                    <div className='col-md-9 col-lg-7 mx-auto'
+                      style={{
+                        visibility: 'visible',
+                        animationDuration: '2s',
+                        animationDelay: '0.2s',
+                        animationName: 'bannerFadeInLeft',
+                        }}>
                       <h4 className='h4 auth-heading mb-4 py-3'>Sign in to your account</h4>
                       {/* <AuthButton buttonText='Google Login' className=''/> */}
                       <LoginForm />

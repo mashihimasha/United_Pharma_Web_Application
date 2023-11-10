@@ -142,3 +142,31 @@
 .password-input input {
   padding-left: 30px; /* Adjust the padding to make space for the icon */
 }
+
+/*User Profile*/
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+	margin-right:100px;
+}
+
+#profile-container img {
+    width: 100px;
+    height: 100px;
+}

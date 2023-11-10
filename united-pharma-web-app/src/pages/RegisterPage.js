@@ -26,7 +26,13 @@ class RegisterPage extends Component {
                 </div>
               </div>
             </div>
-            <div className='d-none d-md-flex col-md-4 col-lg-5 bg-register-image'></div>
+            <div className='d-none d-md-flex col-md-4 col-lg-5 bg-register-image'
+                style={{
+                visibility: 'visible',
+                animationDuration: '2s',
+                animationDelay: '0s',
+                animationName: 'bannerFadeInRight',
+                }}></div>
           </div>
         </div>
       </div>

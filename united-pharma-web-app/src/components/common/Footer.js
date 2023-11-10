@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 class Footer extends Component {
   render() {
     return (
-      <footer className='footer-area animate__animated animate__fadeInUpBig'>
+      <motion.footer
+      initial={{ opacity: 0, translateY: 50 }} // Initial state (hidden)
+      animate={{ opacity: 1, translateY: 0 }} // Animation when in view
+      exit={{ opacity: 0, translateY: 50 }} // Animation when leaving view
+      whileInView={{ opacity: 1, translateY: 0 }} // Animation while in view
+      >
+      <footer className='footer-area'>
         {/* Footer Content */}
         <div className='footer-top-wrap'>
           <div className='container'>
@@ -158,6 +165,7 @@ class Footer extends Component {
           </div>
         </div>
       </footer>
+      </motion.footer>
     );
   }
 }
