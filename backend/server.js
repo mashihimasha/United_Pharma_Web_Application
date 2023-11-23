@@ -21,15 +21,21 @@ sequelize.authenticate().then(() => {
  });
 
 // Define a User model
-const User = sequelize.define("User", {
+const User = sequelize.define('User', {
+id: {
+  type: DataTypes.INTEGER,
+  primaryKey: true,
+  autoIncrement: true,
+  allowNull: false,
+},
 email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
+  type: DataTypes.STRING,
+  allowNull: false,
+  unique: true,
 },
 password: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  type: DataTypes.STRING,
+  allowNull: false,
 },
 });
   
@@ -54,24 +60,36 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(
-  new LocalStrategy((email, password, done) => {
-    User.findOne({ where: { email: email } }).then((user) => {
-      if (!user) {
-        return done(null, false, { message: "No User Exists" });
-      }
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if (err) {
-          console.log(password);
-          return done(err);
+passport.use(new LocalStrategy(
+  (email, password, done) => {
+
+    User.findOne({ where: { email: email } })
+      .then((user) => {
+        console.log('User:', user); // Check if the user is found
+
+        if (!user) {
+          console.error('No user found');
+          return done(null, false, { message: "No User Exists" });
         }
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: "Incorrect Password" });
-        }
+
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+          if (err) {
+            console.error('Error during password comparison:', err);
+            return done(err);
+          }
+
+          if (isMatch) {
+            return done(null, user);
+          } else {
+            console.error('Incorrect Password');
+            return done(null, false, { message: "Incorrect Password" });
+          }
+        });
+      })
+      .catch((error) => {
+        console.error('Error in database query:', error);
+        return done(error);
       });
-    });
   })
 );
 
@@ -88,15 +106,21 @@ passport.deserializeUser((id, done) => {
 // Routes
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
-    if (err)throw err;
-    if (!user)res.send(info.message);
-    else {
+    if (err) {
+      console.error('Error during authentication:', err);
+      throw err;
+    }
+    if (!user) {
+      console.error('No user found:', info.message);
+      res.send(info.message);
+    } else {
       req.logIn(user, (err) => {
         if (err) {
+          console.error('Error during login:', err);
           throw err;
         }
         res.send("Successfully Authenticated");
-        console.log(req.user);
+        console.log('Authenticated User:', req.user);
       });
     }
   })(req, res, next);

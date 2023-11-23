@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import Footer from './components/common/Footer';
 import UserProfile from './pages/UserProfile';
 import ForgotPasswordForm from './components/user/ForgotPasswordForm';
+import Sidebar from './components/user/Sidebar';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={ <LoginPage/> } />
           <Route path='userProfile' element={ <UserProfile/> } />
           <Route path='/forgotPassword' element={<ForgotPasswordForm/>}/>
+          <Route path='/sidebar' element={<Sidebar/>}/>
         </Routes>
       </div>
       <Footer/>
