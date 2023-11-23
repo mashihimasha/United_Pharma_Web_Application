@@ -2,24 +2,28 @@ import React, { useState } from 'react';
 
 const BlogCreationPage = () => {
   const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [content, setContent] = useState('');
+  const [contents, setContent] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleImageChange = (e) => {
-    setImage(e.target.value);
-  };
-
-  const handleContentChange = (e) => {
-    setContent(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
+  const handleAddPost = () => {
+    fetch('http://localhost:3000/blog', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title, contents, imageUrl }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      
+        setTitle('');
+        setContent('');
+        setImageUrl('');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (
@@ -54,7 +58,7 @@ const BlogCreationPage = () => {
             className="form-control"
             id="content"
             rows="8"
-            value={content}
+            value={contents}
             onChange={handleContentChange}
             required
           ></textarea>
