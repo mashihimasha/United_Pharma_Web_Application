@@ -1,34 +1,34 @@
 import { Button } from "bootstrap";
 import React from "react";
 import { Link } from "react-router-dom";
-import BlogModal from "./BlogModal";
 
-export default function BlogPost({ id, title, image, content}) {
+
+const BlogPost = ({ title, image, content }) => {
+  const [showFullContent, setShowFullContent] = React.useState(false);
+
+  const toggleContentVisibility = () => {
+    setShowFullContent(!showFullContent);
+  };
+
+  const displayContent = showFullContent ? content : content.split(" ").slice(0, 20).join(" ");
+
   return (
-    <div className="col-md-4 mb-4">
+    <div className="col-md-6 mb-4">
       <div className="card">
+        <img src={image} className="card-img-top" alt={title} />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
-          <img src={image} />
-          <p className="card-text">{content}</p>
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#myModal"
-          >
-            Read More
-          </button>
-          {/*Send data to blog modal(POP up window) */}
-          <BlogModal 
-            //id="myModal"
-            key={id}
-            title={title}
-            image={image}
-            content={content}
-          />
+          <p className="card-text">{displayContent}</p>
+          {content.split(" ").length > 20 && (
+            <button className="btn btn-primary mr-2" onClick={toggleContentVisibility}>
+              {showFullContent ? "Hide" : "Read More"}
+            </button>
+          )}
         </div>
+        
       </div>
     </div>
   );
-}
+};
+
+export default BlogPost;
