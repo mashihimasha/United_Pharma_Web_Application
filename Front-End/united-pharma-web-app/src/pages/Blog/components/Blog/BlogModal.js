@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function BlogModal(props) {
   return (
-    //Bootstrap modal -- POP up Component
+
     <div
             className="modal fade"
             id="myModal"
