@@ -119,7 +119,7 @@ app.post("/login", (req, res, next) => {
           console.error('Error during login:', err);
           throw err;
         }
-        res.send("Successfully Authenticated");
+        res.send('Successfully Authenticated');
         console.log('Authenticated User:', req.user);
       });
     }

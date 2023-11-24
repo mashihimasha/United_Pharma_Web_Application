@@ -1,8 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import '../components/assets/css/User.css';
 import ProfileForm from '../components/user/ProfileForm';
 import CardDetailsForm from '../components/user/CardDetailsForm';
+import Sidebar from '../components/user/UserAccount/Sidebar';
+import OrderDetails from '../components/user/UserAccount/OrderDetails';
+import Preferences from '../components/user/UserAccount/Preferences';
 
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState('profile');
@@ -12,64 +14,20 @@ const UserProfile = () => {
   };
 
   return (
-    <div id="wrapper">
-      <div id="page-content-wrapper">
-        <nav className="navbar navbar-expand-lg navbar-black bg-black justify-content-center">
-          <ul className="nav nav-pills tab mr-auto mt-2 mt-lg-0">
-            <TabLink
-              label="Profile"
-              tab="profile"
-              activeTab={activeTab}
-              onClick={handleTabChange}
-            />
-            <TabLink
-              label="Orders"
-              tab="orders"
-              activeTab={activeTab}
-              onClick={handleTabChange}
-            />
-            <TabLink
-              label="Payment"
-              tab="payment"
-              activeTab={activeTab}
-              onClick={handleTabChange}
-            />
-            <TabLink
-              label="Preferences"
-              tab="preferences"
-              activeTab={activeTab}
-              onClick={handleTabChange}
-            />
-          </ul>
-        </nav>
-        <div className="tab-content py-3 mb-5">
-          {/* Profile Section */}
-          <ProfileSection activeTab={activeTab} />
-          {/* Orders Section */}
-          <OrdersSection activeTab={activeTab} />
-          {/* Payment Section */}
-          <PaymentSection activeTab={activeTab} />
-          {/* Preferences Section */}
-          <PreferencesSection activeTab={activeTab} />
-        </div>
+    <div id="wrapper" className="d-flex">
+      <Sidebar activeTab={activeTab} onTabChange={handleTabChange} />
+
+      <div className="tab-content p-3 mb-5 mx-auto">
+        {/* Profile Section */}
+        <ProfileSection activeTab={activeTab} />
+        {/* Orders Section */}
+        <OrdersSection activeTab={activeTab} />
+        {/* Payment Section */}
+        <PaymentSection activeTab={activeTab} />
+        {/* Preferences Section */}
+        <PreferencesSection activeTab={activeTab} />
       </div>
     </div>
-  );
-};
-
-const TabLink = ({ label, tab, activeTab, onClick }) => {
-  const isActive = activeTab === tab;
-
-  return (
-    <li className={`nav-item ${isActive ? 'active' : ''}`}>
-      <a
-        className={`nav-link text-light ${isActive ? 'active show' : ''}`}
-        href={`#${tab}`}
-        onClick={() => onClick(tab)}
-      >
-        {label} {isActive && <span className="sr-only">(current)</span>}
-      </a>
-    </li>
   );
 };
 
@@ -90,6 +48,7 @@ const OrdersSection = ({ activeTab }) => {
   return (
     <div className={`container-fluid tab-pane fade ${activeTab === 'orders' ? 'show active' : ''}`} id="orders">
       {/* ... Orders Section JSX ... */}
+      <OrderDetails/>
     </div>
   );
 };
@@ -111,6 +70,7 @@ const PreferencesSection = ({ activeTab }) => {
   return (
     <div className={`container-fluid tab-pane fade ${activeTab === 'preferences' ? 'show active' : ''}`} id="preferences">
       {/* ... Preferences Section JSX ... */}
+      <Preferences/>
     </div>
   );
 };

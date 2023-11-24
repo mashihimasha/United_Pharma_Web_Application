@@ -87,3 +87,13 @@ main {
 
 .fw-semibold { font-weight: 600; }
 .lh-tight { line-height: 1.25; }
+
+.list-group-item.active {
+  z-index: 2;
+  background-color: #0D9B4D;
+  border-color: #0D9B4D;
+}
+
+.list-group-item.active .nav-link{
+  color: #fff !important;
+}

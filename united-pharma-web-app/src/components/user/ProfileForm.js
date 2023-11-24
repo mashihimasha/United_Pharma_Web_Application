@@ -46,52 +46,48 @@ const ProfileForm = () => {
   };
 
   return (
-    <div className="container-fluid tab-pane active show" id="profile">
-      <div className="container-fluid">
-        <div className="container">
-          <div className='d-flex align-items-center col-md-9 col-lg-8 mx-auto pt-3'>
-            <div id="profile-container">
-              <img id="profileImage" src={require('../assets/img/banner/banner_shape01.png')}/>
-            </div>
-            <input
-              id="imageUpload"
-              type="file"
-              name="profile_photo"
-              placeholder="Photo"
-              required=""
-              capture=""
-            />
-            <div className="dropdown-user-details gradient-border">
-              <h4 className="text-black ml-2">Welcome Back !</h4>
-              <div className="dropdown-user-details-name ml-3 text-black">Solar Luna</div>
-              <div className="dropdown-user-details-email ml-3">sluna@gmail.com</div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-9 col-lg-8 mx-auto pt-3">
-              <form onSubmit={handleSubmit}>
-                {inputFields.map((field, index) => (
-                  <FormInput
-                    key={index}
-                    name={field.name}
-                    type={field.type}
-                    label={field.label}
-                    value={values[field.name]}
-                    onChange={onChange}
-                    autoComplete={field.autoComplete}
-                  />
-                ))}
-                <button
-                  className="btn btn-success text-white sm my-4 mx-auto d-block"
-                  type="submit"
-                  name="submit1"
-                  value="submit"
-                >
-                  Update
-                </button>
-              </form>
-            </div>
-          </div>
+    <div>
+      <div className='d-flex align-items-center mx-auto pt-3'>
+        <div id="profile-container">
+          <img id="profileImage" src={require('../assets/img/banner/banner_shape01.png')}/>
+        </div>
+        <input
+          id="imageUpload"
+          type="file"
+          name="profile_photo"
+          placeholder="Photo"
+          required=""
+          capture=""
+        />
+        <div className="dropdown-user-details gradient-border">
+          <h4 className="text-black ml-2">Welcome Back !</h4>
+          <div className="dropdown-user-details-name ml-3 text-black">Solar Luna</div>
+          <div className="dropdown-user-details-email ml-3">sluna@gmail.com</div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="pt-3">
+          <form onSubmit={handleSubmit}>
+            {inputFields.map((field, index) => (
+              <FormInput
+                key={index}
+                name={field.name}
+                type={field.type}
+                label={field.label}
+                value={values[field.name]}
+                onChange={onChange}
+                autoComplete={field.autoComplete}
+              />
+            ))}
+            <button
+              className="btn btn-success text-white sm my-4 mx-auto d-block"
+              type="submit"
+              name="submit1"
+              value="submit"
+            >
+              Update
+            </button>
+          </form>
         </div>
       </div>
     </div>

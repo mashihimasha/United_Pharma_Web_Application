@@ -52,43 +52,40 @@ const CardDetailsForm = () => {
   };
 
   return (
-    <div className="container-fluid tab-pane fade active show" id="payment">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-9 col-lg-8 mx-auto pt-3">
-            <form onSubmit={handleSubmit}>
-              {inputFields.map((field, index) => (
-                <FormInput
-                  key={index}
-                  name={field.name}
-                  type={field.type}
-                  label={field.label}
-                  value={values[field.name]}
-                  onChange={onChange}
-                  autoComplete={field.autoComplete}
-                />
-              ))}
-              <button
-                className="btn btn-primary sm my-3"
-                type="submit"
-                name="submit1"
-                value="submit"
-              >
-                <i className="fa fa-times-circle"></i> Remove Card
-              </button>
-              <button
-                className="btn btn-danger sm my-3 mx-2"
-                type="submit"
-                name="submit1"
-                value="submit"
-              >
-                <i className="fa fa-plus-circle"></i> Add Another Card
-              </button>
-            </form>
-          </div>
-        </div>
+    <div className="row">
+      <div className="mx-auto pt-3">
+        <form onSubmit={handleSubmit}>
+          {inputFields.map((field, index) => (
+            <FormInput
+              key={index}
+              name={field.name}
+              type={field.type}
+              label={field.label}
+              value={values[field.name]}
+              onChange={onChange}
+              autoComplete={field.autoComplete}
+            />
+          ))}
+          <button
+            className="btn btn-primary sm my-3"
+            type="submit"
+            name="submit1"
+            value="submit"
+          >
+            <i className="fa fa-times-circle"></i> Remove Card
+          </button>
+          <button
+            className="btn btn-danger sm my-3 mx-2"
+            type="submit"
+            name="submit1"
+            value="submit"
+          >
+            <i className="fa fa-plus-circle"></i> Add Another Card
+          </button>
+        </form>
       </div>
     </div>
+     
   );
 };
 

@@ -7,12 +7,12 @@ import RegisterPage from './pages/RegisterPage';
 import Footer from './components/common/Footer';
 import UserProfile from './pages/UserProfile';
 import ForgotPasswordForm from './components/user/ForgotPasswordForm';
-import Sidebar from './components/user/Sidebar';
+import Sidebar from './components/user/UserAccount/Sidebar';
 
 function App() {
   return (
     <div className='App'>
-      <div className='main'>
+      <main className='main'>
         <Routes>
           <Route path='register' element={ <RegisterPage/> } />
           <Route path='/' element={ <LoginPage/> } />
@@ -20,7 +20,7 @@ function App() {
           <Route path='/forgotPassword' element={<ForgotPasswordForm/>}/>
           <Route path='/sidebar' element={<Sidebar/>}/>
         </Routes>
-      </div>
+      </main>
       <Footer/>
     </div>
   );
