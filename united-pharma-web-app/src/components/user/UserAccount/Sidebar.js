@@ -22,6 +22,11 @@ const Sidebar = ({ activeTab, onTabChange }) => {
               <i className="fa fa-credit-card me-2"></i>Payment
             </Link>
           </li>
+          <li className={`nav-item list-group-item list-group-item-action pl-6 ${activeTab === 'shipping' ? 'active' : ''}`}>
+            <Link to="#shipping" className="nav-link link-dark" onClick={() => onTabChange('shipping')}>
+              <i className="fa fa-credit-card me-2"></i>Shipping Address
+            </Link>
+          </li>
           <li className={`nav-item list-group-item list-group-item-action pl-6 ${activeTab === 'preferences' ? 'active' : ''}`}>
             <Link to="#preferences" className="nav-link link-dark" onClick={() => onTabChange('preferences')}>
               <i className="fa fa-cogs me-2"></i>Preferences

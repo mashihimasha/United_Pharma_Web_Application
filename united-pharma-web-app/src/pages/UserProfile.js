@@ -24,6 +24,8 @@ const UserProfile = () => {
         <OrdersSection activeTab={activeTab} />
         {/* Payment Section */}
         <PaymentSection activeTab={activeTab} />
+        {/* Shipping Address Section */}
+        <ShippingAddressSection activeTab={activeTab} />
         {/* Preferences Section */}
         <PreferencesSection activeTab={activeTab} />
       </div>
@@ -60,6 +62,16 @@ const PaymentSection = ({ activeTab }) => {
     <div className={`container-fluid tab-pane fade ${activeTab === 'payment' ? 'show active' : ''}`} id="payment">
       {/* ... Payment Section JSX ... */}
       <CardDetailsForm />
+    </div>
+  );
+};
+
+const ShippingAddressSection = ({ activeTab }) => {
+  if (activeTab !== 'shipping') return null;
+
+  return (
+    <div className={`container-fluid tab-pane fade ${activeTab === 'payment' ? 'show active' : ''}`} id="payment">
+      {/* ... Payment Section JSX ... */}
     </div>
   );
 };
