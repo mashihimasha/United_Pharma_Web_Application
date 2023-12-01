@@ -26,6 +26,7 @@ const ShippingDetails = () => {
         </div>
 
       </form>
+      
     </div>
   );
 };
