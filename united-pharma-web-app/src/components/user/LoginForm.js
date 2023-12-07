@@ -62,7 +62,7 @@ class LoginForm extends Component {
                             <h3 className="auth-heading mb-4 p-4">Welcome back!</h3> */
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group mb-3 py-2">
-                                    <label htmlFor="email">Email</label>
+                                    <label htmlFor="email">Email Address</label>
                                     <input
                                     className="form-control"
                                     type="email"
