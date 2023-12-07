@@ -17,7 +17,7 @@
     /* Extra large devices (large desktops, 1800px and up) */
     @media (max-width: 1500px) {
     .custom-container {
-        max-width: 1320px;
+        max-width: 598px;
     }
     .banner-content .banner-caption {
         margin: 0 0 20px;
@@ -189,9 +189,7 @@
     .blog-post-area {
         padding: 115px 0 120px;
     }
-    .breadcrumb-bg {
-        padding: 200px 0 120px !important;
-    }
+    
     .blog-sidebar.pl-20 {
         padding-left: 15px;
     }
@@ -1013,8 +1011,9 @@
         text-align: center;
     }
     .breadcrumb-content .title {
-        font-size: 48px;
+        font-size: 54px;
     }
+    
     .blog--post--content {
         padding: 30px 25px;
     }

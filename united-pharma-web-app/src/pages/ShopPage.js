@@ -2,20 +2,39 @@ import React, { Component } from 'react';
 import ProductItem from '../components/product_catalog/ProductItem';
 import ProductCatalog from '../components/product_catalog/ProductCatalog';
 import Pagination from '../components/product_catalog/Pagination';
-import Header from '../components/common/Header';
+import Header from '../components/common/StickyHeader';
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
+import Particles from "react-tsparticles"
+import LatesProducttWidget from '../components/product_catalog/LatestWidget';
+import Footer from '../components/common/Footer';
+import PriceFilter from '../components/product_catalog/PriceFilter';
+import ScrollToTopButton from '../components/common/ScrollToTopButton';
+
 
 class ShopPage extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {slider: []}
+    }
+   
+    
   render() {
+   
     return (
+      
      <div>
+      
       <Header/>
+      
       <main className="main-area fix">
-        <section className="breadcrumb-area breadcrumb-bg">
+      <section className="breadcrumb-area breadcrumb-bg ">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-xl-10">
                 <div className="breadcrumb-content text-center">
-                  <h2 className="title">Our Shop</h2>
+                  <h3 className="title">Our Shop</h3>
+                  
                   <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                     <ul className="breadcrumb">
                       <li className="breadcrumb-item trail-item trail-begin">
@@ -28,10 +47,8 @@ class ShopPage extends Component {
               </div>
             </div>
           </div>
-          <div className="video-shape one"><img src={require('../components/assets/img/Common/video_shape01.png')} alt="shape" /></div>
-          <div className="video-shape two"><img src={require('../components/assets/img/Common/video_shape02.png')} alt="shape" /></div>
-        </section>
-
+          </section>
+          <ScrollToTopButton/>
         <div className="inner-shop-area">
           <div className="container">
             <div className="row justify-content-center">
@@ -40,16 +57,10 @@ class ShopPage extends Component {
                   <div className="widget">
                     <h4 className="sidebar-title">Filter by Price</h4>
                     <div className="price_filter">
-                      <div id="slider-range" className="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                        <div className="ui-slider-range ui-widget-header ui-corner-all" style={{ left: '26.3158%', width: '42.1053%' }}></div>
-                        <span className="ui-slider-handle ui-state-default ui-corner-all" tabIndex="0" style={{ left: '26.3158%' }}></span>
-                        <span className="ui-slider-handle ui-state-default ui-corner-all" tabIndex="0" style={{ left: '68.4211%' }}></span>
-                      </div>
-                      <div className="price_slider_amount">
-                        <span>Price :</span>
-                        <input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                        <input type="submit" className="btn" value="Filter" />
-                      </div>
+                    
+                    <PriceFilter/>
+                     
+                      
                     </div>
                   </div>
                   <div className="widget">
@@ -65,64 +76,10 @@ class ShopPage extends Component {
                   </div>
                   <div className="widget">
                     <h4 className="sidebar-title">LATEST PRODUCTS</h4>
-                    <div className="lp-post-list">
-                      <ul className="lp-post-item list-wrap">
-                        <li>
-                          <div className="lp-post-thumb">
-                            <a href="shop-details.html"><img src={require('../components/assets/img/product/home_shop_thumb01.png')} alt="img" /></a>
-                          </div>
-                          <div className="lp-post-content">
-                            <ul className="lp-post-rating list-wrap">
-                              <li>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                              </li>
-                            </ul>
-                            <h4 className="title"><a href="shop-details.html">Multi Vitamin C</a></h4>
-                            <span className="price">Rs.1000.00</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div className="lp-post-thumb">
-                            <a href="shop-details.html"><img src={require('../components/assets/img/product/home_shop_thumb01.png')} alt="img" /></a>
-                          </div>
-                          <div className="lp-post-content">
-                            <ul className="lp-post-rating list-wrap">
-                              <li>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                              </li>
-                            </ul>
-                            <h4 className="title"><a href="shop-details.html">B-complex Zinc</a></h4>
-                            <span className="price">Rs.2000.00</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div className="lp-post-thumb">
-                            <a href="shop-details.html"><img src={require('../components/assets/img/product/home_shop_thumb01.png')} alt="img" /></a>
-                          </div>
-                          <div className="lp-post-content">
-                            <ul className="lp-post-rating list-wrap">
-                              <li>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                              </li>
-                            </ul>
-                            <h4 className="title"><a href="shop-details.html">Protein Powder</a></h4>
-                            <span className="price">Rs.3000.00</span>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
+                    
+                          <LatesProducttWidget/>
+                          <LatesProducttWidget/>
+                          <LatesProducttWidget/>
                   </div>
                   <div className="widget">
                     <h4 className="sidebar-title">Product tags</h4>
@@ -142,7 +99,7 @@ class ShopPage extends Component {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="shop-top-left">
-                        <p className="woocommerce-result-count shop-show-result">Showing 1-6 of 18 results</p>
+                        <p className="woocommerce-result-count shop-show-result">Showing 1-9 of 18 results</p>
                       </div>
                     </div>
                     <div className="col-md-6">
@@ -161,13 +118,9 @@ class ShopPage extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="suxnix-shop-product-main">
+                <div className="united-shop-product-main">
                   <div className="row">
-                    
                     <ProductCatalog/>
-                  
-                    
-
                   </div>
                   <div className="pagination-wrap">
                     <Pagination/>
@@ -178,6 +131,11 @@ class ShopPage extends Component {
           </div>
         </div>
       </main>
+
+      <Footer/>
+
+
+
       </div>
     );
   }
