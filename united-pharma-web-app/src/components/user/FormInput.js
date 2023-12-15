@@ -9,7 +9,7 @@ const FormInput = (props) => {
   };
 
   return (
-    <div className="form-group mb-2 p-2 col-md-6">
+    <div className="form-group mb-2 p-2">
       <label htmlFor={name} className="small">
         {label}
       </label>
