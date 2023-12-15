@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../components/assets/css/User.css';
 import ProfileForm from '../components/user/ProfileForm';
-import CardDetailsForm from '../components/user/CardDetailsForm';
 import Sidebar from '../components/user/UserAccount/Sidebar';
 import OrderDetails from '../components/user/UserAccount/OrderDetails';
 import ShippingDetails from '../components/user/UserAccount/ShippingDetails';
+import Payments from '../components/user/UserAccount/Payments';
 
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState('profile');
@@ -59,7 +59,7 @@ const PaymentSection = ({ activeTab }) => {
   return (
     <div className={`container-fluid tab-pane fade w-100 ${activeTab === 'payment' ? 'show active' : ''}`} id="payment">
       {/* ... Payment Section JSX ... */}
-      <CardDetailsForm />
+      <Payments />
     </div>
   );
 };

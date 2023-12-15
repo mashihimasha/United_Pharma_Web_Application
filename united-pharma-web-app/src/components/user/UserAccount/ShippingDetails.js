@@ -1,5 +1,5 @@
 import React from 'react';
-import AddressList from '../UserAccount/AddressList';
+import AddressCard from './AddressCard';
 
 const ShippingDetails = () => {
   const addresses = [
@@ -52,7 +52,7 @@ const ShippingDetails = () => {
           <div className="row my-4">
             {addresses.map((address) => (
               <div key={address.id} className="col-md-4">
-                <AddressList address={address} />
+                <AddressCard address={address} />
               </div>
             ))}
           </div>

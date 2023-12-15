@@ -7,10 +7,10 @@ const AddressCard = ({ address }) => {
     <div className="card mb-4 shadow border-0">
       <div className="card-body">
         <h5 className="card-title my-4">
-        <i class="fa fa-user-o mx-2" aria-hidden="true"></i>
+        <i className="fa fa-user-o mx-2" aria-hidden="true"></i>
         {name}</h5>
         <p className="card-text mx-2 text-black">
-          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <i className="fa fa-location-arrow" aria-hidden="true"></i>
           <span>{street}<br/></span> 
           <span className='mx-1'>{city}, {state}, {country}<br/></span>
           <span className='mx-1'>{zip}</span>
