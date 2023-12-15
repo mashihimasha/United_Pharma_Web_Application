@@ -227,3 +227,8 @@
 	}
   }
   
+
+  /*Border Rounded 3.0rem*/
+  .rounded-3{
+	border-radius: 3.0rem !important;
+  }

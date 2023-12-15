@@ -25,6 +25,8 @@ const OrderDetails = () => {
 
   return (
     <div className="container mb-5">
+      <h4 className="text-black my-4">Orders</h4>
+
       {orders.map((order) => (
         <div key={order.id} className="order-content card mb-4 shadow border-0">
           <div className="card-body d-flex justify-content-between align-items-center">

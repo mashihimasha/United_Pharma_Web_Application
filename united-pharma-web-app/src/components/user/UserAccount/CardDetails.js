@@ -3,7 +3,7 @@ import ExpandableIcons from './ExpandableIcons';
 
 const CardDetails = ({ title }) => {
   return (
-    <div className="card mb-4 shadow border-0 col-md-3 h-25 rounded mx-1">
+    <div className="card mb-4 shadow border-0 col-md-3 h-25 rounded-3 mx-4">
         <div className="card-body d-flex flex-row align-items-center">
             <div className='col-md-1'>
                 <i className="fa fa-check-circle text-success mt-3" aria-hidden="true"></i>

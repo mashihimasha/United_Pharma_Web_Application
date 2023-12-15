@@ -22,37 +22,21 @@ const Payments = () => {
     // Add more cards as needed
   ]);
 
-  // Function to add a new card
-  const addCard = () => {
-    // Implement logic to add a new card to the state
-  };
-
-  // Function to remove a card
-  const removeCard = (index) => {
-    // Implement logic to remove the card from the state
-  };
-
   return (
     <div className="row">
       <h4 className="text-black my-4">Cards</h4>
       <div className="mx-auto pt-3">
-        <div className="d-flex flex-row flex-wrap justify-content-between">
+        <div className="d-flex flex-row flex-wrap">
             {cards.map((card, index) => (
                 <PaymentCard key={index} card={card} />
             ))}
+            <button
+                className="btn btn-light text-black my-3 mx-4 rounded-3 mb-4 shadow border-0 col-md-3 "
+                >
+                <i className="fa fa-plus-circle"></i> Add New Card
+            </button>
         </div>
-        <button
-          className="btn btn-danger text-white sm my-3"
-          onClick={() => removeCard(0)} // Pass the index of the card to remove
-        >
-          <i className="fa fa-times-circle"></i> Remove Card
-        </button>
-        <button
-          className="btn btn-success text-white sm my-3 mx-2"
-          onClick={addCard}
-        >
-          <i className="fa fa-plus-circle"></i> Add Another Card
-        </button>
+       
       </div>
     </div>
   );

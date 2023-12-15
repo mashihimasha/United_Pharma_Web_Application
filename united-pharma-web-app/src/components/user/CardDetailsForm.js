@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormInput from './FormInput';
+import { Modal, Button } from 'react-bootstrap';
 
-const CardDetailsForm = () => {
+const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
   const [values, setValues] = useState({
-    cardName: 'Seylan Card Holder',
-    cardNumber: '4XXX XXXX XXXX 1234',
-    month: '08',
-    year: '2024',
-    cvc: '123',
+    cardName: '',
+    cardNumber: '',
+    month: '',
+    year: '',
+    cvc: '',
   });
+
+  useEffect(() => {
+    // Set initial values when the prop changes
+    setValues(initialValues);
+  }, [initialValues]);
 
   const inputFields = [
     {
@@ -46,14 +52,19 @@ const CardDetailsForm = () => {
   };
 
   const handleSubmit = (event) => {
-    //event.preventDefault();
-    // Implement your form submission logic here
-    //console.log('Form submitted:', values);
+    // Handle form submission logic here
+    event.preventDefault();
+    // console.log('Form submitted:', values);
+    // Close the modal after submission
+    handleClose();
   };
 
   return (
-    <div className="row">
-      <div className="mx-auto pt-3">
+    <Modal show={showModal} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Card Details Form</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
         <form onSubmit={handleSubmit}>
           {inputFields.map((field, index) => (
             <FormInput
@@ -66,26 +77,15 @@ const CardDetailsForm = () => {
               autoComplete={field.autoComplete}
             />
           ))}
-          <button
-            className="btn btn-danger text-white sm my-3"
-            type="submit"
-            name="submit1"
-            value="submit"
-          >
+          <Button variant="danger" type="submit" className="my-3">
             <i className="fa fa-times-circle"></i> Remove Card
-          </button>
-          <button
-            className="btn btn-success text-white sm my-3 mx-2"
-            type="submit"
-            name="submit1"
-            value="submit"
-          >
+          </Button>
+          <Button variant="success" type="submit" className="my-3 mx-2">
             <i className="fa fa-plus-circle"></i> Add Another Card
-          </button>
+          </Button>
         </form>
-      </div>
-    </div>
-     
+      </Modal.Body>
+    </Modal>
   );
 };
 

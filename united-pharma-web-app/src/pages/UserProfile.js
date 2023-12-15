@@ -35,7 +35,7 @@ const ProfileSection = ({ activeTab }) => {
   if (activeTab !== 'profile') return null;
 
   return (
-    <div className={`container-fluid tab-pane w-100 ${activeTab === 'profile' ? 'active show' : ''}`} id="profile">
+    <div className={`container-fluid tab-pane w-50 ${activeTab === 'profile' ? 'active show' : ''}`} id="profile">
       {/* ... Profile Section JSX ... */}
       <ProfileForm />
     </div>

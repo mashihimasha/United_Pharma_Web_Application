@@ -11,7 +11,7 @@ const Sidebar = ({ activeTab, onTabChange }) => {
         </button>
 
         <div className="collapse navbar-collapse" id="sidebarMenu">
-          <ul className="nav nav-pills tab mr-auto mt-2 mt-lg-0 flex-column mb-auto d-flex justify-content-center list-group list-group-flush w-75">
+          <ul className="navbar-nav nav-pills tab mr-auto mt-2 mt-lg-0 flex-column mb-auto d-flex justify-content-center list-group list-group-flush w-75">
             <li className={`nav-item  border-0 list-group-item list-group-item-action pl-6 ${activeTab === 'profile' ? 'active' : ''}`}>
               <Link to="#profile" className="nav-link link-dark" onClick={() => onTabChange('profile')}>
                 <i className="fa fa-user me-2"></i>Profile
