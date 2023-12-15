@@ -33,7 +33,13 @@ class LoginPage extends Component {
                 </div>
               </div>
             </div>
-            <div className='d-none d-md-flex col-md-4 col-lg-5 bg-login-image'></div>
+            <div className='d-none d-md-flex col-md-4 col-lg-5 bg-login-image'
+              style={{
+                visibility: 'visible',
+                animationDuration: '2s',
+                animationDelay: '0.2s',
+                animationName: 'bannerFadeInLeft',
+              }}></div>
           </div>
         </div>
 

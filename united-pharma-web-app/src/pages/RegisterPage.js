@@ -18,7 +18,13 @@ class RegisterPage extends Component {
                   <BannerLeaves className='col-lg-4 col-md-2 p-1' />
                 </div>
                   <div className='row'>
-                    <div className='col-md-9 col-lg-7 mx-auto'>
+                    <div className='col-md-9 col-lg-7 mx-auto'
+                      style={{
+                        visibility: 'visible',
+                        animationDuration: '2s',
+                        animationDelay: '0.2s',
+                        animationName: 'bannerFadeInLeft',
+                      }}>
                       <h4 className='h4 auth-heading mb-4'>Create an Account</h4>
                       <RegistrationForm />
                     </div>
@@ -28,10 +34,10 @@ class RegisterPage extends Component {
             </div>
             <div className='d-none d-md-flex col-md-4 col-lg-5 bg-register-image'
                 style={{
-                visibility: 'visible',
-                animationDuration: '2s',
-                animationDelay: '0s',
-                animationName: 'bannerFadeInRight',
+                  visibility: 'visible',
+                  animationDuration: '2s',
+                  animationDelay: '0.2s',
+                  animationName: 'bannerFadeInLeft',
                 }}></div>
           </div>
         </div>

@@ -35,7 +35,7 @@ const ProfileSection = ({ activeTab }) => {
   if (activeTab !== 'profile') return null;
 
   return (
-    <div className={`container-fluid tab-pane w-50 ${activeTab === 'profile' ? 'active show' : ''}`} id="profile">
+    <div className={`container-fluid tab-pane w-100 ${activeTab === 'profile' ? 'active show' : ''}`} id="profile">
       {/* ... Profile Section JSX ... */}
       <ProfileForm />
     </div>
@@ -57,7 +57,7 @@ const PaymentSection = ({ activeTab }) => {
   if (activeTab !== 'payment') return null;
 
   return (
-    <div className={`container-fluid tab-pane fade w-50 ${activeTab === 'payment' ? 'show active' : ''}`} id="payment">
+    <div className={`container-fluid tab-pane fade w-100 ${activeTab === 'payment' ? 'show active' : ''}`} id="payment">
       {/* ... Payment Section JSX ... */}
       <CardDetailsForm />
     </div>
@@ -68,7 +68,7 @@ const ShippingAddressSection = ({ activeTab }) => {
   if (activeTab !== 'shipping') return null;
 
   return (
-    <div className={`container-fluid tab-pane fade ${activeTab === 'shipping' ? 'show active' : ''}`} id="payment">
+    <div className={`container-fluid tab-pane fade w-100 ${activeTab === 'shipping' ? 'show active' : ''}`} id="payment">
       {/* ... Payment Section JSX ... */}
       <ShippingDetails/>
     </div>

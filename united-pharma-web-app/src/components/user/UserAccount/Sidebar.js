@@ -11,23 +11,23 @@ const Sidebar = ({ activeTab, onTabChange }) => {
         </button>
 
         <div className="collapse navbar-collapse" id="sidebarMenu">
-          <ul className="nav nav-pills tab mr-auto mt-2 mt-lg-0 flex-column mb-auto list-group list-group-flush w-100">
-            <li className={`nav-item list-group-item list-group-item-action pl-6 ${activeTab === 'profile' ? 'active' : ''}`}>
+          <ul className="nav nav-pills tab mr-auto mt-2 mt-lg-0 flex-column mb-auto d-flex justify-content-center list-group list-group-flush w-75">
+            <li className={`nav-item  border-0 list-group-item list-group-item-action pl-6 ${activeTab === 'profile' ? 'active' : ''}`}>
               <Link to="#profile" className="nav-link link-dark" onClick={() => onTabChange('profile')}>
                 <i className="fa fa-user me-2"></i>Profile
               </Link>
             </li>
-            <li className={`nav-item list-group-item list-group-item-action pl-6 ${activeTab === 'orders' ? 'active' : ''}`}>
+            <li className={`nav-item border-0  list-group-item list-group-item-action pl-6 ${activeTab === 'orders' ? 'active' : ''}`}>
               <Link to="#orders" className="nav-link link-dark" onClick={() => onTabChange('orders')}>
                 <i className="fa fa-shopping-cart me-2"></i>Orders
               </Link>
             </li>
-            <li className={`nav-item list-group-item list-group-item-action pl-6 ${activeTab === 'payment' ? 'active' : ''}`}>
+            <li className={`nav-item  border-0 list-group-item list-group-item-action pl-6 ${activeTab === 'payment' ? 'active' : ''}`}>
               <Link to="#payment" className="nav-link link-dark" onClick={() => onTabChange('payment')}>
                 <i className="fa fa-credit-card me-2"></i>Payment
               </Link>
             </li>
-            <li className={`nav-item list-group-item list-group-item-action pl-6 ${activeTab === 'shipping' ? 'active' : ''}`}>
+            <li className={`nav-item  border-0 list-group-item list-group-item-action pl-6 ${activeTab === 'shipping' ? 'active' : ''}`}>
               <Link to="#shipping" className="nav-link link-dark" onClick={() => onTabChange('shipping')}>
                 <i className="fa fa-credit-card me-2"></i>Shipping Address
               </Link>

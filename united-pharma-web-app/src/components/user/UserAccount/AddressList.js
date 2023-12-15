@@ -6,27 +6,22 @@ const AddressCard = ({ address }) => {
   return (
     <div className="card mb-4 shadow border-0">
       <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <p className="card-text">
-          {street}, {city}, {state} {zip}, {country}
+        <h5 className="card-title my-4">
+        <i class="fa fa-user-o mx-2" aria-hidden="true"></i>
+        {name}</h5>
+        <p className="card-text mx-2 text-black">
+          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <span>{street}<br/></span> 
+          <span className='mx-1'>{city}, {state}, {country}<br/></span>
+          <span className='mx-1'>{zip}</span>
         </p>
         <div className='d-flex flex-row'>
-          <button className="btn btn-success text-white mx-2">Edit Address</button>
-          <button className="btn btn-danger mx-2">Delete Address</button>
+          <button className="btn btn-white text-success">Edit</button>
+          <button className="btn btn-white text-success">Delete</button>
         </div>
       </div>
     </div>
   );
 };
 
-const AddressList = ({ addresses }) => {
-  return (
-    <div className="container mt-4">
-      {addresses.map((address, index) => (
-        <AddressCard key={index} address={address} />
-      ))}
-    </div>
-  );
-};
-
-export default AddressList;
+export default AddressCard;

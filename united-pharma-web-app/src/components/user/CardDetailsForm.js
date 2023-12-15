@@ -67,7 +67,7 @@ const CardDetailsForm = () => {
             />
           ))}
           <button
-            className="btn btn-primary sm my-3"
+            className="btn btn-danger text-white sm my-3"
             type="submit"
             name="submit1"
             value="submit"
@@ -75,7 +75,7 @@ const CardDetailsForm = () => {
             <i className="fa fa-times-circle"></i> Remove Card
           </button>
           <button
-            className="btn btn-danger sm my-3 mx-2"
+            className="btn btn-success text-white sm my-3 mx-2"
             type="submit"
             name="submit1"
             value="submit"
