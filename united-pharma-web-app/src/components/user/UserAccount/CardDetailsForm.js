@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import FormInput from './FormInput';
 import { Modal, Button } from 'react-bootstrap';
+import FormInput from '../FormInput';
 
 const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
   const [values, setValues] = useState({
@@ -62,27 +62,24 @@ const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
   return (
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Card Details Form</Modal.Title>
+        <Modal.Title><h4 className='text-black'>Card Details Form</h4></Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit}>
-          {inputFields.map((field, index) => (
-            <FormInput
-              key={index}
-              name={field.name}
-              type={field.type}
-              label={field.label}
-              value={values[field.name]}
-              onChange={onChange}
-              autoComplete={field.autoComplete}
-            />
-          ))}
-          <Button variant="danger" type="submit" className="my-3">
-            <i className="fa fa-times-circle"></i> Remove Card
-          </Button>
-          <Button variant="success" type="submit" className="my-3 mx-2">
-            <i className="fa fa-plus-circle"></i> Add Another Card
-          </Button>
+          <div class="form-row d-flex flex-row flex-wrap">
+            {inputFields.map((field, index) => (
+              <FormInput
+                key={index}
+                name={field.name}
+                type={field.type}
+                label={field.label}
+                value={values[field.name]}
+                onChange={onChange}
+                autoComplete={field.autoComplete}
+              />
+            ))}
+          </div>
+          <Button variant="success" type="submit" className="my-3 mx-2 text-white">Save</Button>
         </form>
       </Modal.Body>
     </Modal>
