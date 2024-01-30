@@ -8,10 +8,6 @@ import Checkout from './component/Checkout';
 //import { BrowserRouter as Routes,Route, Link } from 'react-router-dom';
 //import Checkout from "./component/Checkout";
 
-   
-
-
-
 function App() {
   return (
     <div className="App">
