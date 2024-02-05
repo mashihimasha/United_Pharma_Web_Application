@@ -14,6 +14,7 @@ import './components/assets/css/default.css';
 import './components/assets/css/user.css';
 import './components/assets/css/style.css';
 import Wholesale from './pages/wholesale/wholesale';
+import FooterTab from './components/common_components/footer/footertab';
 
 function App() {
   return (
@@ -21,12 +22,16 @@ function App() {
     <div className="App">
       
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={ <ShopDetails/> } />
         <Route path="shopPage" element={ <ShopPage/> } />
         <Route path="bannerLeaves" element={ <BannerLeaves/> } />
         <Route path="login" element={ <LoginPage/> } />
-      </Routes>
+      </Routes> */}
+
+      {/* <Wholesale/> */}
+      <FooterTab/>
+      {/* <ShopDetails/> */}
 
     </div>
     </>
