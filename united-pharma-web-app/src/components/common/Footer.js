@@ -22,9 +22,9 @@ class Footer extends Component {
                   <div className='footer-widget'>
                     <div className='footer-about'>
                       <div className='footer-logo logo'>
-                        <a href='index.html'>
+                        <Link to='/'>
                           {/* <img src={require('')} alt='Logo' /> */}
-                        </a>
+                        </Link>
                       </div>
                       <div className='footer-text'>
                         <p>
@@ -35,13 +35,13 @@ class Footer extends Component {
                         <a href='https://web.facebook.com/unitedphrama/?_rdc=1&_rdr'>
                           <i className='fa fa-facebook-f'></i>
                         </a>
-                        <a >
+                        <a href="https://web.facebook.com/unitedphrama/?_rdc=1&_rdr">
                           <i className='fa fa-twitter'></i>
                         </a>
-                        <a>
+                        <a href="https://web.facebook.com/unitedphrama/?_rdc=1&_rdr">
                           <i className='fa fa-pinterest-p'></i>
                         </a>
-                        <a>
+                        <a href="https://web.facebook.com/unitedphrama/?_rdc=1&_rdr">
                           <i className='fa fa-linkedin'></i>
                         </a>
                       </div>
@@ -92,15 +92,15 @@ class Footer extends Component {
                     <ul className='list-wrap'>
                      
                       <li>
-                        <a href='blog.html'>Blog</a>
+                        <Link to='/blog'>Blog</Link>
                       </li>
                       
                       <li>
-                        <a href='#'>FAQ</a>
+                        <Link to='/faq'>FAQ</Link>
                       </li>
                       
                       <li>
-                        <a href='contact.html'>Contact</a>
+                        <Link to='/contact'>Contact</Link>
                       </li>
                     </ul>
                   </div>
@@ -132,18 +132,32 @@ class Footer extends Component {
           {/* Footer Shapes */}
           <div className='footer-shape one'>
             <img
-              alt='img'
+              alt='img 1'
+              src={require('../assets/img/footer/footer_shape_medicine01.png')}
               className='wow fadeInLeft'
               data-wow-delay='.3s'
               data-wow-duration='1s'
+              style={{
+                visibility: 'visible',
+                animationDuration: '2s',
+                animationDelay: '0.2s',
+                animationName: 'bannerFadeInLeft',
+                }}
             />
           </div>
           <div className='footer-shape two'>
             <img
-              alt='img'
+              alt='img 2'
+              src={require('../assets/img/footer/footer_shape_medicine02.png')}
               className='wow fadeInRight'
               data-wow-delay='.3s'
               data-wow-duration='1s'
+              style={{
+                visibility: 'visible',
+                animationDuration: '2s',
+                animationDelay: '0.2s',
+                animationName: 'bannerFadeInRight',
+                }}
             />
           </div>
         </div>

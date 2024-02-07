@@ -45,10 +45,10 @@
 }
 
 /*Forms*/
-.form-control{
+.form-control, .form-select{
     border: 0.1rem solid #0000006c;
     border-radius: 3.0rem;
-	padding: 0.5rem;
+	padding: 0.6rem;
 	height: 40px;
 }
 
@@ -57,7 +57,7 @@
 	font-size: 0.875rem;
 }
 
-.form-control:focus{
+.form-control:focus, .form-select:focus{
 	border-color: rgb(13, 253, 93);
     box-shadow: 0 0 0 0.25rem rgba(13, 253, 93, 0.25);
 }

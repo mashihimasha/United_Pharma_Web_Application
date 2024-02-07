@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FormInput = (props) => {
-  const { name, type, label, value, onChange, error, ...inputProps } = props;
+  const { name, type, label, value, onChange, error,options, ...inputProps } = props;
 
   const inputStyle = {
     borderColor: error ? '#FF6347' : '', // Change border color to red if there's an error
@@ -13,6 +13,23 @@ const FormInput = (props) => {
       <label htmlFor={name} className="small">
         {label}
       </label>
+      {type === 'select' ? (
+        <select
+          className="form-select"
+          id={name}
+          name={name}
+          value={value}
+          onChange={onChange}
+          style={inputStyle}
+          {...inputProps}
+        >
+          {options.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      ) :(
       <input
         className="form-control"
         type={type}
@@ -22,7 +39,7 @@ const FormInput = (props) => {
         onChange={onChange}
         style={inputStyle}
         {...inputProps}
-      />
+      />)}
       {error && <p className="text-danger small px-2">{error}</p>}
     </div>
   );

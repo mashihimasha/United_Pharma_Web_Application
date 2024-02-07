@@ -4,7 +4,7 @@ import '../../assets/css/Sidebars.css';
 
 const Sidebar = ({ activeTab, onTabChange }) => {
   return (
-    <div id="sidebar-wrapper" className='d-flex flex-column flex-shrink-0 border-right'>
+    <div id="sidebar-wrapper" className='d-flex flex-column flex-shrink-0 border-right m-4'>
       <nav className="navbar navbar-expand-lg navbar-light justify-content-left">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

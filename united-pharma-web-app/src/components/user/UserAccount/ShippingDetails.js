@@ -45,7 +45,7 @@ const ShippingDetails = () => {
     <div className="container mt-4">
       {/* Address Preferences */}
       <div className="form-group">
-        <h4 className="text-black my-4">Shipping Addresses</h4>
+        <h4 className="text-black my-4">Shipping Address</h4>
         
         <div className="d-flex flex-row flex-wrap">
           {addresses.map((address) => (

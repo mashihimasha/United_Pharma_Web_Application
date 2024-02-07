@@ -58,19 +58,19 @@ const OrderDetails = () => {
       <nav aria-label="page navigation" className='pt-4'>
         <ul className="pagination justify-content-center">
           <li className="page-item disabled">
-            <a className="page-link">Previous</a>
+            <button className="page-link">Previous</button>
           </li>
           <li className="page-item active" aria-current="page">
-            <a className="page-link">1</a>
+            <button className="page-link">1</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#2">2</a>
+            <button className="page-link" href="#2">2</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#3">3</a>
+            <button className="page-link" href="#3">3</button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#next">Next</a>
+            <button className="page-link" href="#next">Next</button>
           </li>
         </ul>
       </nav>

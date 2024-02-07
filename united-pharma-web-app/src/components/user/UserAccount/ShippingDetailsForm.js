@@ -38,13 +38,21 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
     },
     {
       name: 'city',
-      type: 'dropdown',
+      type: 'select',
       label: 'City',
+      options: [ { label: '', value: '' },
+      { label: 'Colombo', value: 'Colombo' },
+      { label: 'Negombo', value: 'Negombo' },
+      { label: 'Matara', value: 'Matara' },],
     },
     {
       name: 'province',
-      type: 'dropdown',
+      type: 'select',
       label: 'Province',
+      options: [ { label: '', value: '' },
+      { label: 'Western', value: 'Western' },
+      { label: 'Southern', value: 'Southern' },
+      { label: 'Eastern', value: 'Eastern' },],
     },
     {
       name: 'zipCode',
@@ -69,7 +77,7 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
   return (
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title><h4 className='text-black'>Card Details Form</h4></Modal.Title>
+        <Modal.Title><h4 className='text-black'>Shipping address</h4></Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit}>
@@ -82,6 +90,7 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
                 label={field.label}
                 value={values[field.name]}
                 onChange={onChange}
+                options={field.options}
                 autoComplete={field.autoComplete}
               />
             ))}

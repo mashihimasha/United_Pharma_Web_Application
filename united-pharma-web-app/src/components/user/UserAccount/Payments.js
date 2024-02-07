@@ -40,7 +40,7 @@ const Payments = () => {
 
   return (
     <div className="row">
-      <h4 className="text-black my-4">Cards</h4>
+      <h4 className="text-black my-4 fw-bolder">Payment</h4>
       <div className="mx-auto pt-3">
         <div className="d-flex flex-row flex-wrap">
           {cards.map((card, index) => (

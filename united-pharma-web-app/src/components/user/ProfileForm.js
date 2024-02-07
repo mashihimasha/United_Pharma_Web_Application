@@ -49,7 +49,7 @@ const ProfileForm = () => {
     <div>
       <div className='d-flex align-items-center mx-auto pt-3'>
         <div id="profile-container">
-          <img id="profileImage" src={require('../assets/img/banner/banner_shape01.png')}/>
+          <img id="profileImage" src={require('../assets/img/banner/banner_shape01.png')} alt="user profile"/>
         </div>
         <input
           id="imageUpload"

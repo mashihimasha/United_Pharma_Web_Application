@@ -21,7 +21,7 @@ const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
       name: 'cardName',
       type: 'text',
       label: 'Name on Card',
-      autoComplete: 'name',
+      autoComplete: 'cc-name',
     },
     {
       name: 'cardNumber',
@@ -33,11 +33,13 @@ const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
       name: 'month',
       type: 'text',
       label: 'Month',
+      autoComplete: 'cc-exp-month',
     },
     {
       name: 'year',
       type: 'text',
       label: 'Year',
+      autoComplete: 'cc-exp-year',
     },
     {
       name: 'cvc',
@@ -62,7 +64,7 @@ const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
   return (
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title><h4 className='text-black'>Card Details Form</h4></Modal.Title>
+        <Modal.Title><h4 className='text-black'>Card details</h4></Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit}>
