@@ -1,18 +1,18 @@
-import express, { json } from 'express';
-const app = express();
-
+import express from 'express';
 import { config } from 'dotenv';
-import blogRoutes from './routes/routes.js';
+import cors from 'cors'; 
+import postsController from './controller/postsController.js';
+
 config();
 
-
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-
-app.use(json());
-
-app.use(blogRoutes);
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json());
+app.use('/', postsController);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
