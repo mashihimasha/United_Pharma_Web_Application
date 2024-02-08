@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 class Footer extends Component {
   render() {
     return (
-      <motion.footer
-      initial={{ opacity: 0, translateY: 50 }} // Initial state (hidden)
-      animate={{ opacity: 1, translateY: 0 }} // Animation when in view
-      exit={{ opacity: 0, translateY: 50 }} // Animation when leaving view
-      whileInView={{ opacity: 1, translateY: 0 }} // Animation while in view
-      >
       <footer className='footer-area'>
         {/* Footer Content */}
         <div className='footer-top-wrap'>
@@ -111,13 +104,16 @@ class Footer extends Component {
                   <div className='footer-widget'>
                     <h4 className='fw-title'>CONTACT US</h4>
                     <div className='footer-contact-wrap'>
-                      <p>4140 Parker Rd. Allentown, New Mexico 31134</p>
+                      <Link to="/storelocator" className='text-white fw-bolder'><i className='fa fa-map-marker fa-lg me-2'></i> Store Locator</Link>
                       <ul className='list-wrap'>
                         <li className='phone'>
                           <i className='fa fa-phone'></i> +1 31-6555-0116
                         </li>
+                        <li className='address'>
+                          <i className='fa fa-location-arrow'></i> 299/17 Galle Road, Panadura
+                        </li>
                         <li className='mail'>
-                          <i className='fa fa-envelope'></i> unitedpharma@gmail.com
+                          <i className='fa fa-envelope'></i> upheadoffice@gmail.com
                         </li>
                         <li className='website'>
                           <i className='fa fa-globe'></i> www.unitedpharma.com
@@ -167,19 +163,18 @@ class Footer extends Component {
             <div className='row align-items-center'>
               <div className='col-md-7'>
                 <div className='copyright-text'>
-                  <p className='fw-bolder'>Copyright © 2022 United Pharma All Rights Reserved.</p>
+                  <p className='fw-bolder'>Copyright © 2023 United Pharma All Rights Reserved.</p>
                 </div>
               </div>
               <div className='col-md-5'>
                 <div className='payment-card text-center text-md-end'>
-                  <img src='assets/img/others/card_img.png' alt='card' />
+                  <img src={require('../assets/img/footer/card_img.png')} alt='card' />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </footer>
-      </motion.footer>
     );
   }
 }
