@@ -107,7 +107,7 @@ class Footer extends Component {
                       <Link to="/storelocator" className='text-white fw-bolder'><i className='fa fa-map-marker fa-lg me-2'></i> Store Locator</Link>
                       <ul className='list-wrap'>
                         <li className='phone'>
-                          <i className='fa fa-phone'></i> +1 31-6555-0116
+                          <i className='fa fa-phone'></i> 070 298 6911
                         </li>
                         <li className='address'>
                           <i className='fa fa-location-arrow'></i> 299/17 Galle Road, Panadura
