@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OrderItemImage from './OrderItemImage';
 import { Button } from 'react-bootstrap';
 
@@ -22,13 +22,62 @@ const OrderDetails = () => {
       total: 20.0,
       status: 'In Transit',
     },
+    {
+      id: 67890,
+      date: 'February 15, 2023',
+      product: 'Example Product 2',
+      quantity: 1,
+      price: 20.0,
+      total: 20.0,
+      status: 'In Transit',
+    },
+
+    {
+      id: 67890,
+      date: 'February 15, 2023',
+      product: 'Example Product 2',
+      quantity: 1,
+      price: 20.0,
+      total: 20.0,
+      status: 'In Transit',
+    },
+    {
+      id: 67890,
+      date: 'February 15, 2023',
+      product: 'Example Product 2',
+      quantity: 1,
+      price: 20.0,
+      total: 20.0,
+      status: 'In Transit',
+    },
   ];
+
+  const itemsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  
+  const goToFirstPage = () => {
+    setCurrentPage(1);
+  };
+
+  const goToLastPage = () => {
+    setCurrentPage(totalPages);
+  };
+
+  const indexOfLastOrder = currentPage * itemsPerPage;
+  const indexOfFirstOrder = indexOfLastOrder - itemsPerPage;
+  const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
+
+  const totalPages = Math.ceil(orders.length / itemsPerPage);
 
   return (
     <div className="container mb-5">
       <h4 className="text-black my-4">Orders</h4>
 
-      {orders.map((order) => (
+      {currentOrders.map((order) => (
         <div key={order.id} className="order-content card mb-4 shadow border-0">
           <div className="card-body d-flex justify-content-between align-items-center">
             <div className='w-100'>
@@ -59,20 +108,22 @@ const OrderDetails = () => {
       {/* Pagination */}
       <nav aria-label="page navigation" className='pt-4'>
         <ul className="pagination justify-content-center">
-          <li className="page-item disabled">
-            <button className="page-link">Previous</button>
+          <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+            <button className="page-link" onClick={goToFirstPage}>
+              First
+            </button>
           </li>
-          <li className="page-item active" aria-current="page">
-            <button className="page-link">1</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" href="#2">2</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" href="#3">3</button>
-          </li>
-          <li className="page-item">
-            <button className="page-link" href="#next">Next</button>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+              <button className="page-link" onClick={() => paginate(index + 1)}>
+                {index + 1}
+              </button>
+            </li>
+          ))}
+          <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+            <button className="page-link" onClick={goToLastPage}>
+              Last
+            </button>
           </li>
         </ul>
       </nav>

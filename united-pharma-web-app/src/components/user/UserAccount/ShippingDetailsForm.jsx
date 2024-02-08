@@ -60,6 +60,12 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
       label: 'Zip Code',
       autoComplete: 'postal-code',
     },
+    {
+      name: 'addressType',
+      type: 'checkbox',
+      value: true,
+      label: 'Set as default shipping address',
+    },
   ];
 
   const onChange = (event) => {

@@ -13,6 +13,7 @@ const ShippingDetails = () => {
       state: 'Stateville',
       zip: '12345',
       country: 'Countryland',
+      isSelected: true,
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ const ShippingDetails = () => {
       state: 'Stateville',
       zip: '12345',
       country: 'Countryland',
+      isSelected: false,
     },
   ]);
 
@@ -50,7 +52,7 @@ const ShippingDetails = () => {
         <div className="d-flex flex-row flex-wrap">
           {addresses.map((address) => (
             <div key={address.id} className="col-md-4 mx-4">
-              <AddressCard address={address} />
+              <AddressCard address={address} isSelected={address.isSelected} />
             </div>
           ))}
           <button
