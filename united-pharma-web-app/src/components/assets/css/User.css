@@ -147,11 +147,6 @@
 }
 
 /*User Profile*/
-#imageUpload
-{
-    display: none;
-}
-
 #profileImage
 {
     cursor: pointer;

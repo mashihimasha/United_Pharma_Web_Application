@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FormInput from './FormInput';
+import { Button } from 'react-bootstrap';
 
 const ProfileForm = () => {
   const [values, setValues] = useState({
@@ -48,22 +49,24 @@ const ProfileForm = () => {
   return (
     <div>
       <div className='d-flex align-items-center mx-auto pt-3'>
+      <form> 
         <div id="profile-container">
           <img id="profileImage" src={require('../assets/img/banner/banner_shape01.png')} alt="user profile"/>
+        </div>    
+        <div className='input-group mt-4'>
+          <input
+              id="imageUpload"
+              className='form-control w-25'
+              type="file"
+              name="profile_photo"
+              accept="image/*"
+              required
+              aria-describedby="btn-changephoto" 
+              aria-label="Upload"
+          />
+          <Button variant="success" type="submit" id="btn-changephoto" className='btn-sm text-white'>Change Photo</Button>
         </div>
-        <input
-          id="imageUpload"
-          type="file"
-          name="profile_photo"
-          placeholder="Photo"
-          required=""
-          capture=""
-        />
-        <div className="dropdown-user-details gradient-border">
-          <h4 className="text-black ml-2">Welcome Back !</h4>
-          <div className="dropdown-user-details-name ml-3 text-black">Solar Luna</div>
-          <div className="dropdown-user-details-email ml-3">sluna@gmail.com</div>
-        </div>
+      </form>    
       </div>
       <div className="row">
         <div className="pt-3">
@@ -79,14 +82,15 @@ const ProfileForm = () => {
                 autoComplete={field.autoComplete}
               />
             ))}
-            <button
-              className="btn btn-success text-white sm my-4 mx-auto d-block"
+            <Button
+              variant="success"
+              className="text-white my-4 mx-auto d-block"
               type="submit"
-              name="submit1"
-              value="submit"
+              name="update"
+              value="update"
             >
               Update
-            </button>
+            </Button>
           </form>
         </div>
       </div>

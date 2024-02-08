@@ -167,7 +167,7 @@ class Footer extends Component {
             <div className='row align-items-center'>
               <div className='col-md-7'>
                 <div className='copyright-text'>
-                  <p>Copyright © 2022 United Pharma All Rights Reserved.</p>
+                  <p className='fw-bolder'>Copyright © 2022 United Pharma All Rights Reserved.</p>
                 </div>
               </div>
               <div className='col-md-5'>

@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderItemImage from './OrderItemImage';
+import { Button } from 'react-bootstrap';
 
 const OrderDetails = () => {
   const orders = [
@@ -48,6 +49,7 @@ const OrderDetails = () => {
                   <li className="list-group-item small">LKR {order.price.toFixed(2)}<span className='small text-muted'> x {order.quantity}</span></li>
                 </ul>
                 <h5 className='card-text align-self-center'>Total: {order.total.toFixed(2)}</h5>
+                <Button variant="danger" type="submit" className="my-3 mx-2 text-white btn-sm align-self-end">Cancel Order</Button>
               </div>
             </div>
           </div>
