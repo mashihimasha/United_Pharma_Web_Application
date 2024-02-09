@@ -93,8 +93,9 @@ export default function StaticFaqSection() {
               <p>
                 {editableContent.answer}{" "}
                 <MDBBtn
-                  className={editableContent.editing ? "bg-warning" : "bg-primary"}
+                  className={editableContent.editing ? "bg-blue w-25 p-2 " : "bg-orange w-25 p-2 "}
                   size="sm"
+                  
                   onClick={() => handleEdit("editing", !editableContent.editing)}
                 >
                   {editableContent.editing ? "Save" : "Edit"}
@@ -102,7 +103,7 @@ export default function StaticFaqSection() {
               </p>
               {editableContent.editing && (
                 <textarea
-                  className="form-control"
+                  className="form-control rounded"
                   rows="3"
                   value={editableContent.answer}
                   onChange={(e) => handleEdit("answer", e.target.value)}
@@ -111,7 +112,7 @@ export default function StaticFaqSection() {
             </div>
           </MDBCol>
 
-          {/* ... (same as before) */}
+        
         </MDBRow>
       </section>
       
