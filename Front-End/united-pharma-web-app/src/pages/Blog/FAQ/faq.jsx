@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-    MDBBtn,
+  MDBBtn,
   MDBCol,
   MDBContainer,
   MDBIcon,
@@ -11,20 +11,32 @@ import { Link } from "react-router-dom";
 import AskQuestionForm from "./AskQuestionForm";
 
 export default function StaticFaqSection() {
+  const [editableContent, setEditableContent] = useState({
+    question: "How can I view my order history?",
+    answer:
+      "Your complete order history is available in your account. Log in, go to the order history section, and you'll find a detailed list of your past orders, including order dates and status.",
+  });
+
+  const handleEdit = (field, value) => {
+    setEditableContent({
+      ...editableContent,
+      [field]: value,
+    });
+  };
+
   return (
     <MDBContainer>
       <section>
         <div className="d-flex justify-content-between align-items-center mb-4 mt-3 ">
+          <Link to="/" type="button" className="btn btn-success w-25 p-1">
+            <MDBIcon icon="home" />
+            Home
+          </Link>
 
-      
-      <Link to='/' type="button" class="btn btn-success w-25 p-1">
-        <MDBIcon icon="home"/>
-        Home</Link>
-
-        <Link to='/blogs' type="button" class="btn btn-success w-25 p-1">
-        <MDBIcon  icon="blogger-b"/>
-        Blogs</Link>
-
+          <Link to="/blogs" type="button" className="btn btn-success w-25 p-1">
+            <MDBIcon icon="blogger-b" />
+            Blogs
+          </Link>
         </div>
         <MDBTypography
           tag="h1"
@@ -37,7 +49,7 @@ export default function StaticFaqSection() {
         </p>
 
         <MDBRow>
-          <MDBCol md="6" lg="4" className="mb-4">
+        <MDBCol md="6" lg="4" className="mb-4">
             <MDBTypography tag="h6" className="mb-3 text-success">
               <MDBIcon  icon="stethoscope text-success pe-2" /> How do I order prescription medication?
             </MDBTypography>
@@ -72,29 +84,37 @@ export default function StaticFaqSection() {
               Yes, we offer online consultations with licensed pharmacists. You can chat with a pharmacist, ask questions about medications, and get professional advice from the comfort of your home.
             </p>
           </MDBCol>
+
           <MDBCol md="6" lg="4" className="mb-4">
             <MDBTypography tag="h6" className="mb-3 text-success">
-              <MDBIcon  icon="history text-success pe-2" /> How can I view my order history?
+              <MDBIcon icon="history text-success pe-2" /> How can I view my order history?
             </MDBTypography>
-            <p>
-              Your complete order history is available in your account. Log in, go to the order history section, and you'll find a detailed list of your past orders, including order dates and status.
-            </p>
+            <div>
+              <p>
+                {editableContent.answer}{" "}
+                <MDBBtn
+                  className={editableContent.editing ? "bg-warning" : "bg-primary"}
+                  size="sm"
+                  onClick={() => handleEdit("editing", !editableContent.editing)}
+                >
+                  {editableContent.editing ? "Save" : "Edit"}
+                </MDBBtn>
+              </p>
+              {editableContent.editing && (
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  value={editableContent.answer}
+                  onChange={(e) => handleEdit("answer", e.target.value)}
+                ></textarea>
+              )}
+            </div>
           </MDBCol>
-          <MDBCol md="6" lg="4" className="mb-4">
-            <MDBTypography tag="h6" className="mb-3 text-success">
-              <MDBIcon  icon="file text-success pe-2" /> Can I upload my prescription for refills?
-            </MDBTypography>
-            <p>
-              Absolutely! You can easily upload your prescription when placing a refill order. Ensure the prescription details are accurate to expedite the process.
-            </p>
-          </MDBCol>
+
+          {/* ... (same as before) */}
         </MDBRow>
       </section>
-      <div className="container border border-success border-2 m-2 ">
-      <h1 className="p-2 ">Answer a Question</h1>
-      <AskQuestionForm/>
       
-    </div>
     </MDBContainer>
   );
 }
