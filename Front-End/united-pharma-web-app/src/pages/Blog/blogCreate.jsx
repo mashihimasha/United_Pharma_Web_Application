@@ -7,7 +7,7 @@ const BlogCreationPage = () => {
 
   const handleAddPost = () => {
     fetch('http://localhost:3000/blog', {
-      method: 'POST',
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
       },
@@ -15,8 +15,8 @@ const BlogCreationPage = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-      
+        console.log(data); 
+        //reset the content of the form 
         setTitle('');
         setContent('');
         setImageUrl('');

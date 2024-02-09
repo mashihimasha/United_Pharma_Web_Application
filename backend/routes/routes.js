@@ -19,7 +19,7 @@ const connection = mysql.createConnection({
       console.log('Connected to the database');
     }
   });
-
+//GET method(REST API/HTTP method)--> Server side
 app.get('/blogs', (request, response) => {
     connection.query('SELECT * FROM posts', (error, data) => {
       if (error) {
@@ -38,11 +38,10 @@ app.get('/blogs', (request, response) => {
         response.send(data);
       else
       console.log(err)
-      
     })
-  
   })
-
+  //POST METHOD(CREATE)
+  //Create BLOG POST
   app.post('/blog', (request, response) => {
     const { title, content,imageUrl } = request.body;
     connection.query('INSERT INTO posts (title, content, imageUrl ) VALUES (?, ?, ?)', [title, content, imageUrl], (error) => {
@@ -55,7 +54,8 @@ app.get('/blogs', (request, response) => {
     });
   });
   
-   
+  //UPDATE 
+  //UPDATE A POST WHERE ID WAS GIVEN
   app.put('/blog/:post_id', (request, response) => {
     const { post_id } = request.params;
     const { title, content, imageUrl } = request.body;
@@ -69,7 +69,8 @@ app.get('/blogs', (request, response) => {
     });
   });
   
-   
+   //DELETE 
+   //TO DELETE A POST
   app.delete('/blog/:post_id', (request, response) => {
     const { post_id } = request.params;
     connection.query('DELETE FROM posts WHERE post_id = ?', [post_id], (error) => {
@@ -107,6 +108,8 @@ app.get('/blogs', (request, response) => {
 //   }
 // });
 
+//READ
+//GET ALL THE DETAILS 
 app.get('/api/blogs', (req, res) => {
   
   connection.query('SELECT * FROM posts', (error, results) => {
@@ -114,7 +117,6 @@ app.get('/api/blogs', (req, res) => {
       console.error('Error fetching blogs:', error);
       res.status(500).json({ error: 'Error fetching blogs' });
     } else {
-   
       const mappedData = results.map(blog => ({
         id: blog.id,
         title: blog.title,
