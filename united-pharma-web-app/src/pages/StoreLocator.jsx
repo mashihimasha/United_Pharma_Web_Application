@@ -26,10 +26,10 @@ const StoreLocator = ({  }) => {
           <div className="mt-1">
             <div className='flex-row flex-wrap w-100 '>
               {addresses.map((addresses, index) => (
-                <div key={index} className="card mb-4 mx-2 border-0 shadow-lg h-25">
+                <div key={index} className="card mb-4 mx-1 border-0 shadow-lg h-25">
                   <div className="card-body text-black fw-bold">
                     <h5 className="card-title small">{addresses.location}</h5>
-                    <p className="card-text text-dark small">{addresses.address}</p>
+                    <p className="card-text text-dark small"><i class="text-success fa fa-map-marker" aria-hidden="true"></i> {addresses.address}</p>
                   </div>
                 </div>
               ))}
