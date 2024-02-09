@@ -14,7 +14,7 @@ export default function StaticFaqSection() {
   const [editableContent, setEditableContent] = useState({
     question: "How can I view my order history?",
     answer:
-      "Your complete order history is available in your account. Log in, go to the order history section, and you'll find a detailed list of your past orders, including order dates and status.",
+      "",
   });
 
   const handleEdit = (field, value) => {
