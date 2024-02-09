@@ -31,7 +31,7 @@ const validateForm = (fields) => {
           }
           break;
         case 'confirmPassword':
-          const newPasswordField = fields.find(f => f.name === 'newPassword');
+          const newPasswordField = fields.find(f => f.name === 'newPassword' || f.name === 'password');
           if (field.value !== newPasswordField?.value) {
             field.setError("Passwords don't match");
             isValid = false;

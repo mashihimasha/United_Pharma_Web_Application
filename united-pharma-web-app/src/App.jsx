@@ -9,6 +9,7 @@ import UserProfile from './pages/UserProfile';
 import ForgotPasswordForm from './components/user/ForgotPasswordForm';
 import Sidebar from './components/user/UserAccount/Sidebar';
 import StoreLocator from './pages/StoreLocator';
+import EmployeeRegisterPage from './pages/EmployeeRegisterPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/forgotPassword' element={<ForgotPasswordForm/>}/>
           <Route path='/sidebar' element={<Sidebar/>}/>
           <Route path='/storelocator' element={<StoreLocator/>}/>
+          <Route path='/employeeRegistration' element={<EmployeeRegisterPage/>}/>
         </Routes>
       </main>
       <Footer/>
