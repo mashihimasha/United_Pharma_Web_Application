@@ -78,6 +78,7 @@ const CardDetailsForm = ({ initialValues, showModal, handleClose }) => {
                 value={values[field.name]}
                 onChange={onChange}
                 autoComplete={field.autoComplete}
+                required
               />
             ))}
           </div>

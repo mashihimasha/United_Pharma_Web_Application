@@ -7,11 +7,11 @@ import FormInput from './FormInput';
 
 const RegistrationForm = () => {
   
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [values, setValues] = useState({
     email: '',
     password: '',
     confirmPassword: '',
+    userRole: '',
   });
 
   const [submitErrors, setSubmitErrors] = useState({
@@ -24,6 +24,56 @@ const RegistrationForm = () => {
   const updateSubmitErrors = (errors) => {
     setSubmitErrors(errors);
   };
+
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isWholesaleChecked, setIsWholesaleChecked] = useState(false);
+  const [isAgreeChecked, setIsAgreeChecked] = useState(false);
+  
+  const inputFields = [
+    {
+      name: 'email',
+      type: 'text',
+      label: 'Enter Email',
+      autoComplete: 'username',
+      error: submitErrors.email,
+      required: true,
+    },
+    {
+      name: 'password',
+      type: 'password',
+      label: 'Enter Password',
+      autoComplete: 'new-password',
+      error: submitErrors.password,
+      required: true,
+    },
+    {
+      name: 'confirmPassword',
+      type: 'password',
+      label: 'Confirm Password',
+      autoComplete: 'new-password',
+      error: submitErrors.confirmPassword,
+      required: true,
+    },
+    {
+      name: 'isWholeSale',
+      type: 'checkbox',
+      value: 'wholesale',
+      label: 'I am a wholesale customer',
+      autoComplete: 'none',
+      isChecked: isWholesaleChecked,
+      setIsChecked: setIsWholesaleChecked,
+    },
+    {
+      name: 'agreeToTermsAndConditions',
+      value: 'agreed',
+      type: 'checkbox',
+      label: 'I agree to the terms and conditions',
+      autoComplete: 'none',
+      required: true,
+      isChecked: isAgreeChecked,
+      setIsChecked: setIsAgreeChecked,
+    },
+  ];
 
   const isValidForm = () => {
     let isValid = true;
@@ -55,7 +105,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Clear submit errors
+    
     setSubmitErrors({
       email: '',
       password: '',
@@ -67,6 +117,8 @@ const RegistrationForm = () => {
         const response = await Axios.post('http://localhost:3000/register', {
           email: values.email,
           password: values.password,
+          userRole: isWholesaleChecked ? "wholesale" : "retail",
+          agreedTermsAndConditions: isAgreeChecked ? 1 : 0,
         });
 
         if (response.data === 'User Created') {
@@ -85,30 +137,6 @@ const RegistrationForm = () => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
-  const inputFields = [
-    {
-      name: 'email',
-      type: 'text',
-      label: 'Enter Email',
-      autoComplete: 'username',
-      error: submitErrors.email,
-    },
-    {
-      name: 'password',
-      type: 'password',
-      label: 'Enter Password',
-      autoComplete: 'new-password',
-      error: submitErrors.password,
-    },
-    {
-      name: 'confirmPassword',
-      type: 'password',
-      label: 'Confirm Password',
-      autoComplete: 'new-password',
-      error: submitErrors.confirmPassword,
-    },
-  ];
-
   return (
     <div className="RegistrationForm">
       <form onSubmit={handleSubmit}>
@@ -119,6 +147,8 @@ const RegistrationForm = () => {
             type={field.type}
             label={field.label}
             value={values[field.name]}
+            isChecked={field.isChecked}
+            setIsChecked={field.setIsChecked}
             onChange={onChange}
             error={field.error}
             autoComplete={field.autoComplete}

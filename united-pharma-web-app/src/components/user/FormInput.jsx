@@ -1,11 +1,15 @@
 import React from 'react';
 
 const FormInput = (props) => {
-  const { name, type, label, value, onChange, error,options, ...inputProps } = props;
+  const { name, type, label, value, onChange, error,options,isChecked,setIsChecked, ...inputProps } = props;
 
   const inputStyle = {
     borderColor: error ? '#FF6347' : '', // Change border color to red if there's an error
     boxShadow: error ? '0 0 0 0.25rem rgba(255, 99, 71, 0.25)' : '',
+  };
+
+  const checkHandler = () => {
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -53,18 +57,18 @@ const FormInput = (props) => {
           ))}
         </div>
       ) : type === 'checkbox' ? (
-        <div className="form-check ms-1">
+        <div className="form-check ms-1" style={{ marginTop: '-15px' }}>
           <input
-            className="form-check-input border-success"
+            className="form-check-input"
             type="checkbox"
             id={name}
             name={name}
-            checked={value}
-            onChange={onChange}
+            checked={isChecked}
+            onChange={checkHandler} 
             style={inputStyle}
             {...inputProps}
           />
-          <label className="form-check-label" htmlFor={name}>
+          <label className="text-muted form-check-label small" htmlFor={name}>
             {label}
           </label>
         </div>

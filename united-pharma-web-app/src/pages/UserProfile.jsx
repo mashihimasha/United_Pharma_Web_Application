@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../components/assets/css/User.css';
-import ProfileForm from '../components/user/ProfileForm';
+import ProfileForm from '../components/user/UserAccount/ProfileForm';
 import Sidebar from '../components/user/UserAccount/Sidebar';
 import OrderDetails from '../components/user/UserAccount/OrderDetails';
 import ShippingDetails from '../components/user/UserAccount/ShippingDetails';

@@ -98,6 +98,7 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
                 onChange={onChange}
                 options={field.options}
                 autoComplete={field.autoComplete}
+                required
               />
             ))}
           </div>
