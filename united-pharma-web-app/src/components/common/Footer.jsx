@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Footer extends Component {
-  render() {
+const Footer = () => {
+  const logoStyle = {
+    width: '80px',
+    height: 'auto', 
+  };
     return (
       <footer className='footer-area'>
         {/* Footer Content */}
@@ -14,16 +17,17 @@ class Footer extends Component {
                 <div className='col-lg-3 col-md-7'>
                   <div className='footer-widget'>
                     <div className='footer-about'>
-                      <div className='footer-logo logo'>
+                      <div className='footer-logo logo d-flex flex-row flex-nowrap align-items-center'>
                         <Link to='/'>
-                          {/* <img src={require('')} alt='Logo' /> */}
+                          <img src={require('../assets/img/footer/logo.png')} alt='Logo' style={logoStyle}/>
                         </Link>
+                        <div className='footer-text'>
+                          <p className='small fw-bold'>
+                          United Pharma
+                          </p>
+                        </div>
                       </div>
-                      <div className='footer-text'>
-                        <p>
-                        United Pharma
-                        </p>
-                      </div>
+                      
                       <div className='footer-social'>
                         <a href='https://web.facebook.com/unitedphrama/?_rdc=1&_rdr'>
                           <i className='fa fa-facebook-f'></i>
@@ -176,7 +180,6 @@ class Footer extends Component {
         </div>
       </footer>
     );
-  }
-}
+};
 
 export default Footer;
