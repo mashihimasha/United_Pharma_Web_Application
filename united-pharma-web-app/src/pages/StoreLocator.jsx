@@ -1,49 +1,43 @@
-import React, { Component } from 'react';
-import RegistrationForm from '../components/user/RegistrationForm';
-import '../components/assets/css/User.css';
-import BannerLeaves from '../components/common/BannerLeaves';
+import React from 'react';
+import MapLocations from '../components/user/CompanyDetails/MapLocations';
 
-class StoreLocator extends Component {
-  // additional logic or state here if needed
-
-  render() {
-    return (
-      <div className='register'>
-        <div className='container-fluid ps-md-0 g-0'>
-          <div className='row g-0'>
-            <div className='col-md-8 col-lg-7'>
-              <div className='registration d-flex align-items-center py-1'>
-                <div className='container'>
-                <div className='col-lg-4 col-md-2'>
-                  <BannerLeaves className='col-lg-4 col-md-2 p-1' />
-                </div>
-                  <div className='row'>
-                    <div className='col-md-9 col-lg-7 mx-auto'
-                      style={{
-                        visibility: 'visible',
-                        animationDuration: '2s',
-                        animationDelay: '0.2s',
-                        animationName: 'bannerFadeInLeft',
-                      }}>
-                      <h4 className='h4 auth-heading mb-4'>Create an Account</h4>
-                      <RegistrationForm />
-                    </div>
+const StoreLocator = ({  }) => {
+  const addresses = [
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Borella' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Panadura' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Kalutara' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Hambantota' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Matara' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Karapitiya' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Galle' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Galle' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'Galle' },
+    { address: '1055/3 Maradana Rd, Colombo 08', location: 'United Health Mate' },
+  ];
+  return (
+    <div className="container">
+      <div className="d-flex flex-column flex-wrap">
+        <div>
+          {/* Map Section */}
+          <MapLocations />
+        </div>
+        <div className="d-flex align-self-end">
+          {/* Address List Section */}
+          <div className="mt-1">
+            <div className='flex-row flex-wrap w-100 '>
+              {addresses.map((addresses, index) => (
+                <div key={index} className="card mb-4 mx-2 border-0 shadow-lg h-25">
+                  <div className="card-body text-black fw-bold">
+                    <h5 className="card-title small">{addresses.location}</h5>
+                    <p className="card-text text-dark small">{addresses.address}</p>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-            <div className='d-none d-md-flex col-md-4 col-lg-5 bg-register-image'
-                style={{
-                  visibility: 'visible',
-                  animationDuration: '2s',
-                  animationDelay: '0.2s',
-                  animationName: 'bannerFadeInLeft',
-                }}></div>
           </div>
         </div>
       </div>
-    );
-  }
-}
-
+    </div>
+  );
+};
 export default StoreLocator;
