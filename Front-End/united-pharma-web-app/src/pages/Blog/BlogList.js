@@ -103,8 +103,7 @@ const BlogList = () => {
         ))}
       </div>
             
-          {/* create blog button   */}
-
+      {/* create blog button   */}
       <div ref={createFormRef} className='w-100 d-flex justify-content-center'>
         <button className="btn btn-success w-25 p-2 m-4" onClick={toggleCreateForm}>
           <MDBIcon icon="plus" className="m-2" />
@@ -113,9 +112,7 @@ const BlogList = () => {
       </div>
       {showCreateForm && <CreatePostForm ref={createFormRef} closeModal={toggleCreateForm} postToUpdate={postToUpdate} />}
 
-
-
-          {/* pop up model */}
+      {/* pop up model */}
       <Modal show={deleteSuccess || updateSuccess} onHide={() => { setDeleteSuccess(false); setUpdateSuccess(false); }}>
         <Modal.Header closeButton>
           <Modal.Title>Success</Modal.Title>
@@ -130,7 +127,8 @@ const BlogList = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-{/* go to faq button */}
+
+      {/* go to faq button */}
       <div className='w-100 d-flex justify-content-center ' >
         <Link to="/faq" className="btn btn-success w-25 p-2 m-4" variant="primary"
         style={{ backgroundColor: 'green' }}>
@@ -138,6 +136,15 @@ const BlogList = () => {
         <MDBIcon className='m-2 p-0' icon='question-circle'/>
         </Link>
       </div>
+
+      {/* Floating chat button */}
+      <Link to='/chat' style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+        <button className="btn w-100 p-3 btn-primary rounded-8">
+          <MDBIcon icon="comments" className="m-2 p-0"
+           />
+          Chat with US
+        </button>
+      </Link>
     </div>
   );
 };
