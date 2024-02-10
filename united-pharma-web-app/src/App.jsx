@@ -11,6 +11,7 @@ import Sidebar from './components/user/UserAccount/Sidebar';
 import StoreLocator from './pages/StoreLocator';
 import EmployeeRegisterPage from './pages/EmployeeRegisterPage';
 import Preloader from './components/common/Preloader';
+import HomePage from './pages/HomePage';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
       <Preloader/>
       <main className='main'>
         <Routes>
+          <Route path='/' element={ <HomePage/> } />
           <Route path='/register' element={ <RegisterPage/> } />
           <Route path='/login' element={ <LoginPage/> } />
           <Route path='/userProfile' element={ <UserProfile/> } />

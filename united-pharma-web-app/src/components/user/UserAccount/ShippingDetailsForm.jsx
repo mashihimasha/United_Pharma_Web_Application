@@ -62,7 +62,7 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
       autoComplete: 'postal-code',
     },
     {
-      name: 'addressType',
+      name: 'isDefault',
       type: 'checkbox',
       value: true,
       label: 'Set as default shipping address',
