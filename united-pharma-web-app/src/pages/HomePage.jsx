@@ -4,7 +4,6 @@ import BannerLeaves from '../components/common/BannerLeaves';
 const HomePage = () => {
     return(
         <div>
-            <BannerLeaves/>
         </div>
     );
 };

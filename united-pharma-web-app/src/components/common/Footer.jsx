@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MedicineShapeOne from './MedicineShapeOne';
+import MedicineShapeTwo from './MedicineShapeTwo';
 
 const Footer = () => {
   const logoStyle = {
@@ -130,36 +132,8 @@ const Footer = () => {
             </div>
           </div>
           {/* Footer Shapes */}
-          <div className='footer-shape one'>
-            <img
-              alt='img 1'
-              src={require('../assets/img/footer/footer_shape_medicine01.png')}
-              className='wow fadeInLeft'
-              data-wow-delay='.3s'
-              data-wow-duration='1s'
-              style={{
-                visibility: 'visible',
-                animationDuration: '2s',
-                animationDelay: '0.2s',
-                animationName: 'bannerFadeInLeft',
-                }}
-            />
-          </div>
-          <div className='footer-shape two'>
-            <img
-              alt='img 2'
-              src={require('../assets/img/footer/footer_shape_medicine02.png')}
-              className='wow fadeInRight'
-              data-wow-delay='.3s'
-              data-wow-duration='1s'
-              style={{
-                visibility: 'visible',
-                animationDuration: '2s',
-                animationDelay: '0.2s',
-                animationName: 'bannerFadeInRight',
-                }}
-            />
-          </div>
+          <MedicineShapeOne />
+          <MedicineShapeTwo />
         </div>
         {/* Copyright */}
         <div className='copyright-wrap'>
