@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../assets/css/Sidebars.css';
 
 const Sidebar = ({ activeTab, onTabChange }) => {
-  const [userRole,setUserRole]=useState('retail');
+  const [userRole,setUserRole]=useState('administrator');
   const isRestrictedRole = ['wholesale', 'administrator', 'pharmacist'].includes(userRole);
 
   const handleSetUserRole = (newRole) => {

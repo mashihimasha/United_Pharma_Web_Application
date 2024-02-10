@@ -250,6 +250,109 @@ p {
   };
 }
 
+/* 11. Video */
+
+.video-bg {
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	min-height: 75vh;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+}
+.video-bg::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: -6px;
+	background-image: url(components/assets/img/bg/video_top_mask.png);
+	width: 100%;
+	height: 46px;
+	background-repeat: repeat;
+	background-position: center;
+	z-index: 1;
+}
+.video-bg::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-image: url(components/assets/img/bg/video_bottom_mask.png);
+	width: 100%;
+	height: 36px;
+	background-repeat: repeat;
+	background-position: center;
+	z-index: 1;
+}
+.video-bg-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #090909;
+	opacity: 0.8;
+	z-index: -1;
+}
+.video-btn {
+	text-align: center;
+}
+.video-btn a {
+	width: 132px;
+	height: 132px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	font-size: 24px;
+	background: #0D9B4D;
+	color: #fff;
+	border-radius: 50%;
+}
+.video-btn a:hover {
+	animation-play-state: paused;
+}
+.ripple-white {
+    border-radius: 50%;
+    -webkit-animation: ripple-white 1s linear infinite;
+    animation: ripple-white 1s linear infinite;
+    transition: .5s;
+    -webkit-transition: .5s;
+}
+@-webkit-keyframes ripple-white {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(13,155,77,0.3), 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3);
+        box-shadow: 0 0 0 0 rgba(13,155,77,0.3), 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3), 0 0 0 30px rgba(255,255,255,0);
+        box-shadow: 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3), 0 0 0 30px rgba(255,255,255,0);
+    }
+}
+@keyframes ripple-white {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(13,155,77,0.3), 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3);
+        box-shadow: 0 0 0 0 rgba(13,155,77,0.3), 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3), 0 0 0 30px rgba(255,255,255,0);
+        box-shadow: 0 0 0 10px rgba(13,155,77,0.3), 0 0 0 20px rgba(13,155,77,0.3), 0 0 0 30px rgba(255,255,255,0);
+    }
+}
+.video-shape {
+	position: absolute;
+	z-index: 3;
+}
+.video-shape.one {
+	left: 0;
+	bottom: -12%;
+}
+.video-shape.two {
+	right: 0;
+	bottom: -7%;
+}
+
 /* 21. Footer */
 .footer-instagram {
 	position: relative;
