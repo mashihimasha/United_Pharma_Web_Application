@@ -26,6 +26,17 @@ const ShippingDetails = () => {
       country: 'Countryland',
       isSelected: false,
     },
+    {
+      id: 3,
+      name: 'John Doe',
+      phone: '076XXXXXXX',
+      street: '123 Main St',
+      city: 'Cityville',
+      state: 'Stateville',
+      zip: '12345',
+      country: 'Countryland',
+      isSelected: false,
+    },
   ]);
 
   const [showShippingAddressForm, setShowShippingAddressForm] = useState(false);

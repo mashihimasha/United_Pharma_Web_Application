@@ -98,7 +98,6 @@ const EmployeeRegistrationForm = () => {
             email: values.email,
             password: values.password,
             userRole: 'pharmacist',
-            agreedTermsAndConditions: 0,
         });
 
         if (response.data === 'User Created') {

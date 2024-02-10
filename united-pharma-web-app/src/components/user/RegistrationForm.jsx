@@ -79,7 +79,11 @@ const RegistrationForm = () => {
     let isValid = true;
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const passwordPattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
-
+    if(!isAgreeChecked){
+      updateSubmitErrors((prevErrors) => ({ ...prevErrors, 
+        general: 'Please confirm that you agree to the terms and conditions.' }));
+      isValid = false;
+    }
     if (!emailPattern.test(values.email)) {
       updateSubmitErrors((prevErrors) => ({ ...prevErrors, 
         email: 'You have entered an invalid e-mail address. Please try again.' }));
@@ -118,7 +122,6 @@ const RegistrationForm = () => {
           email: values.email,
           password: values.password,
           userRole: isWholesaleChecked ? "wholesale" : "retail",
-          agreedTermsAndConditions: isAgreeChecked ? 1 : 0,
         });
 
         if (response.data === 'User Created') {

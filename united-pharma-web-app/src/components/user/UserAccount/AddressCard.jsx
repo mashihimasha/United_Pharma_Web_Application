@@ -4,9 +4,9 @@ const AddressCard = ({ address, isSelected }) => {
   const { name, phone, street, city, state, zip, country } = address;
 
   return (
-    <div className={`card mb-4 shadow ${isSelected ? 'border-success border-2' : 'border-0'}`}>
+    <div className={`card mb-4 w-100 shadow ${isSelected ? 'border-success border-2' : 'border-0'}`}>
       <div className="card-body">
-        <p className="text-success align-self-start justify-self-end text-end fw-light"><small className={`${isSelected ? 'd-block' : 'd-none'}`}>Default Address</small></p>
+        <p className="align-self-start justify-self-end text-end fw-light"><small className={`${isSelected ? 'text-success ' : 'text-white'}`}>Default Address</small></p>
         <h6 className="card-title my-4 fw-bold">
           <span className="text-black"><i className="fa fa-user mx-2" aria-hidden="true"></i>{name},</span>
           <span className="text-black"><i className="fa fa-phone mx-2" aria-hidden="true"></i>{phone}</span>

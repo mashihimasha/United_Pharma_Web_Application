@@ -41,10 +41,6 @@ userRole: {
   type: DataTypes.STRING,
   allowNull: false,
 },
-agreedTermsAndConditions: {
-  type: DataTypes.BOOLEAN,
-  allowNull: false,
-},
 });
   
 // Middleware
@@ -135,7 +131,7 @@ app.post("/login", (req, res, next) => {
 
 //register
 app.post("/register", (req, res) => {
-  const { email, password,userRole,agreedTermsAndConditions } = req.body;
+  const { email, password,userRole } = req.body;
   if(req.body !== ""){
     User.findOne({ where: { email: email } }).then((user) => {
       if (user) {
@@ -149,7 +145,6 @@ app.post("/register", (req, res) => {
             email: email,
             password: hashedPassword,
             userRole: userRole,
-            agreedTermsAndConditions: agreedTermsAndConditions,
           }).then(() => {
             res.send("User Created");
           });

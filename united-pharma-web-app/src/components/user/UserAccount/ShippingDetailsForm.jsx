@@ -13,9 +13,10 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
   });
 
   useEffect(() => {
-    // Set initial values when the prop changes
     setValues(initialValues);
   }, [initialValues]);
+
+  const [isDefaultAddress, setIsDefaultAddress] = useState(false);
 
   const inputFields = [
     {
@@ -65,6 +66,8 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
       type: 'checkbox',
       value: true,
       label: 'Set as default shipping address',
+      isChecked: isDefaultAddress,
+      setIsChecked: setIsDefaultAddress,
     },
   ];
 
@@ -97,6 +100,8 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
                 value={values[field.name]}
                 onChange={onChange}
                 options={field.options}
+                isChecked={field.isChecked}
+                setIsChecked={field.setIsChecked}
                 autoComplete={field.autoComplete}
                 required
               />
