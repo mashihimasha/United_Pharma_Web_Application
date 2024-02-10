@@ -10,10 +10,13 @@ import ForgotPasswordForm from './components/user/ForgotPasswordForm';
 import Sidebar from './components/user/UserAccount/Sidebar';
 import StoreLocator from './pages/StoreLocator';
 import EmployeeRegisterPage from './pages/EmployeeRegisterPage';
+import Preloader from './components/common/Preloader';
 
 function App() {
+  
   return (
     <div className='App'>
+      <Preloader/>
       <main className='main'>
         <Routes>
           <Route path='/register' element={ <RegisterPage/> } />
@@ -23,6 +26,7 @@ function App() {
           <Route path='/sidebar' element={<Sidebar/>}/>
           <Route path='/storelocator' element={<StoreLocator/>}/>
           <Route path='/employeeRegistration' element={<EmployeeRegisterPage/>}/>
+          <Route path='/preloader' element={<Preloader/>}/>
         </Routes>
       </main>
       <Footer/>

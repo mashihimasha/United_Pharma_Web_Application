@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import '../src/components/assets/css/animate.min.css';
+import '../src/components/assets/css/magnific-popup.css';
+import '../src/components/assets/css/slick.css';
 import '../src/components/assets/css/custom.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './index.css';

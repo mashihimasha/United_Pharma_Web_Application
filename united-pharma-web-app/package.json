@@ -12,12 +12,17 @@
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.16.4",
     "google-maps-react": "^2.0.6",
+    "jarallax": "^2.2.0",
+    "jquery": "^3.7.1",
+    "magnific-popup": "^1.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "react-wow": "^1.0.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
