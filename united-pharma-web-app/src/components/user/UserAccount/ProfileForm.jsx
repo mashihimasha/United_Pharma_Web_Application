@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FormInput from '../FormInput';
 import { Button } from 'react-bootstrap';
 import { validateForm } from '../../../utils/validation';
@@ -16,6 +17,12 @@ const ProfileForm = () => {
     lastName: '',
     email: '',
   });
+
+  const [userRole,setUserRole]=useState('retail');
+
+  const handleSetUserRole = (newRole) => {
+    setUserRole(newRole);
+  };
 
   const inputFields = [
     {
@@ -70,7 +77,10 @@ const ProfileForm = () => {
           <div id="profile-container">
             <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
           </div>    
-          <p className='small'>mashihimasha@gmail.com</p>
+          <p id="email-address" className='small m-0'>mashihimasha@gmail.com</p>
+          <p id="employee-id" className={`small ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>emp-12<br/>
+          branch-12</p>
+
           <div className='input-group input-group-sm mt-4'>
             <input
                 id="imageUpload"
@@ -87,15 +97,21 @@ const ProfileForm = () => {
         </form>    
       </div>
       {/*Change Password Button*/}
-      <div className='d-flex ms-2'>
+      <div className='d-flex flex-row flex-wrap ms-2'>
         <Button
           variant="dark"
-          className="btn-sm text-white mt-4 mx-auto rounded-pill d-flex align-self-center justify-self-start"
+          className="btn-sm text-white mt-4 me-2 rounded-pill d-flex align-self-center justify-self-start"
           type="button"
           name="change password"
           value="change password"
           onClick={handleShowPasswordModal}
         >Change Password</Button>
+
+        <Link
+          className={`btn btn-dark btn-sm text-white mt-4 me-2 
+          rounded-pill d-flex align-self-center justify-self-start
+          ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}
+        ><i className='fa fa-plus me-1 mt-1'></i> New Pharmacist Account</Link>
       </div>
 
       <PasswordChangeModal

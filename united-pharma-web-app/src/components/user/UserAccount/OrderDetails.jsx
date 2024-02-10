@@ -23,43 +23,17 @@ const OrderDetails = () => {
       price: 10.0,
       total: 20.0,
       status: 'Shipped',
+      orderType: 'prescription',
     },
     {
-      id: 67890,
-      date: 'February 15, 2023',
-      product: 'Example Product 2',
-      quantity: 1,
-      price: 20.0,
+      id: 12345,
+      date: 'January 1, 2023',
+      product: 'Example Product 1',
+      quantity: 2,
+      price: 10.0,
       total: 20.0,
-      status: 'In Transit',
-    },
-    {
-      id: 67890,
-      date: 'February 15, 2023',
-      product: 'Example Product 2',
-      quantity: 1,
-      price: 20.0,
-      total: 20.0,
-      status: 'In Transit',
-    },
-
-    {
-      id: 67890,
-      date: 'February 15, 2023',
-      product: 'Example Product 2',
-      quantity: 1,
-      price: 20.0,
-      total: 20.0,
-      status: 'In Transit',
-    },
-    {
-      id: 67890,
-      date: 'February 15, 2023',
-      product: 'Example Product 2',
-      quantity: 1,
-      price: 20.0,
-      total: 20.0,
-      status: 'In Transit',
+      status: 'Shipped',
+      orderType: 'non-prescription',
     },
   ];
 
@@ -105,7 +79,11 @@ const OrderDetails = () => {
               <div className='d-flex flex-row justify-content-around flex-wrap'>
                 <OrderItemImage imageUrl="https://via.placeholder.com/120x120" />
                 <ul className="order-item-content list-group list-group-flush align-self-center">
-                  <li className="list-group-item">{order.product}</li>
+                  <li className="list-group-item">{order.product}
+                    <span class="position-absolute top-0 start-100 ms-4 translate-middle badge rounded-pill bg-success">
+                    {order.orderType}
+                    </span>
+                  </li>
                   <li className="list-group-item small">LKR {order.price.toFixed(2)}<span className='small text-muted'> x {order.quantity}</span></li>
                 </ul>
                 <h5 className='card-text align-self-center'>Total: {order.total.toFixed(2)}</h5>
