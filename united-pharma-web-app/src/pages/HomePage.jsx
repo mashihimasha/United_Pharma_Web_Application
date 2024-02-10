@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import BannerLeaves from '../components/common/BannerLeaves';
+import React from 'react';
 import VideoArea from '../components/user/Home/VideoArea';
 
 const HomePage = () => {

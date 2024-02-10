@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SimpleSlider from './SimpleSlider';
 
 const VideoArea = () => {
   return (
@@ -9,8 +10,8 @@ const VideoArea = () => {
         <div className="row">
           <div className="col-12">
             <div className="video-btn">
-              <Link to="/shoppingcart" className="popup-video ripple-white"><i className="fa fa-play"></i></Link>
-            
+              <SimpleSlider/>
+              <Link to="/shoppingcart" className="ripple-white  d-flex align-items-center"><h6 className='fw-bolder'>Start Shopping</h6></Link>
             </div>
           </div>
         </div>

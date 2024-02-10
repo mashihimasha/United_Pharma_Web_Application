@@ -297,10 +297,11 @@ p {
 }
 .video-btn {
 	text-align: center;
+	text-transform: uppercase;
 }
 .video-btn a {
-	width: 132px;
-	height: 132px;
+	width: 172px;
+	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -308,13 +309,13 @@ p {
 	font-size: 24px;
 	background: #0D9B4D;
 	color: #fff;
-	border-radius: 50%;
+	border-radius: 50px;
 }
 .video-btn a:hover {
 	animation-play-state: paused;
 }
 .ripple-white {
-    border-radius: 50%;
+    border-radius: 50px;
     -webkit-animation: ripple-white 1s linear infinite;
     animation: ripple-white 1s linear infinite;
     transition: .5s;
