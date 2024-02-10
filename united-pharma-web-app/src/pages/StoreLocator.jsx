@@ -1,7 +1,7 @@
 import React from 'react';
 import MapLocations from '../components/user/CompanyDetails/MapLocations';
 
-const StoreLocator = ({  }) => {
+const StoreLocator = () => {
   const addresses = [
     { address: '1055/3 Maradana Rd, Colombo 08', location: 'Borella' },
     { address: '1055/3 Maradana Rd, Colombo 08', location: 'Panadura' },
