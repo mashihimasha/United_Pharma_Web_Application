@@ -15,28 +15,7 @@ const ShippingDetails = () => {
       country: 'Countryland',
       isSelected: true,
     },
-    {
-      id: 2,
-      name: 'John Doe',
-      phone: '076XXXXXXX',
-      street: '123 Main St',
-      city: 'Cityville',
-      state: 'Stateville',
-      zip: '12345',
-      country: 'Countryland',
-      isSelected: false,
-    },
-    {
-      id: 3,
-      name: 'John Doe',
-      phone: '076XXXXXXX',
-      street: '123 Main St',
-      city: 'Cityville',
-      state: 'Stateville',
-      zip: '12345',
-      country: 'Countryland',
-      isSelected: false,
-    },
+    
   ]);
 
   const [showShippingAddressForm, setShowShippingAddressForm] = useState(false);
@@ -60,18 +39,21 @@ const ShippingDetails = () => {
       <div className="form-group">
         <h4 className="text-black my-4">Shipping Address</h4>
         
-        <div className="d-flex flex-row flex-wrap">
+        <div className="d-flex flex-row flex-wrap w-100">
           {addresses.map((address) => (
-            <div key={address.id} className="col-md-4 mx-4">
+            <div key={address.id} className="col-md-6 mx-4">
               <AddressCard address={address} isSelected={address.isSelected} />
+              <div className='d-flex flex-row'>
+                <button className="btn btn-success text-white rounded-pill" onClick={handleShowShippingAddressForm}>Edit Address</button>
+              </div>
             </div>
           ))}
-          <button
+         {/*  <button
               className="btn btn-light text-black mb-4 pb-2 shadow border-0 col-md-4 mx-4"
               onClick={handleShowShippingAddressForm}
               >
               <i className="fa fa-plus-circle"></i> Add New Address
-          </button>
+          </button> */}
         </div>
       </div>
       

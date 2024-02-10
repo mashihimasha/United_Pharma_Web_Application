@@ -16,10 +16,7 @@ const AddressCard = ({ address, isSelected }) => {
           <p className='text-black ms-3'>{city}, {state}, {country}</p>
           <p className='text-black ms-3'>{zip}</p>
         </p>
-        <div className='d-flex flex-row'>
-          <button className="btn btn-white text-success">Edit</button>
-          <button className="btn btn-white text-success">Delete</button>
-        </div>
+        
       </div>
     </div>
   );

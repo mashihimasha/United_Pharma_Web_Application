@@ -26,16 +26,22 @@ const ShippingDetailsForm = ({ initialValues, showModal, handleClose }) => {
       autoComplete: 'name',
     },
     {
-        name: 'receiverPhone',
-        type: 'text',
-        label: 'Recipient Phone',
-        autoComplete: 'tel',
-      },
-    {
-      name: 'addressLine1',
+      name: 'receiverPhone',
       type: 'text',
-      label: 'Address',
-      autoComplete: 'street-address',
+      label: 'Recipient Phone',
+      autoComplete: 'tel',
+    },
+    {
+      name: 'addressNumber',
+      type: 'text',
+      label: 'Address Number',
+      autoComplete: 'address-line1',
+    },
+    {
+      name: 'streeAddress',
+      type: 'text',
+      label: 'Street',
+      autoComplete: 'address-line2',
     },
     {
       name: 'city',
