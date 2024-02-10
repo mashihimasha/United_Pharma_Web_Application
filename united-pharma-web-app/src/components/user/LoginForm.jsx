@@ -119,7 +119,7 @@ function LoginForm() {
         <div className='d-grid mb-3 p-2'>
 
           <div className='form-group mb-3'>
-            <Link className='text-right small' to='forgotPassword'>
+            <Link className='text-right small' to='/forgotPassword'>
               Forgot password?
             </Link>
           </div>

@@ -22,7 +22,7 @@ class ForgotPasswordForm extends Component {
                     <button type="button" className="btn btn-success btn-sm col-4 mx-auto text-white">Continue</button>
                   </div>
                   <div className='form-group mb-3 text-center'>
-                    <Link className='small px-3' to='/'>Back to Sign In</Link>
+                    <Link className='small px-3' to='/login'>Back to Sign In</Link>
                   </div>
                 </form>
               </div>

@@ -161,7 +161,7 @@ const RegistrationForm = () => {
 
         <div className="d-grid mb-3 p-2">
           <AuthButton className="py-2" buttonText="Register" onClick={handleSubmit} />
-          <Link className="text-center small mt-3" to="/">
+          <Link className="text-center small mt-3" to="/login">
             Already have an account? Sign In
           </Link>
         </div>
