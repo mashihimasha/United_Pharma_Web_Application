@@ -28,23 +28,24 @@ export default function StaticFaqSection() {
     <MDBContainer>
       <section>
         <div className="d-flex justify-content-between align-items-center mb-4 mt-3 ">
-          <Link to="/" type="button" className="btn btn-success w-25 p-1">
+          {/* home button */}
+          <Link to="/" type="button" className="btn btn-success w-25 p-1" style={{ backgroundColor:" "}}>
             <MDBIcon icon="home" />
             Home
           </Link>
-
-          <Link to="/blogs" type="button" className="btn btn-success w-25 p-1">
+          {/* blog button */}
+          <Link to="/blogs" type="button" className="btn btn-success w-25 p-1" style={{ backgroundColor:" "}}>
             <MDBIcon icon="blogger-b" />
             Blogs
           </Link>
         </div>
         <MDBTypography
           tag="h1"
-          className="text-center mb-4 mt-5 pb-2 text-primary fw-bold"
+          className="text-center mb-4 mt-5 pb-2 text-success fw-bold"
         >
-          FAQ
+          FAQs
         </MDBTypography>
-        <p className="text-center mb-5">
+        <p className="text-center text-dark mb-5 fw-bold" >
           Find the answers for the most frequently asked questions below
         </p>
 
@@ -53,7 +54,7 @@ export default function StaticFaqSection() {
             <MDBTypography tag="h6" className="mb-3 text-success">
               <MDBIcon  icon="stethoscope text-success pe-2" /> How do I order prescription medication?
             </MDBTypography>
-            <p>
+            <p className=" ">
               You can easily order prescription medication through our online platform. Simply browse our catalog, add the required items to your cart, and follow the checkout process. Make sure to provide accurate prescription details during the ordering process.
             </p>
           </MDBCol>
@@ -61,7 +62,7 @@ export default function StaticFaqSection() {
             <MDBTypography tag="h6" className="mb-3 text-success">
               <MDBIcon  icon="shield text-success pe-2" /> Is my personal information secure?
             </MDBTypography>
-            <p>
+            <p className=" ">
               <strong>
                 <u>Yes, absolutely!</u>
               </strong>{" "}
@@ -72,7 +73,7 @@ export default function StaticFaqSection() {
             <MDBTypography tag="h6" className="mb-3 text-success">
               <MDBIcon  icon="calendar text-success pe-2" /> How long does it take to receive my order?
             </MDBTypography>
-            <p>
+            <p className=" ">
               We strive to process and ship orders promptly. The delivery time may vary based on your location and the chosen shipping method. You can track your order status through your account.
             </p>
           </MDBCol>
@@ -80,7 +81,7 @@ export default function StaticFaqSection() {
             <MDBTypography tag="h6" className="mb-3 text-success">
               <MDBIcon  icon="comment text-success pe-2" /> Can I consult with a pharmacist online?
             </MDBTypography>
-            <p>
+            <p className=" ">
               Yes, we offer online consultations with licensed pharmacists. You can chat with a pharmacist, ask questions about medications, and get professional advice from the comfort of your home.
             </p>
           </MDBCol>

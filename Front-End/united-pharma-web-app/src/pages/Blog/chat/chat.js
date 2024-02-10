@@ -17,6 +17,7 @@ export default function App() {
     "Hello?? is there anyone",
     "I need assistance with medicines.",
   ]);
+  const [isInputFocused, setIsInputFocused] = useState(false);
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
@@ -30,26 +31,26 @@ export default function App() {
   };
 
   return (
-    <MDBContainer className="py-5">
+    <MDBContainer className="py-5" style={{ backgroundColor:""}}>
       <MDBRow className="d-flex justify-content-center">
         <MDBCol md="8" lg="6" xl="4">
-          <MDBCard id="chat1" style={{ borderRadius: "15px" }}>
+          <MDBCard id="chat1" style={{ borderRadius: "15px", backgroundColor:" "}}>
             <MDBCardHeader
-              className="d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
+              className="d-flex justify-content-between align-items-center p-3 bg-success bg-info text-white border-bottom-0"
               style={{
                 borderTopLeftRadius: "15px",
-                borderTopRightRadius: "15px",
+                borderTopRightRadius: "15px"
               }}
             >
               <Link to='/blogs'>
                 <MDBIcon icon="angle-left" />
               </Link>
-              <p className="mb-0 fw-bold">Live chat</p>
+              <p className="mb-0 fw-bold" style={{backgroundColor:""}}>Live chat</p>
               <MDBIcon icon="times" />
             </MDBCardHeader>
 
             <MDBCardBody>
-              {/* Display previous chat messages */}
+              
               {chatMessages.map((message, index) => (
                 <div key={index} className={`d-flex flex-row justify-content-${message.startsWith("Admin:") ? "end" : "start"} mb-4`}>
                   {message.startsWith("Admin:") ? (
@@ -81,17 +82,21 @@ export default function App() {
                 </div>
               ))}
 
+              <label htmlFor="textAreaExample" className={isInputFocused || inputText ? 'active' : ''}>Type your message</label>
               <MDBTextArea
                 className="form-outline"
-                label="Type your message"
                 id="textAreaExample"
                 rows={4}
                 value={inputText}
                 onChange={handleInputChange}
+                onFocus={() => setIsInputFocused(true)}
+                onBlur={() => setIsInputFocused(false)}
               />
 
               <button
-                className="btn btn-primary mt-3"
+                type="button"
+                className="btn btn-primary w-100 rounded p-1 mt-3"
+                style={{backgroundColor:""}}
                 onClick={handleSendMessage}
               >
                 Send Message

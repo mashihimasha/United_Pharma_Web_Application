@@ -9,7 +9,7 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
     imageUrl: '',
   });
 
-  //return a function side efffects/updates 
+  //return data to update  
   useEffect(() => {
     if (postToUpdate) {
       setPostData({
@@ -20,16 +20,18 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
     }
   }, [postToUpdate]);
 
+  //handle the change in update 
   const handleChange = (e) => {
     setPostData({ ...postData, [e.target.name]: e.target.value });
   };
 
+  //handle the error when submitting 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (postToUpdate) {
-       // update  the post
+       // update the post if exists
         await axios.put(`http://localhost:3000/blog/${postToUpdate.post_id}`, postData);
       } else {
         // create a new post
@@ -46,14 +48,14 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
     
     <div className="container mt-4 mb-4  w-50 border border-2  border-success ">
       <h2 className='d-flex mt-3 text-dark  justify-content-center'>{postToUpdate ? 'Update Post' : 'Create Post'}</h2>
-      <form className='m-3 ' onSubmit={handleSubmit}>
+      <form className='m-5 ' onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
             Title
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control  rounded-5"
             id="title"
             name="title"
             value={postData.title}
@@ -66,7 +68,7 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
             Content
           </label>
           <textarea
-            className="form-control"
+            className="form-control rounded-5"
             id="content"
             name="content"
             value={postData.content}
@@ -80,14 +82,14 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded-5"
             id="imageUrl"
             name="imageUrl"
             value={postData.imageUrl}
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary w-25 p-3 d-flex justify-content-center ">
+        <button type="submit" className="btn btn-primary w-25 p-3 d-flex justify-content-center">
           {postToUpdate ? 'Update Post' : 'Create Post'}
         </button>
       </form>

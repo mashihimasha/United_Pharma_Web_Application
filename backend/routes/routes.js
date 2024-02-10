@@ -19,6 +19,7 @@ const connection = mysql.createConnection({
       console.log('Connected to the database');
     }
   });
+
 //GET method(REST API/HTTP method)--> Server side
 app.get('/blogs', (request, response) => {
     connection.query('SELECT * FROM posts', (error, data) => {
@@ -26,6 +27,7 @@ app.get('/blogs', (request, response) => {
         console.error(error);
         response.status(500).send('Error retrieving blog');
       } else {
+        //get all data from db
         response.send(data);
       }
     });
@@ -35,11 +37,13 @@ app.get('/blogs', (request, response) => {
     const { id } = request.params;
     connection.query('SELECT * from posts WHERE post_id = ? ',[id], (err, data) => {
       if(!err)
+        //get data of the post from database
         response.send(data);
       else
       console.log(err)
     })
   })
+  
   //POST METHOD(CREATE)
   //Create BLOG POST
   app.post('/blog', (request, response) => {
