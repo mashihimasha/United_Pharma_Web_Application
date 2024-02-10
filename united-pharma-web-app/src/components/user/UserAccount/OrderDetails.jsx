@@ -3,6 +3,17 @@ import OrderItemImage from './OrderItemImage';
 import { Button } from 'react-bootstrap';
 
 const OrderDetails = () => {
+  const [values, setValues] = useState({
+    id: '',
+    date: '',
+    product: '',
+    quantity: '',
+    price: '',
+    total: '',
+    status: '',
+    orderType: '',
+  });
+
   const orders = [
     {
       id: 12345,

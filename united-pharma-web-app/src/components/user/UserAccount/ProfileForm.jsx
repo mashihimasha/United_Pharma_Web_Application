@@ -30,13 +30,6 @@ const ProfileForm = () => {
       label: 'Last Name',
       autoComplete: 'family-name',
     },
-    {
-      name: 'email',
-      type: 'email',
-      label: 'Email Address',
-      autoComplete: 'email',
-      error: errors.email,
-    },
   ];
 
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -77,6 +70,7 @@ const ProfileForm = () => {
           <div id="profile-container">
             <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
           </div>    
+          <p className='small'>mashihimasha@gmail.com</p>
           <div className='input-group input-group-sm mt-4'>
             <input
                 id="imageUpload"
