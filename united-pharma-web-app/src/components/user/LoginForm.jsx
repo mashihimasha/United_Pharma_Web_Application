@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useAuth } from './config/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+
 import AuthButton from './AuthButton';
 import Axios from "axios";
 import FormInput from './FormInput';
 
 function LoginForm() {
+  const { loginSuccess, loginFailure } = useAuth(); 
+  const navigate = useNavigate();
+  
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -16,6 +21,10 @@ function LoginForm() {
     password: '',
     general: '',
   });
+
+  const updateSubmitErrors = (errors) => {
+    setSubmitErrors(errors);
+  };
 
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -38,28 +47,29 @@ function LoginForm() {
     });
     if (isValidLogin()) {
       try {
-        const response = await Axios.post('http://localhost:3000/login', {
+        const response = await Axios.post('http://127.0.0.1:3001/api/users/login/', {
           email: values.email,
           password: values.password,
         });
-  
-        if (response.data === 'User Authenticated') {
-          // Successful login, redirect or perform action as needed
+        
+        if (response.status  === 200) {
+          const { user, token } = response.data;
+          loginSuccess(user, token); 
+          navigate('/');
           console.log('Login successful');
         } else {
-          updateSubmitErrors({ ...submitErrors, general: response.data });
+          loginFailure(response.data.error);
+          updateSubmitErrors({ ...submitErrors, general: response.data.error });
+          console.log('Login Failed');
         }
       } catch (error) {
+        loginFailure(error.response.data.error);
+        updateSubmitErrors({ ...submitErrors, general: error.response.data.error});
         console.error(error);
       }
     }
   };
   
-  
-  const updateSubmitErrors = (errors) => {
-    setSubmitErrors(errors);
-  };
-
   const isValidLogin = () => {
     let isValid = true;
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;

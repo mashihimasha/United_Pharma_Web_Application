@@ -14,7 +14,7 @@ function RegistrationSuccess({ showSuccessModal }) {
             <div className="modal-body text-center">
                 <i className="fa fa-check-circle text-success fa-3x"></i>
                 <p className='text-success py-2'>Registration Successful!</p>
-                <Link className="btn btn-success text-white rounded-pill" to='/'>Go to Login</Link>
+                <Link className="btn btn-success text-white rounded-pill" to='/login'>Go to Login</Link>
             </div>
           </div>
         </div>

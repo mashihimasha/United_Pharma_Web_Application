@@ -118,19 +118,20 @@ const RegistrationForm = () => {
     });
     if (isValidForm()) {
       try {
-        const response = await Axios.post('http://localhost:3000/register', {
+        const response = await Axios.post('http://127.0.0.1:3001/api/users/register/', {
           email: values.email,
           password: values.password,
           userRole: isWholesaleChecked ? "wholesale" : "retail",
         });
 
-        if (response.data === 'User Created') {
+        if (response.status === 201) {
           setShowSuccessModal(true);
         } else {
-          updateSubmitErrors({ ...submitErrors, general: response.data });
-          console.log(response.data);
+          updateSubmitErrors({ ...submitErrors, general: response.data.message });
+          console.log(response.data.message);
         }
       } catch (error) {
+        updateSubmitErrors({ ...submitErrors, general: error.response.data.message});
         console.error(error);
       }
     }
