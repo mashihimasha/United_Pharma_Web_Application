@@ -17,22 +17,22 @@ const Quotation = ()=>{
     
     return(
         <div className="form">
-    <div className="form_header">
-        <div className="logo_qout">
+            <div className="form_header">
+            <div className="logo_qout">
            
-        </div>
-        <div>
+            </div>
+            <div>
             <div className="name">
                 <b>UNITED PHARMA HEALTH SHOP</b>
             </div>
             <div className="slogan_quot">
                 <i>"Your Wellness is Our Priority"</i>
             </div>
-        </div>
-        <div className="quotation_mark">
-            QUOTATION
-        </div>
-    </div>
+            </div>
+            <div className="quotation_mark">
+                QUOTATION
+            </div>
+            </div>
 
     <div className="user_details_quotation">
 

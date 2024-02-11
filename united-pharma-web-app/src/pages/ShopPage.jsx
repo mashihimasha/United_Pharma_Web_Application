@@ -6,10 +6,13 @@ import Header from '../components/common/StickyHeader';
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import Particles from "react-tsparticles"
-import LatesProducttWidget from '../components/product_catalog/LatestWidget';
+import LatestProductsWidget from '../components/product_catalog/LatestWidget';
 import Footer from '../components/common/Footer';
 import PriceFilter from '../components/product_catalog/PriceFilter';
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
+import ProductWidgetTwo from '../components/product_catalog/ProductWidgetTwo';
+import ProductWidgetThree from '../components/product_catalog/ProductWidgetThree';
+import './ShopPage.css';
 
 
 class ShopPage extends Component {
@@ -27,8 +30,8 @@ class ShopPage extends Component {
       
       <Header/>
       
-      <main className="main-area fix">
-      <section className="breadcrumb-area breadcrumb-bg ">
+      <main className="main-area-fix">
+      <section className="breadcrumb-area-breadcrumb-bg ">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-xl-10">
@@ -38,9 +41,9 @@ class ShopPage extends Component {
                   <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                     <ul className="breadcrumb">
                       <li className="breadcrumb-item trail-item trail-begin">
-                        <a href="index.html"><span>Home</span></a>
+                        {/* <a href="index.html"><span>Home</span></a> */}
                       </li>
-                      <li className="breadcrumb-item trail-item trail-end"><span>Our Shop</span></li>
+                      {/* <li className="breadcrumb-item trail-item trail-end"><span>Our Shop</span></li> */}
                     </ul>
                   </nav>
                 </div>
@@ -65,6 +68,7 @@ class ShopPage extends Component {
                   </div>
                   <div className="widget">
                     <h4 className="sidebar-title">CATEGORIES</h4>
+
                     <ul className="categories-list list-wrap">
                       <li><a href="shop.html">MEDICAL EQUIPMENT<i className="fa fa-angle-double-right"></i></a></li>
                       <li><a href="shop.html">VITAMINS & SUPPLIMENTS <i className="fa fa-angle-double-right"></i></a></li>
@@ -77,24 +81,24 @@ class ShopPage extends Component {
                   <div className="widget">
                     <h4 className="sidebar-title">LATEST PRODUCTS</h4>
                     
-                          <LatesProducttWidget/>
-                          <LatesProducttWidget/>
-                          <LatesProducttWidget/>
+                          <LatestProductsWidget/>
+                          <ProductWidgetTwo/>
+                          <ProductWidgetThree/>
                   </div>
                   <div className="widget">
                     <h4 className="sidebar-title">Product tags</h4>
                     <ul className="Product-tag-list list-wrap">
                       <li><a href="shop.html">Bone Support</a></li>
                       <li><a href="shop.html">Energy Support</a></li>
-                      <li><a href="shop.html">Hair</a></li>
+                    
                       <li><a href="shop.html">Multivitamins</a></li>
                       <li><a href="shop.html">Pre-Workout</a></li>
-                      <li><a href="shop.html">Protein</a></li>
+                   
                     </ul>
                   </div>
                 </aside>
               </div>
-              <div className="col-xl-9 col-lg-8 col-md-12 col-sm-8 shop-sidebar-pad order-first">
+              <div className="col-xl-9 col-lg-8 col-md-12 col-sm-8 shop-sidebar-pad order-left">
                 <div className="shop-top-wrap">
                   <div className="row">
                     <div className="col-md-6">
@@ -119,9 +123,11 @@ class ShopPage extends Component {
                   </div>
                 </div>
                 <div className="united-shop-product-main">
+
                   <div className="row">
                     <ProductCatalog/>
                   </div>
+
                   <div className="pagination-wrap">
                     <Pagination/>
                   </div>

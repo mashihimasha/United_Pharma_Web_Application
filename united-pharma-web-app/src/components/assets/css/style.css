@@ -1202,7 +1202,7 @@ body.search-visible {
 .breadcrumb-content .title {
     font-size: 80px;
     line-height: 1.2;
-    color: #000000;
+    color: #ffffff;
     letter-spacing: -1px;
     margin-bottom: 15px;
 }
@@ -5814,11 +5814,13 @@ united.-page-content blockquote,
     color: #c7c7c7;
 }
 .breadcrumb-bg {
-    background-image: url(../img/product/background1.jpg);
+    background-image: url(../img/wepik-export-20240211053534UVb8.jpeg);
     background-position: center;
     background-size: cover;
     position: relative;
-    padding: 230px 0 150px;
+	height: 500px;
+	width: 1375;
+    /* padding: 230px 0 150px; */
     z-index: 1;
 	display: flex;
 }

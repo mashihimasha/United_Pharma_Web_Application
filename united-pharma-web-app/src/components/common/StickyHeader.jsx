@@ -52,9 +52,7 @@ class StickyHeader extends Component {
                   <div className="navbar-wrap main-menu d-none d-xl-flex">
                     <ul className="navigation">
                       <li><a href="index.html#home">Home</a></li>
-                      
-                      <li><a href="index.html#paroller">Product</a></li>
-                      <li><a href="index.html#pricing">Pricing</a></li>
+          
                       <li className="menu-item-has-children active"><a href="shop.html">Shop</a>
                         <ul className="sub-menu">
                           <li className="active"><a href="shop.html">Our Shop</a></li>
@@ -62,6 +60,8 @@ class StickyHeader extends Component {
                         </ul>
                         <div className="dropdown-btn"><span className="fas fa-angle-down"></span></div>
                       </li>
+                      <li><a href="index.html#pricing">Wholesale</a></li>
+                      <li><a href="index.html#home">Checkout</a></li>
                       <li className="menu-item-has-children"><a href="index.html#news">News</a>
                         <ul className="sub-menu">
                           <li><a href="blog.html">Our Blog</a></li>

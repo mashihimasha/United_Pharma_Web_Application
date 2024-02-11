@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LatestProductsWidget =()=>{
+const ProductWidgetThree =()=>{
     
         return (
             <>
@@ -9,7 +9,7 @@ const LatestProductsWidget =()=>{
                 <ul className="lp-post-item list-wrap">
                     <li className="lp-post-thumb">
                         <a>
-                            <img src={require('../assets/img/product/syrup.jpg')} alt="img" />
+                            <img src={require('../assets/img/product/thyroxin.jpg')} alt="img" />
                         </a>
                         <div className="lp-post-content">
                             <ul className="lp-post-rating list-wrap">
@@ -22,8 +22,8 @@ const LatestProductsWidget =()=>{
                                     
                                 </div>
                             </ul>
-                            <h4 className="title"><a href="shop-details.html">Cough Syrup</a></h4>
-                            <span className="price">Rs.1000.00</span>
+                            <h4 className="title"><a href="shop-details.html">Thyroxin Tablets</a></h4>
+                            <span className="price">Rs.1200.00</span>
                         </div>
                     </li>
                 </ul>
@@ -34,4 +34,4 @@ const LatestProductsWidget =()=>{
     }
 
 
-export default LatestProductsWidget;
+export default ProductWidgetThree;

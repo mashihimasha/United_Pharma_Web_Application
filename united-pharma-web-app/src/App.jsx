@@ -18,6 +18,8 @@ import FooterTab from './components/common_components/footer/footertab';
 import Quotation from './pages/quotation/quotationForm';
 
 
+
+
 function App() {
   return (
     <>
@@ -37,6 +39,7 @@ function App() {
       {/* <FooterTab/> */}
       {/* <ShopDetails/> */}
       <ShopPage/>
+      {/* <Product/> */}
 
     </div>
     </>
