@@ -1,14 +1,12 @@
-/*Auth pages*/
 .login, .register{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
 
-.login .row, .register .row{
-	min-height: 100vh;
+.content {
+	flex: 1; /* This makes the content area expand to fill available space */
 }
-
 .bg-register-image {
     background-image: url("../img/auth/registration.png");
     background-size: cover;
@@ -16,7 +14,7 @@
 }
 
 .bg-login-image {
-    background-image: url("../img/auth/login.png");
+    background-image: url("https://cdn.gencraft.com/prod/user/9ede9366-f8f3-4ca0-9430-d1c2cf4501dd/171be77e-98a6-48e4-bf1a-c14ff6616d33/images/image0_0.jpg?Expires=1696539031&Signature=J5Q6NXpTw-QzYA0p82QIkaxHuu0vTDZz6kiv06l-nihqqr7KrR1FqRP~w~23n81cdWUP5WlblK4t07q4IE1x5wHPlXFi0b~-5GysWGGkcsx3gzyH46O8ANh7RqRqwLMy7OFSzzHoBwoe-QLWCsUlkC-x2lWhMN4WVeKNwZozCIazzkD1Wgei7H4ilEQavCEBThsNfBl2xjpUpOs5xVoQib7pmsQmt9fXumrdR4ms0wvDHF-swCYMSpdPciaYw8AbV9CHeD5JQ49Y72ufmTELPfYtyGnXq8OulRx0-z13Z9d993sGtLQMThHuO0qY~DKDWyFjyEKCjH6irNzZnqzFMA__&Key-Pair-Id=K3RDDB1TZ8BHT8");
     background-size: cover;
     background-position: top center;
 }
@@ -28,53 +26,36 @@
     text-transform: uppercase;
 }
 
-.bg-gradient{
-	background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%) !important;
-	backdrop-filter: saturate(10);
-}
-
-/*Forms*/
 .form-control{
     border: 0.1rem solid #0000006c;
     border-radius: 3.0rem;
-	padding: 0.5rem;
 }
 
 .form-control::placeholder{
     text-align: center;
-	font-size: 0.875rem;
-}
-
-.form-control:focus{
-	border-color: rgb(13, 253, 93);
-    box-shadow: 0 0 0 0.25rem rgba(13, 253, 93, 0.25);
 }
 
 .input-group-append{
     border-radius: 3.0rem;
 }
 
-.align-baseline{
-	align-items: baseline;
-}
-
 /* button style */
-.btn-custom {
-	margin: 0 auto;
-	width: 40%;
+.btn {
+  margin: 0 auto;
+  width: 50%;
 	user-select: none;
 	-moz-user-select: none;
-	background: var(--main-success) none repeat scroll 0 0;
+	background: #0D9B4D none repeat scroll 0 0;
 	border: medium none;
 	border-radius: 50px;
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 700;
 	letter-spacing: 0;
 	line-height: 1.4;
-	padding: 1rem 0.5rem;
+	padding: 19px 40px;
 	text-align: center;
 	text-transform: capitalize;
 	touch-action: manipulation;
@@ -85,7 +66,7 @@
 	overflow: hidden;
 	z-index: 1;
 }
-.btn-custom::before {
+.btn::before {
 	content: "";
 	position: absolute;
 	-webkit-transition-duration: 800ms;
@@ -94,26 +75,26 @@
 	height: 200%;
 	top: 110%;
 	left: 50%;
-	background: var(--main-orange);
+	background: #FAA432;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	border-radius: 50%;
 	z-index: -1;
 }
-.btn-custom:hover {
+.btn:hover {
 	color: #fff;
 }
 .btn-two {
-	background: var(--main-orange) none repeat scroll 0 0;
+	background: #FAA432 none repeat scroll 0 0;
 }
 .btn-two::before {
-	background: var(--main-success);
+	background: #0D9B4D;
 }
-.btn-custom:hover:before {
+.btn:hover:before {
 	top: -40%;
 }
 .breadcrumb > .active {
-	color: var(--main-orange);
+	color: #FAA432;
 }
 
 .password-input {
