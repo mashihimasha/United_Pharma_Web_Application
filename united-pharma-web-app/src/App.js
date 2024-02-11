@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route } from "react-router-dom"
+// import { BrowserRouter,Routes,Route,Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import ReactDOM from "react-dom/client";
 import LoginPage from './pages/LoginPage'; // Import the LoginPage component
 import RegisterPage from './pages/RegisterPage';
 import BannerLeaves from './components/common/BannerLeaves';
@@ -14,17 +17,32 @@ import './components/assets/css/default.css';
 import './components/assets/css/user.css';
 import './components/assets/css/style.css';
 import Wholesale from './pages/wholesale/wholesale';
-import FooterTab from './components/common_components/footer/footertab';
-import Quotation from './pages/quotation/quotationForm';
+// import FooterTab from './components/common_components/footer/footertab';
 
+import Quotation from './pages/quotation/quotationForm'
 
 
 
 function App() {
   return (
     <>
-    <div className="App">
-      
+    
+    <div className='App'>
+        {/* <Preloader/> */}
+        {/* <StickyHeader/> */}
+        <main className='main'>
+          <Routes>
+            <Route path='/' element={ <ShopPage/> } />
+            <Route path='/shopDetails' element={ <ShopDetails/> } />
+            <Route path='/wholesale' element={ <Wholesale/> } />
+            <Route path='/quotation' element={ <Quotation/> } />
+            
+          </Routes>
+        </main>
+        
+      </div>
+
+     
 
       {/* <Routes>
         <Route path="/" element={ <ShopDetails/> } />
@@ -38,10 +56,11 @@ function App() {
         
       {/* <FooterTab/> */}
       {/* <ShopDetails/> */}
-      <ShopPage/>
+      {/* <ShopPage/> */}
       {/* <Product/> */}
 
-    </div>
+    
+ 
     </>
   );
 }

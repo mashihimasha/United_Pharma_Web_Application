@@ -72,8 +72,8 @@ class ShopPage extends Component {
                     <ul className="categories-list list-wrap">
                       <li><a href="shop.html">MEDICAL EQUIPMENT<i className="fa fa-angle-double-right"></i></a></li>
                       <li><a href="shop.html">VITAMINS & SUPPLIMENTS <i className="fa fa-angle-double-right"></i></a></li>
-                      <li><a href="shop.html">HEALTH & WELLNESS PRODUCT<i className="fa fa-angle-double-right"></i></a></li>
-                      <li><a href="shop.html">BEAUTY & SKINCARE PRODUCTS<i className="fa fa-angle-double-right"></i></a></li>
+                      <li><a href="shop.html">CHANELLING SERVICES<i className="fa fa-angle-double-right"></i></a></li>
+                      <li><a href="shop.html">LABORATORY SERVICES<i className="fa fa-angle-double-right"></i></a></li>
                       <li><a href="shop.html">MOTHER & OTHER BABY PRODUCTS<i className="fa fa-angle-double-right"></i></a></li>
                       <li><a href="shop.html">PET MEDICATIONS<i className="fa fa-angle-double-right"></i></a></li>
                     </ul>
@@ -125,7 +125,9 @@ class ShopPage extends Component {
                 <div className="united-shop-product-main">
 
                   <div className="row">
+                  <a href="/shopDetails">
                     <ProductCatalog/>
+                    </a>
                   </div>
 
                   <div className="pagination-wrap">

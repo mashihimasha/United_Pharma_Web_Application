@@ -46,22 +46,26 @@ class StickyHeader extends Component {
                 <nav className="menu-nav">
                   <div className="logo">
                     <a href="index.html">
-                    <img style={{maxWidth:"70px", height:"70px"}} src={require('../assets/img/Common/Logo.jpg')} alt="Logo" className="main-logo" />
+                    <img style={{maxWidth:"90px", height:"90px"}} src={require('../assets/img/Common/Logo.jpg')} alt="Logo" className="main-logo" />
                     </a>
                   </div>
                   <div className="navbar-wrap main-menu d-none d-xl-flex">
                     <ul className="navigation">
                       <li><a href="index.html#home">Home</a></li>
           
-                      <li className="menu-item-has-children active"><a href="shop.html">Shop</a>
-                        <ul className="sub-menu">
-                          <li className="active"><a href="shop.html">Our Shop</a></li>
-                          <li><a href="shop-details.html">Shop Details</a></li>
+                      <ul>
+                          <li className="menu-item-has-children active">
+                            <a href="/">Shop</a>
+                            <ul className="sub-menu">
+                              <li className="active"><a href="/">Our Shop</a></li>
+                              <li><a href="/shopDetails">Shop Details</a></li>
+                            </ul>
+                            <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
+                          </li>
+                          
                         </ul>
-                        <div className="dropdown-btn"><span className="fas fa-angle-down"></span></div>
-                      </li>
-                      <li><a href="index.html#pricing">Wholesale</a></li>
-                      <li><a href="index.html#home">Checkout</a></li>
+                        <li><a href="/wholesale">Wholesale</a></li>
+                      
                       <li className="menu-item-has-children"><a href="index.html#news">News</a>
                         <ul className="sub-menu">
                           <li><a href="blog.html">Our Blog</a></li>

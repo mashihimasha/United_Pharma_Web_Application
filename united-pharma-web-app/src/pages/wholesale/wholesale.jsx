@@ -64,7 +64,11 @@ const Wholesale =()=>{
             <div className="slogan"><i>"A novel experience on your drug purchase"</i></div>
 
             <div className="quotation_navbar">
+            <div>
+              <a href="/quotation">
                 <button className="quote">QUOTATION</button>
+              </a>
+            </div>
                 </div>
 
             <div className="navbar_logout">

@@ -11,6 +11,7 @@ class ShopItem extends Component {
   render() {
     return (
       <>
+      
       <div class="card p-3 m-2 ms-5" style={{ width: '18rem' }}>
       <div className="col-xl-4 col-lg-6 col-md-6">
         <div className="home-shop-item inner-shop-item">
