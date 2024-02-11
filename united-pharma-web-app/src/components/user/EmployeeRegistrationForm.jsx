@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from './config/AuthContext';
 import Axios from 'axios';
 import AuthButton from './AuthButton';
 import RegistrationSuccess from './RegistrationSuccess';
@@ -7,6 +8,9 @@ import FormInput from './FormInput';
 import { validateForm } from '../../utils/validation';
 
 const EmployeeRegistrationForm = () => {
+
+  const { state } = useAuth();
+  
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -44,11 +48,11 @@ const EmployeeRegistrationForm = () => {
       required: true,
     },
     {
-        name: 'employeeId',
-        type: 'text',
-        label: 'Enter Employee ID',
-        autoComplete: 'none',
-        required: true,
+      name: 'employeeId',
+      type: 'text',
+      label: 'Enter Employee ID',
+      autoComplete: 'none',
+      required: true,
     },
     {
       name: 'password',
@@ -77,6 +81,7 @@ const EmployeeRegistrationForm = () => {
       }));
   
       if (validateForm(fields)) {
+        console.log(state.user);
         return true;
       }
       return false;
@@ -84,6 +89,8 @@ const EmployeeRegistrationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    console.log(state.user.role);
 
     setErrors({
       email: '',
@@ -94,20 +101,24 @@ const EmployeeRegistrationForm = () => {
     });
     if (isValidForm()) {
         try {
-        const response = await Axios.post('http://localhost:3000/register', {
+          
+        const response = await Axios.post('http://127.0.0.1:3001/api/users/register/', {
+            employeeID: values.employeeId,
             email: values.email,
             password: values.password,
             userRole: 'pharmacist',
+            user: state.user,
         });
 
-        if (response.data === 'User Created') {
+        if (response.status === 201) {
             setShowSuccessModal(true);
         } else {
-            updateSubmitErrors({ ...errors, general: response.data });
-            console.log(response.data);
+          updateSubmitErrors({ ...errors, general: response.data.message });
+          console.log(response.data.message);
         }
         } catch (error) {
-        console.error(error);
+          updateSubmitErrors({ ...errors, general: error.response.data.message});
+          console.error(error);
         }
     }
   };

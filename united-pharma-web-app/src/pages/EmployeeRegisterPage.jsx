@@ -4,7 +4,6 @@ import BannerLeaves from '../components/common/BannerLeaves';
 import EmployeeRegistrationForm from '../components/user/EmployeeRegistrationForm';
 
 class EmployeeRegisterPage extends Component {
-  // additional logic or state here if needed
 
   render() {
     return (

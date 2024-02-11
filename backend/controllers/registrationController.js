@@ -3,7 +3,7 @@ const { Users, Customers, Employees } = require('../models');
 exports.register = async (req, res) => {
     const { email, password, userRole, employeeID } = req.body;
 
-    if (!email || !password || !userRole) {
+    if (!email || !password) {
         return res.status(400).json({ message: 'Please provide email, user role, and password.' });
     }
 
@@ -41,7 +41,8 @@ async function registerCustomer(userRole, email, password, res) {
 }
 
 async function registerPharmacist(employeeID, email, password, req, res) {
-    if (req.user == null || req.user.role !== "administrator") {
+    if (req.body.user == '' || req.body.user.role !== "administrator") {
+        console.log(req.role);
         return res.status(400).json({ message: 'Unauthorized creation of pharmacist accounts' });
     }
 

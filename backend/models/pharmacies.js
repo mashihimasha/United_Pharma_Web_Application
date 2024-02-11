@@ -6,16 +6,12 @@ module.exports = (sequelize) => {
 
     static associate(models) {
       Pharmacies.hasMany(models.Employees, { foreignKey: 'pharmacyID' });
-      Pharmacies.belongsTo(models.Addresses, { foreignKey: 'addressID'});
     }
   }
   Pharmacies.init({
-    addressID: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Addresses',
-        key: 'id',
-      },
+    address: {
+      type: DataTypes.STRING,
+      allowNull:true,
     },
     contactNumber: {
       type: DataTypes.STRING,

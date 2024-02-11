@@ -5,7 +5,6 @@ module.exports = (sequelize) => {
   class Addresses extends Model {
 
     static associate(models) {
-      Addresses.hasOne(models.Pharmacies, { foreignKey: 'addressID'});
       Addresses.hasOne(models.Customers, { foreignKey: 'addressID'});
       Addresses.hasOne(models.Employees, { foreignKey: 'addressID' });
     }
