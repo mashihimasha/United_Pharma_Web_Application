@@ -13,6 +13,7 @@ import EmployeeRegisterPage from './pages/EmployeeRegisterPage';
 import Preloader from './components/common/Preloader';
 import HomePage from './pages/HomePage';
 import { AuthProvider } from './components/user/config/AuthContext';
+import StickyHeader from './components/common/StickyHeader';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
     <AuthProvider>
       <div className='App'>
         <Preloader/>
+        <StickyHeader/>
         <main className='main'>
           <Routes>
             <Route path='/' element={ <HomePage/> } />

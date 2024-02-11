@@ -1,15 +1,26 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../config/AuthContext';
 import '../../assets/css/Sidebars.css';
 
 const Sidebar = ({ activeTab, onTabChange }) => {
-  const [userRole,setUserRole]=useState('retail');
+
+  const { state } = useAuth();
+
+  const [userRole,setUserRole]=useState('');
+
+  const handleSetUserRole = () => {
+    if(state.user!==null){
+      setUserRole(state.user.role);
+    }
+  };
+
+  useEffect(() => {
+    handleSetUserRole();
+  }, []); 
+
   const isRestrictedRole = ['wholesale', 'administrator', 'pharmacist'].includes(userRole);
 
-  const handleSetUserRole = (newRole) => {
-    setUserRole(newRole);
-  };
-  
   return (
     <div id="sidebar-wrapper" className='d-flex flex-column flex-shrink-0 border-right m-4'>
       <nav className="navbar navbar-expand-lg navbar-light justify-content-left">

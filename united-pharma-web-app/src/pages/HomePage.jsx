@@ -12,6 +12,7 @@ const HomePage = () => {
           <div>
             <p>Welcome, {state.user.role}!</p>
             <Link to='/employeeRegistration'>Register Pharmacist</Link>
+            <Link to='/userProfile'>To User Profile</Link>
             <button onClick={logout}>Logout</button>
           </div>
         ) : (

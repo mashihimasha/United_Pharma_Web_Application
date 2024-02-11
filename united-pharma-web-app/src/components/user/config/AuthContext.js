@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer, useContext, useEffect } from 'react';
 
 // Initial state
 const initialState = {
@@ -48,10 +48,23 @@ const AuthContext = createContext();
 
 // AuthProvider component
 export const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  // Try to get user and token from local storage on initial load
+  const storedUser = localStorage.getItem('user');
+  const storedToken = localStorage.getItem('token');
+  const initialUser = storedUser ? JSON.parse(storedUser) : null;
+  const initialToken = storedToken ? JSON.parse(storedToken) : null;
+
+  const [state, dispatch] = useReducer(authReducer, {
+    ...initialState,
+    user: initialUser,
+    token: initialToken,
+  });
 
   const loginSuccess = (user, token) => {
+    // Set user and token in both state and local storage
     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: { user, token } });
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', JSON.stringify(token));
   };
 
   const loginFailure = (error) => {
@@ -59,8 +72,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    // Remove user and token from both state and local storage
     dispatch({ type: ActionTypes.LOGOUT });
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
+
+  useEffect(() => {
+    // Add any additional logic
+  }, []);
 
   return (
     <AuthContext.Provider value={{ state, loginSuccess, loginFailure, logout }}>

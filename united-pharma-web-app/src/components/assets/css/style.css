@@ -349,7 +349,8 @@ label {
 	justify-content: flex-start;
 }
 .logo img {
-	max-width: 160px;
+	max-width: 80px;
+	height: auto;
 }
 .navbar-wrap {
 	display: flex;
@@ -504,7 +505,7 @@ label {
 	display: block;
 }
 .transparent-header.sticky-menu .logo .main-logo {
-	display: none;
+	display: block;
 }
 .transparent-header.sticky-menu .navbar-wrap ul li a {
 	color: #777777;

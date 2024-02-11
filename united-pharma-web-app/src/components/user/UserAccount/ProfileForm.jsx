@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
+import { useAuth } from '../config/AuthContext';
 import FormInput from '../FormInput';
 import { Button } from 'react-bootstrap';
 import { validateForm } from '../../../utils/validation';
 import PasswordChangeModal from './ChangePassword';
 
 const ProfileForm = () => {
+
+  const { state } = useAuth();
+
   const [values, setValues] = useState({
-    firstName: 'Solar',
-    lastName: 'Luna',
-    email: 'sluna@gmail.com',
+    firstName: '',
+    lastName: '',
+    email: '',
+    employeeID: '',
   });
 
   const [errors, setErrors] = useState({
@@ -18,11 +24,34 @@ const ProfileForm = () => {
     email: '',
   });
 
-  const [userRole,setUserRole]=useState('retail');
+  const [userRole,setUserRole]=useState('');
 
-  const handleSetUserRole = (newRole) => {
-    setUserRole(newRole);
+  const handleSetUserRole = () => {
+    if(state.user!==null){
+      setUserRole(state.user.role);
+    }
   };
+
+  const fetchUserDetails = async () => {
+    try {
+      const response = await Axios.get(`http://127.0.0.1:3001/api/get/users/${state.user.id}`);
+      const userData = response.data; // Adjust this based on your API response structure
+      setValues({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        employeeID: userData.employeeID,
+      });
+      console.log(response);
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserDetails(); // Fetch user details when the component mounts
+    handleSetUserRole();
+  }, []); 
 
   const inputFields = [
     {
@@ -77,7 +106,8 @@ const ProfileForm = () => {
           <div id="profile-container">
             <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
           </div>    
-          <p id="email-address" className='small m-0'>mashihimasha@gmail.com</p>
+
+          <p id="email-address" className='small m-0'>mashi@gmail.com</p>
           <p id="employee-id" className={`small ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>emp-12<br/>
           branch-12</p>
 

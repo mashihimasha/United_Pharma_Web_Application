@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../components/user/config/AuthContext';
 import '../components/assets/css/User.css';
 import ProfileForm from '../components/user/UserAccount/ProfileForm';
 import Sidebar from '../components/user/UserAccount/Sidebar';
@@ -7,11 +9,27 @@ import ShippingDetails from '../components/user/UserAccount/ShippingDetails';
 import Payments from '../components/user/UserAccount/Payments';
 
 const UserProfile = () => {
+  const { state } = useAuth();
+
+  const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState('profile');
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+
+  // Redirect to login page if not logged in
+  const isLoggedOn= () => {  
+    if (!state.user) {
+      navigate('/login'); 
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    isLoggedOn();
+  }, []); 
 
   return (
     <div id="wrapper" className="d-flex">

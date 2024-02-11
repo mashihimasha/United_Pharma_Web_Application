@@ -2,6 +2,7 @@ const { Users, Customers, Employees, Addresses, Paymentdetails } = require('../.
 
 exports.user = async (req, res) => {
     try {
+        console.log(req);
         let user = await Users.findByPk(req.user.id);
         let dbuser = await Customers.findOne({ where: { userID: req.user.id } });
         if (!dbuser) {
