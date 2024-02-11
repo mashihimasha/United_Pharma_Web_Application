@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-class Footer extends Component {
-  render() {
+const Footer=()=>{
+
+    // class Footer extends Component
+//   render() {
     return (
         <>
     <footer className="footer-area not-show-instagram">
@@ -14,7 +16,7 @@ class Footer extends Component {
                             <div className="footer-widget">
                                 <div className="footer-about">
                                     <div className="footer-logo logo">
-                                        <a href="index.html"><img src={require('../assets/img/Common/Logo.jpg')} alt="Logo" /></a>
+                                        <a href="index.html"> <img src={require('../assets/img/Common/Logo.jpg')} alt="Logo" /></a>
                                     </div>
                                     <div className="footer-text">
                                         <p>Embark on a revolutionary journey with us - where every drug purchase unfolds as a novel experience, blending innovation with care to redefine your path to wellness.</p>
@@ -109,7 +111,7 @@ class Footer extends Component {
     </footer>
     </>
     );
-  }
+//   }
 }
 
 export default Footer;

@@ -1,0 +1,98 @@
+.main_table{
+    background-image: linear-gradient(to right, white, #93E9BE);
+    height: 700px;
+    text-align: center;
+    margin-top: 20px;
+}
+.table_data{
+    /* background-color: #EEEEEE; */
+    margin-left: 200px;
+    width: 900px;
+    color: #123456;
+    border-radius: 3px;
+  margin-top: 10px;
+}
+.table_one_headers_id{
+    background-color: #50C878;
+    width: 100px;
+    font-weight: bold;
+    color: #123456;
+    height: 30px;
+    border-color: white;
+    border-width: 1px;
+}
+.select_one_headers_id{
+    width: 100px;
+    font-weight: bold;
+    height: 30px;
+    border-color: #C0C0C0;
+    border-width: 1px;
+}
+.table_one_headers_name{
+    width: 400px;
+    background-color:#50C878;
+    font-weight: bold;
+    color: #123456;
+    height: 30px;
+    border-color: white;
+    border-width: 1px;
+}
+.select_one_headers_name{
+    width: 400px;
+    font-weight: bold;
+    height: 30px;
+    border-color: #C0C0C0;
+    border-width: 1px;
+}
+.table_one_headers_brand{
+    width: 200px;
+    background-color:#50C878;
+    font-weight: bold;
+    color: #123456;
+    height: 30px;
+    border-color: white;
+    border-width: 1px;
+}
+.select_one_headers_brand{
+    width: 200px;
+    font-weight: bold;
+    height: 30px;
+    border-color: #C0C0C0;
+    border-width: 1px;
+}
+.table_one_headers_uqs{
+    width: 100px;
+    background-color:#50C878;
+    font-weight: bold;
+    color: #123456;
+    height: 30px;
+    border-color: white;
+    border-width: 1px;
+}
+.select_one_headers_uqs{
+    width: 100px;
+    font-weight: bold;
+    height: 30px;
+    border-color: #C0C0C0;
+    border-width: 1px;
+}
+.remove_btn{
+    background-color: #E55451;
+    color: white;
+    border: none;
+    border-radius: 16px;
+}
+.remove_btn:hover{
+    transform: translateX(2px);
+}
+.total_price{
+    /* background-color: gainsboro; */
+    color: #123456;
+    margin-top: 10px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.table_two_header{
+    margin-top: 30px;
+}

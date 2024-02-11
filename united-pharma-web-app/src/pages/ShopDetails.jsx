@@ -3,8 +3,10 @@ import InnerShopDetails from '../components/product_catalog/InnerShopDetails';
 import Header from '../components/common/StickyHeader';
 import Footer from '../components/common/Footer';
 
-class ShopDetails extends Component {
-    render() {
+const ShopDetails =()=> {
+
+    // class ShopDetails extends Component 
+    // render() {
         return (
             <>
           <div>
@@ -39,7 +41,7 @@ class ShopDetails extends Component {
             </div>
             </>
         );
-    }
+    // }
 }
 
 export default ShopDetails;

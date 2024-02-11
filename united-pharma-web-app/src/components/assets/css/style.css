@@ -4506,7 +4506,8 @@ united.-page-content blockquote,
 	top: -22px;
 	width: 100%;
 	height: 53px;
-	background-image: url(../img//Common/footer_bg_shape.png);
+	background-image: linear-gradient(#e5f0e9, rgb(230, 250, 231), rgb(101, 104, 101));
+	/* ../img//Common/footer_bg_shape.png */
 	background-repeat: repeat;
 	background-position: center;
 	z-index: -1;

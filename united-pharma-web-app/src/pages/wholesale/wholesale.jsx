@@ -1,6 +1,8 @@
 import React from "react";
 import '../wholesale/wholesale.css';
 import  { useState, useEffect } from 'react';
+import FooterTab from "../../components/common_components/footer/footertab";
+import Footer from '../../components/common/Footer';
 
 
 const Wholesale =()=>{
@@ -21,7 +23,7 @@ const Wholesale =()=>{
         { id: 111, name: 'Gabapentin', email: 'Box', phone: '1000.00' },
       ]);
 
-      const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState([]);
@@ -52,11 +54,11 @@ const Wholesale =()=>{
         <>
             <div className="navbar_wholesale">
 
-            <div className="navbar_company_logo"></div> 
+              <div className="navbar_company_logo"></div> 
 
-            <div className="navbar_company_name">
-                <b>UNITED PHARMA</b>
-            <div className="subtitle">The Health Shop</div>  
+              <div className="navbar_company_name">
+                  <b>UNITED PHARMA</b>
+              <div className="subtitle">The Health Shop</div>  
             </div> 
             
             <div className="slogan"><i>"A novel experience on your drug purchase"</i></div>
@@ -82,15 +84,15 @@ const Wholesale =()=>{
 
             <div id="table_body_main">
 
-            <input
-        className="search"
-        type="text"
-        placeholder="Find Your Item"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+              <input
+                className="search"
+                type="text"
+                placeholder="Find Your Item"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
 
-      <table className="table_border" >
+              <table className="table_border" >
         <thead>
           <tr>
             <th className="theader">Item Code</th>
@@ -109,21 +111,21 @@ const Wholesale =()=>{
             </tr>
           ))}
         </tbody>
-      </table>
+              </table>
 
-      <div>
-        {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-          (pageNumber) => (
-            <button className="pagination_button"
-              key={pageNumber}
-              onClick={() => handlePageClick(pageNumber)}
-              style={{
-                backgroundColor: pageNumber === currentPage ? '#4CAF50' : 'white',
-                color: pageNumber === currentPage ? 'white' : 'black',
-              }}
-            >
-              {pageNumber}
-            </button>
+              <div>
+                {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                  (pageNumber) => (
+                    <button className="pagination_button"
+                      key={pageNumber}
+                      onClick={() => handlePageClick(pageNumber)}
+                      style={{
+                        backgroundColor: pageNumber === currentPage ? '#4CAF50' : 'white',
+                        color: pageNumber === currentPage ? 'white' : 'black',
+                      }}
+                    >
+                      {pageNumber}
+                    </button>
           )
         )}
       </div>
@@ -135,7 +137,8 @@ const Wholesale =()=>{
             </div>
 
             <div className="footer_wholesale">
-                footer here common component
+                <Footer/>
+                {/* <FooterTab/> */}
             </div>
             <div className="bottom_footer">bottom line common component</div>
 

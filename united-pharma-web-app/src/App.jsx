@@ -15,6 +15,8 @@ import './components/assets/css/user.css';
 import './components/assets/css/style.css';
 import Wholesale from './pages/wholesale/wholesale';
 import FooterTab from './components/common_components/footer/footertab';
+import Quotation from './pages/quotation/quotationForm';
+
 
 function App() {
   return (
@@ -30,8 +32,11 @@ function App() {
       </Routes> */}
 
       {/* <Wholesale/> */}
-      <FooterTab/>
+      {/* <Quotation/> */}
+        
+      {/* <FooterTab/> */}
       {/* <ShopDetails/> */}
+      <ShopPage/>
 
     </div>
     </>

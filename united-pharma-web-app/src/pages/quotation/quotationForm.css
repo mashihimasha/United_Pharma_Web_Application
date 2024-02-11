@@ -1,0 +1,213 @@
+.form{
+    flex-direction: column;
+    width: 1250px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border-color: darkslategray;
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    background-image: linear-gradient(to right, white, #93E9BE);
+}
+.form{
+    background-color: gainsboro;
+}
+/* .form {
+    background-color: blue;
+    flex-direction: row;
+    width: 1250px;
+    height: 800px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border-color: #006400;
+    border-style: double;
+    display: flex;
+    overflow: auto;
+} */
+.form_header{
+    /* background-color: green;
+    width: 1250px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 600px;
+    border-color: #006400;
+    border-style:double; */
+    display: flex;
+    width: 1200px;
+    height: 100px;
+    flex-direction: row;
+    
+}
+
+.logo_qout{
+    background-image: url('../../components/assets/img/000AA-removebg-preview.png');
+    background-color: white;
+    height: 100px;
+    margin-left: 5px;
+    margin-top: 2px;
+    width: 100px;
+    text-align: center;
+    border-radius: 2px;
+}
+.quotation_mark{
+    /* background-color: darkcyan; */
+    height: 60px;
+    font-size: 30px;
+    width: 200px;
+    text-align: center;
+    margin-top: 5px;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.name{
+    /* background-color: blue; */
+    width: 850px;
+    text-align: left;
+    font-size: 35px;
+    height: 50px;
+    margin-top: 1px;
+    margin-left: 8px;
+    color: black;
+    
+}
+.slogan_quot{
+    text-align: left;
+    font-size: 25px;
+    height: 35px;
+    color: #676767;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-left: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.details{
+    background-color: #006400;
+    height: 400px;
+    width: 800px;
+    margin-left: 50px;
+}
+
+.back_btn:hover{
+    transform: translateY(-3px);
+}
+
+.user_details_quotation{
+    /* background-color:rgba(199, 199, 199, 0.808); */
+    width: 1055px;
+    height: 600px;
+    margin-left: 90px;
+    margin-top: 30px;
+    border-radius: 5px;
+
+}
+
+.form_data{
+    /* background-color: darkslategrey; */
+    height: 70px;
+    width: 1000px;
+    margin-left: 25px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.form_data_caption{
+    /* background-color: #50C878; */
+    width: 300px;
+    text-align: center;
+    color: black;
+    padding-top: 3px;
+    font-size: 25px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+.text_fields{
+    background-color: white;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 13px;
+    width: 670px;
+    border-radius: 15px;
+    color: black;
+    text-align: center;
+    border-width: 1px;
+    border-color: darkslategray;
+}
+.add_button{
+    background-color: #50C878;
+    height: 50px;
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 865px;
+    border-radius: 16px;
+    color: white;
+    border: none;
+}
+.add_button:hover{
+    transform: translateY(-3px);
+    font-weight: bold;
+}
+.table{
+    background-color: #676767;
+    width: 1050px;
+    height: 400px;
+    display: flex;
+    
+    margin-left: 90px;
+    margin-top: 30px;
+}
+.selected_items{
+    background-color: burlywood;
+    width: 1050px;
+    height: 400px;
+    margin-left: 90px;
+    margin-top: 30px;
+}
+.submit_btn{
+    background-color: darkcyan;
+    color: white;
+    height: 50px;
+    width: 300px;
+    margin-left: 500px;
+    border-radius: 16px;
+    border: none;
+    font-size: 18px;
+}
+.submit_btn:hover{
+    transform: translateY(-3px);
+    font-size: 25px;
+    font-weight: bold;
+}
+.quotation_bottom{
+    /* background-color: crimson; */
+    height: 70px;
+    margin-top: 20px;
+    width: 1200px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding-top: 6px;
+    text-align: center;
+    font-size: 17px;
+    color: black;
+}
+.notes{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 700px;
+    margin-left: 200px;
+    height: 200px;
+    text-align: center;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #676767;
+}
