@@ -25,7 +25,7 @@ export default function StaticFaqSection() {
   };
 
   return (
-    <MDBContainer>
+    <MDBContainer fluid className="faq-background">
       <section>
         <div className="d-flex justify-content-between align-items-center mb-4 mt-3 ">
           {/* home button */}
@@ -45,7 +45,7 @@ export default function StaticFaqSection() {
         >
           FAQs
         </MDBTypography>
-        <p className="text-center text-dark mb-5 fw-bold" >
+        <p className="text-center mb-5 fw-bold" >
           Find the answers for the most frequently asked questions below
         </p>
 

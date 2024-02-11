@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { FaTrash, FaEdit } from 'react-icons/fa';
@@ -27,7 +25,7 @@ const BlogList = () => {
     };
     fetchPosts();
 
-  // can delete or success the post
+  // can delete or update successfully the post
   }, [deleteSuccess, updateSuccess]);
 
   //create a new blog post
@@ -59,9 +57,9 @@ const BlogList = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="d-flex justify-content-between align-items-center mb-4 mt-3">
-        <Link to='/' type="button" className="btn btn-success w-25 p-2">
+    <div className=" p-4 blog-background ">
+      <div className="d-flex justify-content-between align-items-center mb-4 mt-3 ">
+        <Link to='/' type="button" className="btn  w-25 p-2" style={{ backgroundColor: '' }}>
           <MDBIcon icon="home"/>
           Home
         </Link>
@@ -76,7 +74,7 @@ const BlogList = () => {
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {posts.map((post) => (
           <div key={post.post_id} className="col">
-            <div className="card h-100 border rounded">
+            <div className="card h-100 border rounded-3">
               <img src={post.imageUrl} className="card-img-top" alt={post.title} />
               
               <div className="card-body">
@@ -146,8 +144,8 @@ const BlogList = () => {
       </div>
 
        {/* chat with us button */}
-      <Link to='/chat' style={{ position: 'fixed', bottom: '20px', right: '20px'}}>
-        <button className="btn w-100 p-3 btn-primary rounded-8">
+      <Link to='/chat' style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+        <button className="btn w-100 p-3 btn-primary rounded-8" style={{ backgroundColor: '' }} >
           <MDBIcon icon="comments" className="m-2 p-0" />
           Chat with US
         </button>

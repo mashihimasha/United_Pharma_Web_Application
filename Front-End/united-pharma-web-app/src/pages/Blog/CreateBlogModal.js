@@ -58,26 +58,28 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
             className="form-control  rounded-5"
             id="title"
             name="title"
+            style={{ backgroundColor: '' }}
             value={postData.title}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="content" className="form-label">
+          <label htmlFor="content" className="form-label " >
             Content
           </label>
           <textarea
             className="form-control rounded-5"
             id="content"
             name="content"
+            style={{ backgroundColor: '' }}
             value={postData.content}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="imageUrl" className="form-label">
+          <label htmlFor="imageUrl" className="form-label" style={{ backgroundColor: '' }}>
             Image URL
           </label>
           <input
@@ -85,13 +87,16 @@ const CreatePostForm = ({ closeModal, postToUpdate }) => {
             className="form-control rounded-5"
             id="imageUrl"
             name="imageUrl"
+            style={{ backgroundColor: '' }}
             value={postData.imageUrl}
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary w-25 p-3 d-flex justify-content-center">
+        
+        <button type="submit" className="btn btn-primary w-25 p-3 d-flex justify-content-center" >
           {postToUpdate ? 'Update Post' : 'Create Post'}
         </button>
+       
       </form>
     </div>
 

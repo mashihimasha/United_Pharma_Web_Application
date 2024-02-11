@@ -31,15 +31,16 @@ export default function App() {
   };
 
   return (
-    <MDBContainer className="py-5" style={{ backgroundColor:""}}>
+    <MDBContainer className="chat-background " style={{ backgroundColor:""}}>
       <MDBRow className="d-flex justify-content-center">
         <MDBCol md="8" lg="6" xl="4">
-          <MDBCard id="chat1" style={{ borderRadius: "15px", backgroundColor:" "}}>
+          <MDBCard id="chat1" className="mt-5" style={{ borderRadius: "15px", backgroundColor:" "}}>
             <MDBCardHeader
-              className="d-flex justify-content-between align-items-center p-3 bg-success bg-info text-white border-bottom-0"
+              className="d-flex card-header justify-content-between  align-items-center p-3  text-white border-bottom-0"
               style={{
                 borderTopLeftRadius: "15px",
-                borderTopRightRadius: "15px"
+                borderTopRightRadius: "15px",
+              
               }}
             >
               <Link to='/blogs'>
@@ -108,3 +109,4 @@ export default function App() {
     </MDBContainer>
   );
 }
+  
