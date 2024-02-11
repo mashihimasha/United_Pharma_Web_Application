@@ -1,0 +1,241 @@
+/* 1. Theme default css */
+
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #777777;
+	font-style: normal;
+}
+
+img,
+.img {
+	max-width: 100%;
+	transition: all 0.3s ease-out 0s;
+}
+
+a,
+button {
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+	text-decoration: none;
+}
+a:focus,
+.btn:focus,
+button:focus {
+	text-decoration: none;
+	outline: none;
+	box-shadow: none;
+}
+
+a:hover,
+.portfolio-cat a:hover,
+.footer -menu li a:hover {
+	color: #FAA432;
+	text-decoration: none;
+}
+a,
+button {
+	color: #FAA432;
+	outline: medium none;
+	text-decoration: none;
+}
+
+label{
+	font-size: 1.0rem;
+}
+
+.btn:focus,
+button:focus,
+input:focus,
+input:focus,
+textarea,
+textarea:focus {
+	outline: 0
+}
+
+
+/* 6. Banner */
+.banner-area {
+	padding: 2.0rem 0 1.8rem;
+	position: relative;
+    z-index: -1;
+    top: 9rem
+}
+
+.banner-images {
+	position: relative;
+}
+.banner-images::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -18px;
+	width: 516px;
+	height: 46px;
+	background: #464646;
+	filter: blur(30px);
+	border-radius: 99px;
+	z-index: -1;
+}
+
+.banner-shape {
+	position: absolute;
+	z-index: -99;
+}
+.banner-shape.one {
+	left: -18px;
+	top: -200%;
+}
+.banner-shape.two {
+	left: -18px;
+	top: 250%;
+}
+
+/* 22. Preloader */
+#preloader {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 9999;
+}
+.tg-cube-grid {
+  	width: 45px;
+  	height: 45px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+}
+.tg-cube-grid .tg-cube {
+  	width: 33%;
+  	height: 33%;
+  	background-color: #0D9B4D;
+  	float: left;
+  	-webkit-animation: tg-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  	animation: tg-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.tg-cube-grid .tg-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.tg-cube-grid .tg-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.tg-cube-grid .tg-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.tg-cube-grid .tg-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.tg-cube-grid .tg-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.tg-cube-grid .tg-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.tg-cube-grid .tg-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.tg-cube-grid .tg-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.tg-cube-grid .tg-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@-webkit-keyframes tg-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  };
+}
+
+@keyframes tg-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  };
+}
+
+.footer {
+	background-color: #000;
+	color: #fff;
+	padding: 0.4rem;
+	position: sticky;
+	bottom: 0;
+}
+
+
+.faq-background {
+	background-image: url('https://images.unsplash.com/photo-1584174594005-60a49c828bbc?q=80&w=1436&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	min-height: 100vh; /* Adjust the height as needed */
+	display: flex;
+	opacity: 80;
+	align-items: center;
+	color:white;
+	
+  }
+  
+  .blog-background{
+	background-image: url('https://images.unsplash.com/photo-1533628635777-112b2239b1c7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size: cover;
+	width:auto;
+	height: auto;
+	
+
+}
+
+.chat-background{
+	background-image: url('https://images.unsplash.com/photo-1555633514-abcee6ab92e1?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size: cover;
+	max-width: 100vw;
+	background-repeat: no-repeat;
+	background-position: center;
+	min-height: 100vh; /* Adjust the height as needed */
+	
+
+}
+
+.card-header{
+	background-color: #0D9B4D;
+}
