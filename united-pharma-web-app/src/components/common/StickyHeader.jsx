@@ -70,15 +70,20 @@ const StickyHeader = () => {
                         <li className="menu-item-has-children">
                         <Link to="#"><i className='fa fa-user fa-lg'></i></Link>
                         <ul className="sub-menu">
-                            {!state.user && (
+                            {!state.user && 
+                            <>
                                 <li>
                                     <Link to="/login">Login</Link>
                                 </li>
-                            )}
+                                <li>
+                                    <Link to="/register">Register</Link>
+                                </li>
+                            </>
+                            }
                            {state.user &&  
                             <>
-                            <li><Link to="/userProfile">User Account</Link></li>
-                            <li><LogoutButton /></li>
+                                <li><Link to="/userProfile">User Account</Link></li>
+                                <li><LogoutButton /></li>
                             </>
                            }
                         </ul>

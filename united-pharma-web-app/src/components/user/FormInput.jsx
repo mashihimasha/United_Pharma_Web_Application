@@ -64,7 +64,7 @@ const FormInput = (props) => {
             id={name}
             name={name}
             checked={isChecked}
-            onChange={checkHandler} 
+            onChange={onChange ? checkHandler : undefined}
             style={inputStyle}
             {...inputProps}
           />

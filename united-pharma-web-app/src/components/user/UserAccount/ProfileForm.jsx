@@ -10,6 +10,7 @@ import PasswordChangeModal from './ChangePassword';
 const ProfileForm = () => {
 
   const { state } = useAuth();
+  const token = localStorage.getItem('token');
 
   const [values, setValues] = useState({
     firstName: '',
@@ -27,31 +28,27 @@ const ProfileForm = () => {
   const [userRole,setUserRole]=useState('');
 
   const handleSetUserRole = () => {
-    if(state.user!==null){
-      setUserRole(state.user.role);
+    if (state.user !== null) {
+      setUserRole(prevUserRole => state.user.role);
     }
   };
+  
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
 
-  const fetchUserDetails = async () => {
-    try {
-      const response = await Axios.get(`http://127.0.0.1:3001/api/get/users/${state.user.id}`);
-      const userData = response.data; // Adjust this based on your API response structure
-      setValues({
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        email: userData.email,
-        employeeID: userData.employeeID,
-      });
-      console.log(response);
-    } catch (error) {
-      console.error('Error fetching user details:', error);
-    }
+  const handleShowPasswordModal = () => setShowPasswordModal(true);
+  const handleClosePasswordModal = () => setShowPasswordModal(false);
+
+  const onChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+    setErrors({ ...errors, [event.target.name]: '' });
+  };  
+
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
   };
-
-  useEffect(() => {
-    fetchUserDetails(); // Fetch user details when the component mounts
-    handleSetUserRole();
-  }, []); 
 
   const inputFields = [
     {
@@ -67,18 +64,49 @@ const ProfileForm = () => {
       autoComplete: 'family-name',
     },
   ];
+  
+  //fetch user details axios
+  const fetchUserDetails = async () => {
+    try {
+      
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: 'http://127.0.0.1:3001/api/get/user',
+        headers: { 
+          'Authorization': `Bearer ${token}`
+        }
+      };
+      
+      Axios.request(config)
+      .then((response) => {
+        const userData = response.data; 
+        setValues({
+          firstName: userData.user_details.firstName,
+          lastName: userData.user_details.lastName,
+          email: userData.user.email,
+          employeeID: userData.employeeID,
+        });
+        console.log(values.email);
+        console.log(values.firstName);
+        console.log(values.lastName)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-  const [showPasswordModal, setShowPasswordModal] = useState(false);
-
-  const handleShowPasswordModal = () => setShowPasswordModal(true);
-  const handleClosePasswordModal = () => setShowPasswordModal(false);
-
-   const onChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
-    setErrors({ ...errors, [event.target.name]: '' });
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+    }
   };
+  //fetch user details axios end
 
-  const validateAndSubmit = () => {
+  useEffect(() => {
+    fetchUserDetails(); // Fetch user details when the component mounts
+    handleSetUserRole();
+  }, []); 
+
+  const isValidForm = () => {
     const fields = inputFields.map((field) => ({
       name: field.name,
       value: values[field.name],
@@ -86,31 +114,63 @@ const ProfileForm = () => {
     }));
 
     if (validateForm(fields)) {
-      //form submission logic here
-      handleSubmit();
-      console.log('Form submitted:', values);
+      return true;
     }
+    return false;
   };
 
-  const handleSubmit = (event) => {
+  const handleChangeProPic = async (event) => {
     event.preventDefault();
-    // Implement your form submission logic here
-    console.log('Form submitted:', values);
+    
+    setErrors({
+      general: '',
+    });
+    const formData = new FormData();
+    formData.append('profilephoto', file);
+
+      try {
+      
+        let config = {
+          method: 'put',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:3001/api/change/profilepicture',
+          headers: { 
+            'Authorization': `Bearer ${token}`
+          }
+        };
+        
+        Axios.request(config)
+        .then((response) => {
+          console.log(response.data)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }
+    
   };
 
   return (
     <div className='d-flex flex-column align-items-start '>
       <div className='d-flex ms-2 pt-3'>
         {/*Profile Picture Changing*/}
-        <form> 
-          <div id="profile-container">
-            <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
-          </div>    
-
-          <p id="email-address" className='small m-0'>iamretailcustomer@gmail.com</p>
-          <p id="employee-id" className={`small ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>emp-12<br/>
-          branch-12</p>
-
+        <form onSubmit={handleChangeProPic}> 
+          <div className='d-flex flex-row flex-wrap'>
+            <div id="profile-container" className='col'>
+              <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
+            </div>    
+            <div className='col d-flex align-items-center'>
+              <div className=''>
+                <p id="first-name" className='text-black small m-0 fw-bold'>{values.firstName} {values.lastName}</p>
+                <p id="email-address" className='text-success small m-0'>{values.email}</p>
+                <p id="employee-id" className={`small ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>emp-12<br/>
+                branch-12</p>
+              </div>
+            </div>
+          </div>
           <div className='input-group input-group-sm mt-4'>
             <input
                 id="imageUpload"
@@ -119,10 +179,11 @@ const ProfileForm = () => {
                 name="profile_photo"
                 accept="image/*"
                 required
+                onChange={handleFileChange}
                 aria-describedby="btn-changephoto" 
                 aria-label="Upload"
             />
-            <Button variant="dark" type="submit" id="btn-changephoto" className='btn-sm text-white rounded-pill'>Change Photo</Button>
+            <Button variant="dark" type="submit" id="btn-changephoto" className='btn-sm text-white rounded-pill' onClick={handleChangeProPic}>Change Photo</Button>
           </div>
         </form>    
       </div>
@@ -170,7 +231,6 @@ const ProfileForm = () => {
             <Button
               variant="success"
               className="text-white my-4 mx-auto d-block rounded-pill"
-              onClick={validateAndSubmit}
             >
               Update
             </Button>

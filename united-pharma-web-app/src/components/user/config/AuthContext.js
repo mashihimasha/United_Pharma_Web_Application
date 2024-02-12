@@ -51,8 +51,8 @@ export const AuthProvider = ({ children }) => {
   // Try to get user and token from local storage on initial load
   const storedUser = localStorage.getItem('user');
   const storedToken = localStorage.getItem('token');
-  const initialUser = storedUser ? JSON.parse(storedUser) : null;
-  const initialToken = storedToken ? JSON.parse(storedToken) : null;
+  const initialUser = storedUser ? storedUser : null;
+  const initialToken = storedToken ? storedToken : null;
 
   const [state, dispatch] = useReducer(authReducer, {
     ...initialState,
@@ -62,9 +62,10 @@ export const AuthProvider = ({ children }) => {
 
   const loginSuccess = (user, token) => {
     // Set user and token in both state and local storage
+    
     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: { user, token } });
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('user', user);
+    localStorage.setItem('token', token);
   };
 
   const loginFailure = (error) => {
