@@ -120,7 +120,8 @@ p {
 .main {
 	display: block;
 	overflow: hidden;
-	min-height: calc(100vh + 200px);
+	padding-top: 15vh;
+	min-height: calc(100vh + 50vh);
 }
 
 /* 6. Banner */

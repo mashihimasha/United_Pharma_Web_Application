@@ -107,7 +107,7 @@ const ProfileForm = () => {
             <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
           </div>    
 
-          <p id="email-address" className='small m-0'>mashi@gmail.com</p>
+          <p id="email-address" className='small m-0'>iamretailcustomer@gmail.com</p>
           <p id="employee-id" className={`small ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>emp-12<br/>
           branch-12</p>
 
