@@ -6,10 +6,12 @@ import FormInput from '../FormInput';
 import { Button } from 'react-bootstrap';
 import { validateForm } from '../../../utils/validation';
 import PasswordChangeModal from './ChangePassword';
+import MessageModal from './MessageModel';
 
 const ProfileForm = () => {
 
   const { state } = useAuth();
+
   const token = localStorage.getItem('token');
 
   const [values, setValues] = useState({
@@ -29,14 +31,19 @@ const ProfileForm = () => {
 
   const handleSetUserRole = () => {
     if (state.user !== null) {
-      setUserRole(prevUserRole => state.user.role);
+      setUserRole(state.user.role);
     }
   };
   
   const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showUnsuccessModal, setShowUnsuccessModal] = useState(false);
+
 
   const handleShowPasswordModal = () => setShowPasswordModal(true);
   const handleClosePasswordModal = () => setShowPasswordModal(false);
+  const handleCloseMessageModal = () => setShowSuccessModal(false) && setShowUnsuccessModal(false) ;
+
 
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -44,6 +51,7 @@ const ProfileForm = () => {
   };  
 
   const [file, setFile] = useState(null);
+  const [profilePicture, setProfilePicture] = useState('');
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -68,7 +76,8 @@ const ProfileForm = () => {
   //fetch user details axios
   const fetchUserDetails = async () => {
     try {
-      
+      console.log(state.user.role);
+
       let config = {
         method: 'get',
         maxBodyLength: Infinity,
@@ -85,11 +94,13 @@ const ProfileForm = () => {
           firstName: userData.user_details.firstName,
           lastName: userData.user_details.lastName,
           email: userData.user.email,
+          userRole: userData.user.userGroup,
           employeeID: userData.employeeID,
         });
-        console.log(values.email);
-        console.log(values.firstName);
-        console.log(values.lastName)
+        setFile(userData.profilePicture);
+        
+        console.log(response.data);
+        console.log(file);
       })
       .catch((error) => {
         console.log(error);
@@ -119,29 +130,44 @@ const ProfileForm = () => {
     return false;
   };
 
+  //change pro pic
   const handleChangeProPic = async (event) => {
     event.preventDefault();
-    
+    console.log(state.user);
     setErrors({
       general: '',
     });
-    const formData = new FormData();
-    formData.append('profilephoto', file);
-
+   
       try {
-      
+        if (!file) {
+          // Handle the case where no file is selected
+          console.error('No file selected');
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('profilephoto', file);
+        
         let config = {
           method: 'put',
           maxBodyLength: Infinity,
+          data: formData,
           url: 'http://127.0.0.1:3001/api/change/profilepicture',
           headers: { 
-            'Authorization': `Bearer ${token}`
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           }
         };
         
         Axios.request(config)
         .then((response) => {
-          console.log(response.data)
+          if(response.status ===  200){ 
+            setShowSuccessModal(true);
+          }
+          else{
+            setShowUnsuccessModal(true);
+          }
+          console.log(response.status)
         })
         .catch((error) => {
           console.log(error);
@@ -160,14 +186,13 @@ const ProfileForm = () => {
         <form onSubmit={handleChangeProPic}> 
           <div className='d-flex flex-row flex-wrap'>
             <div id="profile-container" className='col'>
-              <img id="profileImage" src={require('../../assets/img/auth/user.png')} alt="user profile"/>
+              <img id="profileImage" src={profilePicture || require('../../assets/img/auth/user.png')} alt="user profile"/>
             </div>    
             <div className='col d-flex align-items-center'>
               <div className=''>
                 <p id="first-name" className='text-black small m-0 fw-bold'>{values.firstName} {values.lastName}</p>
                 <p id="email-address" className='text-success small m-0'>{values.email}</p>
-                <p id="employee-id" className={`small ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>emp-12<br/>
-                branch-12</p>
+                <p id="employee-id" className={`text-success small m-0 ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>values.userRole</p>
               </div>
             </div>
           </div>
@@ -237,7 +262,12 @@ const ProfileForm = () => {
           </form>
         </div>
       </div>
-
+      <MessageModal 
+      showSuccessModal={showSuccessModal} 
+      showUnsuccessModal={showUnsuccessModal} 
+      message='Profile Picture Changed'
+      handleClose={handleCloseMessageModal}
+      />
     </div>
   );
 };
