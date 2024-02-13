@@ -286,7 +286,7 @@ const ProfileForm = () => {
           to='/employeeRegistration'
           className={`btn btn-dark btn-sm text-white mt-4 me-2 
           rounded-pill d-flex align-self-center justify-self-start
-          ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}
+          ${userRole === 'administrator' ? 'd-block' : 'd-none'}`}
         ><i className='fa fa-plus me-1 mt-1'></i> New Pharmacist Account</Link>
       </div>
 

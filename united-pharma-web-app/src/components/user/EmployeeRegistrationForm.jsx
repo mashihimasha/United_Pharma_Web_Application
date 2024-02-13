@@ -101,7 +101,8 @@ const EmployeeRegistrationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state.user);
+    const user = localStorage.getItem('user');
+    console.log(user);
     setErrors({
       email: '',
       password: '',
@@ -111,7 +112,7 @@ const EmployeeRegistrationForm = () => {
     });
     if (isValidForm()) {
         try {
-          console.log(state.user.role);
+          console.log(user.id);
 
           const response = await Axios.post('http://127.0.0.1:3001/api/users/register/', {
               employeeID: values.employeeId,
@@ -120,6 +121,9 @@ const EmployeeRegistrationForm = () => {
               userRole: 'pharmacist',
               user: state.user,
           });
+
+          console.log(state.user);
+
 
           if (response.status === 201) {
               setShowSuccessModal(true);

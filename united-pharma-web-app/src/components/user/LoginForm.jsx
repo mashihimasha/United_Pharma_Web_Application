@@ -54,7 +54,8 @@ function LoginForm() {
         
         if (response.status  === 200) {
           const { user, token } = response.data;
-          loginSuccess(user, token); 
+          console.log(user);
+          loginSuccess(user, token);           
           navigate('/');
           console.log('Login successful');
         } else {
