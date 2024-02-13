@@ -29,7 +29,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     isLoggedOn();
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div id="wrapper" className="d-flex">

@@ -76,6 +76,7 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: ActionTypes.LOGOUT });
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    window.location.reload(false);
   };
 
   useEffect(() => {

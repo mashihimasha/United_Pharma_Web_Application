@@ -2,7 +2,7 @@ const { Customers, Employees } = require('../../models');
 
 exports.details = async (req, res) => {
     try {
-        console.log(req.user.id);
+        console.log(req.body);
         const { firstName, lastName } = req.body;
 
         if (!firstName && !lastName) {

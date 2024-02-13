@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './config/AuthContext';
 import Axios from 'axios';
 import AuthButton from './AuthButton';
@@ -10,6 +10,7 @@ import { validateForm } from '../../utils/validation';
 const EmployeeRegistrationForm = () => {
 
   const { state } = useAuth();
+  const navigate = useNavigate();
   
   const [values, setValues] = useState({
     email: '',
@@ -72,6 +73,17 @@ const EmployeeRegistrationForm = () => {
     },
   ];
 
+  const isLoggedOn= () => {  
+    if (!state.user) {
+      navigate('/login'); 
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    isLoggedOn();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const isValidForm = () => {
 
     const fields = inputFields.map((field) => ({
@@ -89,9 +101,7 @@ const EmployeeRegistrationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    console.log(state.user.role);
-
+    console.log(state.user);
     setErrors({
       email: '',
       password: '',
@@ -101,21 +111,22 @@ const EmployeeRegistrationForm = () => {
     });
     if (isValidForm()) {
         try {
-          
-        const response = await Axios.post('http://127.0.0.1:3001/api/users/register/', {
-            employeeID: values.employeeId,
-            email: values.email,
-            password: values.password,
-            userRole: 'pharmacist',
-            user: state.user,
-        });
+          console.log(state.user.role);
 
-        if (response.status === 201) {
-            setShowSuccessModal(true);
-        } else {
-          updateSubmitErrors({ ...errors, general: response.data.message });
-          console.log(response.data.message);
-        }
+          const response = await Axios.post('http://127.0.0.1:3001/api/users/register/', {
+              employeeID: values.employeeId,
+              email: values.email,
+              password: values.password,
+              userRole: 'pharmacist',
+              user: state.user,
+          });
+
+          if (response.status === 201) {
+              setShowSuccessModal(true);
+          } else {
+            updateSubmitErrors({ ...errors, general: response.data.message });
+            console.log(response.data.message);
+          }
         } catch (error) {
           updateSubmitErrors({ ...errors, general: error.response.data.message});
           console.error(error);

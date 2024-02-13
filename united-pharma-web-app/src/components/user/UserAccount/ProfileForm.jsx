@@ -27,6 +27,15 @@ const ProfileForm = () => {
     email: '',
   });
 
+  const [name, setName]=useState({
+    newFirstName: '',
+    newLastName: '',
+  });
+
+  const updateSubmitErrors = (errors) => {
+    setErrors(errors);
+  };
+
   const [userRole,setUserRole]=useState('');
 
   const handleSetUserRole = () => {
@@ -97,6 +106,12 @@ const ProfileForm = () => {
           userRole: userData.user.userGroup,
           employeeID: userData.employeeID,
         });
+
+        setName({
+          newFirstName: userData.user_details.firstName,
+          newLastName: userData.user_details.lastName,
+        })
+        
         setFile(userData.profilePicture);
         
         console.log(response.data);
@@ -115,7 +130,7 @@ const ProfileForm = () => {
   useEffect(() => {
     fetchUserDetails(); // Fetch user details when the component mounts
     handleSetUserRole();
-  }, []); 
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps 
 
   const isValidForm = () => {
     const fields = inputFields.map((field) => ({
@@ -129,6 +144,52 @@ const ProfileForm = () => {
     }
     return false;
   };
+
+  //update name
+  const handleNameUpdate = async (event) => {
+    event.preventDefault();
+
+    setErrors({
+      firstName: '',
+      lastName: '',
+      general: '',
+    });
+    if (isValidForm()) {
+      try {
+      
+        let config = {
+          method: 'put',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:3001/api/change/details/',
+          data: {
+            firstName: values.firstName,
+            lastName: values.lastName
+          },
+          headers: { 
+            'Authorization': `Bearer ${token}`,
+          }
+        };
+        
+        Axios.request(config)
+        .then((response) => {
+          if(response.status ===  200){ 
+            window.location.reload(false);
+          }
+          else{
+            updateSubmitErrors({ ...errors, general: response.data.message });
+          }
+          console.log(response.status)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  
+      } catch (error) {
+        updateSubmitErrors({ ...errors, general: error });
+      }
+    }
+  };
+
 
   //change pro pic
   const handleChangeProPic = async (event) => {
@@ -190,9 +251,9 @@ const ProfileForm = () => {
             </div>    
             <div className='col d-flex align-items-center'>
               <div className=''>
-                <p id="first-name" className='text-black small m-0 fw-bold'>{values.firstName} {values.lastName}</p>
+                <p id="first-name" className='text-black small m-0 fw-bold'>{name.newFirstName} {name.newLastName}</p>
                 <p id="email-address" className='text-success small m-0'>{values.email}</p>
-                <p id="employee-id" className={`text-success small m-0 ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>values.userRole</p>
+                <p id="employee-id" className={`text-success small m-0 text-capitalize ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}>{values.userRole}</p>
               </div>
             </div>
           </div>
@@ -218,12 +279,11 @@ const ProfileForm = () => {
           variant="dark"
           className="btn-sm text-white mt-4 me-2 rounded-pill d-flex align-self-center justify-self-start"
           type="button"
-          name="change password"
-          value="change password"
           onClick={handleShowPasswordModal}
         >Change Password</Button>
 
         <Link
+          to='/employeeRegistration'
           className={`btn btn-dark btn-sm text-white mt-4 me-2 
           rounded-pill d-flex align-self-center justify-self-start
           ${userRole === 'administrator' || userRole === 'pharmacist' ? 'd-block' : 'd-none'}`}
@@ -238,7 +298,7 @@ const ProfileForm = () => {
       {/*Update name and email address*/}
       <div className="row w-100">
         <div className="pt-3">
-          <form>
+          <form id="user_details" onSubmit={handleNameUpdate}>
             {inputFields.map((field, index) => (
               <FormInput
                 key={index}
@@ -255,7 +315,10 @@ const ProfileForm = () => {
           
             <Button
               variant="success"
+              type="submit"
+              vale="update"
               className="text-white my-4 mx-auto d-block rounded-pill"
+              onClick={handleNameUpdate}
             >
               Update
             </Button>
@@ -263,10 +326,10 @@ const ProfileForm = () => {
         </div>
       </div>
       <MessageModal 
-      showSuccessModal={showSuccessModal} 
-      showUnsuccessModal={showUnsuccessModal} 
-      message='Profile Picture Changed'
-      handleClose={handleCloseMessageModal}
+        showSuccessModal={showSuccessModal} 
+        showUnsuccessModal={showUnsuccessModal} 
+        message='Profile Picture Changed'
+        handleClose={handleCloseMessageModal}
       />
     </div>
   );
