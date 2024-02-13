@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../user/config/AuthContext';
-import '../assets/css/style.css';
+import '../assets/css/Header.css';
 import LogoutButton from './LogoutButton';
 
 const StickyHeader = () => {
@@ -96,7 +96,7 @@ const StickyHeader = () => {
                     <div className="header-action d-sm-block">
                     <ul>
                     <div className="upload-pr">
-                        <Link className="btn btn-success btn-sm action-primary small rounded-pill text-white" to="/prescriptionUpload">Upload Prescription</Link>
+                        <Link className="btn-sm action-primary small rounded-pill text-white" to="/prescriptionUpload">Upload Prescription</Link>
                     </div>
                         <li className="header-shop-cart d-flex">
                         <Link to="#" className="cart-count "><i className="fa fa-shopping-cart "></i>

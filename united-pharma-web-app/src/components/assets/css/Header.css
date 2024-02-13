@@ -212,6 +212,38 @@ label {
 	opacity: 1;
 }
 
+/*Prescription*/
+.action-primary {
+    display: block;
+    text-align: center;
+    background: #0D9B4D;
+    height: 40px;
+    font-size: medium;
+    font-weight: 700;
+    color: #000;
+    border-radius: 25px;
+    line-height: 42px;
+    transition: all .4s;
+    border: 0;
+    padding: 0 20px;
+    cursor: pointer;
+    outline: none;
+}
+.nav-open .upload-pr .action-primary {
+    max-width: 260px;
+    margin: 0 auto;
+}
+.upload-pr {
+    display: block;
+    text-align: center;
+    margin-bottom: 1x;
+	padding: 10px 20px;
+}
+
+  .upload-pr a:hover {
+	background-color: black; /* Change background color on hover */
+	color: #fff; /* Change font color on hover */
+  }
 
 /* 2. Header */
 .custom-container {
