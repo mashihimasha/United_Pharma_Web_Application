@@ -30,7 +30,7 @@ const Tramadol = ()=>{
             <div>
             <a href="#" className="cart"><i className="fa fa-heart"></i></a>
             </div>
-            <Button variant="d-flex justify-content-center align-items-center" style={{ marginLeft: '70px', marginRight: '0px', width: '40%' , padding: '8px 20px' }}>
+            <Button variant="d-flex justify-content-center align-items-center" style={{ marginLeft: '70px', marginRight: '0px', width: '40%' , padding: '10px 20px' }}>
             BUY
             </Button>
 

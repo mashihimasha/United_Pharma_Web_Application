@@ -1,5 +1,7 @@
 import React from 'react';
 import ProductItem from './ProductItem';
+import '../../pages/details/shopDetails.css';
+
 
 const RelatedProducts = () => {
   return (
@@ -15,13 +17,25 @@ const RelatedProducts = () => {
 
             {/* Render your product items here */}
             {/* Example Product Item */}
-            <div className="col-xl-3 slick-slide slick-current slick-active" style={{ width: '400px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+            {/* <div className='item1'>
               <ProductItem/>
             </div>
-            <div className="col-xl-3 slick-slide slick-current slick-active" style={{ width: '400px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+            <div className='item2'>
               <ProductItem/>
             </div>
-            <div className="col-xl-3 slick-slide slick-current slick-active" style={{ width: '400px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+            <div className='item3'>
+              <ProductItem/>
+            </div> */}
+            <div className="col-xl-3 " style={{ width: '500px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+              <ProductItem/>
+            </div>
+            <div className="col-xl-3" style={{ width: '500px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+              <ProductItem/>
+            </div>
+            <div className="col-xl-3" style={{ width: '500px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+              <ProductItem/>
+            </div>
+            <div className="col-xl-3" style={{ width: '500px' }} tabIndex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
               <ProductItem/>
             </div>
             {/* End Example Product Item */}

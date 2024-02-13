@@ -18,11 +18,14 @@ const ProductCatalog = () => {
         <div className='suxnix-shop-product-main row'>
 
             <ProductItem/>
-            <Gabapentin/>
             <Tramadol/>
             <Erythromycin/>
-            <Tetracyclin/>
             <Xanax/>
+            <Gabapentin/>
+            
+            
+            <Tetracyclin/>
+            
             <Enogra/>
             <Thyroxin/>
 

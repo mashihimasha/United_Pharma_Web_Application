@@ -6,7 +6,7 @@ const ProductItem =()=> {
 
     return (
       <>
-      <div className="col-xl-3 col-lg-12 col-md-4">
+      <div className="col-xl-6 col-lg-12 col-md-3">
       <div className="home-shop-item inner-shop-item">
         <div className="home-shop-thumb">
           <a href="shop-details.html">

@@ -1,11 +1,24 @@
 import React from "react";
 import '../wholesale/wholesale.css';
 import  { useState, useEffect } from 'react';
-import FooterTab from "../../components/common_components/footer/footertab";
 import Footer from '../../components/common/Footer';
-
+// import FooterTab from "../../components/common_components/footer/footertab";
 
 const Wholesale =()=>{
+    useEffect(() => {
+    //   useEffect(() => {
+    //     const fetchData = async () => {
+    //       try {
+    //         const response = await axios.get('http://localhost:3000/retrieve');
+    //         setData(response.data);
+    //       } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //       }
+    //     };
+    
+    //     fetchData();
+    //   }, []);
+  });
 
     const [data, setData] = useState([
         { id: 100, name: 'Amoxolline', email: 'Box', phone: '50.00' },
@@ -52,101 +65,95 @@ const Wholesale =()=>{
 
     return(
         <>
+            {/* Start Navbar of Wholesale Page */}
             <div className="navbar_wholesale">
-
               <div className="navbar_company_logo"></div> 
-
               <div className="navbar_company_name">
                   <b>UNITED PHARMA</b>
-              <div className="subtitle">The Health Shop</div>  
-            </div> 
-            
-            <div className="slogan"><i>"A novel experience on your drug purchase"</i></div>
-
-            <div className="quotation_navbar">
-            <div>
-              <a href="/quotation">
-                <button className="quote">QUOTATION</button>
-              </a>
-            </div>
+                  <div className="subtitle">The Health Shop</div>  
+              </div>
+              
+              <div className="slogan"><i>"A novel experience on your drug purchase"</i></div>
+              <div className="quotation_navbar">
+                <div>
+                  <a href="/quotation">
+                    <button className="quote">QUOTATION</button>
+                  </a>
                 </div>
+              </div>
 
-            <div className="navbar_logout">
-            <button className="lgt_btn">LOGOUT</button>
-                </div>
-
-
+              <div className="navbar_logout">
+                <button className="lgt_btn">LOGOUT</button>
+              </div>
             </div>
+            {/* Finish Navbar of Wholesale Page */}
 
+            {/* Start body with table of Wholesale Page */}
             <div className="body_wholesale">
-                
-            <div className="spc"></div>
-             <div className="table_title">
+              <div className="spc"></div>
+              <div className="table_title">
                 <b>WHOLESALE PRODUCT INFORMATION</b>
-             </div>
+              </div>
 
-
-            <div id="table_body_main">
-
-              <input
-                className="search"
-                type="text"
-                placeholder="Find Your Item"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-
-              <table className="table_border" >
-        <thead>
-          <tr>
-            <th className="theader">Item Code</th>
-            <th className="theader"> Drug Name</th>
-            <th className="theader">Selling Unit</th>
-            <th className="theader">Unit Price(Rs)</th>
-          </tr>
-        </thead>
-        <tbody className="table_border">
-          {currentItems.map((item) => (
-            <tr key={item.id}>
-              <td >{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.email}</td>
-              <td>{item.phone}</td>
-            </tr>
-          ))}
-        </tbody>
-              </table>
-
-              <div>
-                {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-                  (pageNumber) => (
-                    <button className="pagination_button"
-                      key={pageNumber}
-                      onClick={() => handlePageClick(pageNumber)}
-                      style={{
-                        backgroundColor: pageNumber === currentPage ? '#4CAF50' : 'white',
-                        color: pageNumber === currentPage ? 'white' : 'black',
-                      }}
-                    >
-                      {pageNumber}
-                    </button>
-          )
-        )}
-      </div>
-        
+              <div id="table_body_main">
+                <input
+                  className="search"
+                  type="text"
+                  placeholder="Find Your Item"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <table className="table_border" >
+                  <thead>
+                    <tr>
+                      <th className="theader">Item Code</th>
+                      <th className="theader"> Drug Name</th>
+                      <th className="theader">Selling Unit</th>
+                      <th className="theader">Unit Price(Rs)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="table_border">
+                    {currentItems.map((item) => (
+                      <tr key={item.id}>
+                        <td >{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.email}</td>
+                        <td>{item.phone}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                
+                <div>
+                  {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                    (pageNumber) => (
+                      <button className="pagination_button"
+                        key={pageNumber}
+                        onClick={() => handlePageClick(pageNumber)}
+                        style={{
+                          backgroundColor: pageNumber === currentPage ? '#4CAF50' : 'white',
+                          color: pageNumber === currentPage ? 'white' : 'black',
+                        }}
+                      >
+                        {pageNumber}
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
             </div>
+            {/* Finish body with table of Wholesale Page */}
 
-
-
-            </div>
-
+            {/* Start footer of Wholesale Page */}
             <div className="footer_wholesale">
                 <Footer/>
                 {/* <FooterTab/> */}
             </div>
-            <div className="bottom_footer">bottom line common component</div>
+            {/* Finish footer of Wholesale Page */}
 
-</>
+            {/* <div className="bottom_footer">bottom line common component</div> */}
+
+        </>
     )
 }
 export default Wholesale;

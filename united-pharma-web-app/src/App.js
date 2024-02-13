@@ -4,13 +4,16 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import ReactDOM from "react-dom/client";
-import LoginPage from './pages/LoginPage'; // Import the LoginPage component
+// import LoginPage from './pages/LoginPage'; // Import the LoginPage component
 import RegisterPage from './pages/RegisterPage';
 import BannerLeaves from './components/common/BannerLeaves';
 import './components/assets/css/animate.min.css';
+// import ProductCatalog from './components/product_catalog/ProductCatalog';
 import ProductCatalog from './components/product_catalog/ProductCatalog';
-import ShopPage from './pages/ShopPage';
-import ShopDetails from './pages/ShopDetails';
+// import ShopPage from './pages/ShopPage';
+import ShopPage from './pages/shop/shopPage';
+import ShopDetails from './pages/details/shopDetails';
+// import ShopDetails from './pages/ShopDetails';
 import './components/assets/css/catalog.css';
 import './components/assets/css/responsive.css';
 import './components/assets/css/default.css';
